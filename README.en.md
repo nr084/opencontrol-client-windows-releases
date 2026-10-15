@@ -20,7 +20,7 @@ Find your system type in Settings → System → About:
 
 One MSI per architecture, with a Russian installer. Both languages are available in
 the app via RU/EN. Windows 11 has no 32-bit edition; use x64 or ARM64. Administrator
-permission is required. Close the client before upgrading or uninstalling.
+permission is required. Choose Exit in the tray before upgrading or uninstalling.
 The installer includes official signed Wintun 0.14.1; the adapter is created on connection.
 Start menu and desktop shortcuts are installed by default for all users.
 
@@ -45,7 +45,9 @@ Manual certificate inspection remains available in Profiles.
 
 ## Tray and display scaling
 
-After a successful connection the window automatically hides to the system tray.
+The tray icon exists from startup until Exit, including while disconnected.
+Closing the window hides it to the tray and keeps VPN running. Successful connections
+also hide the window automatically.
 A green check means VPN is connected; a red cross means disconnected, including
 reconnection attempts. Left-click opens the window. Right-click offers Open OpenControl,
 Disconnect and Exit. Exit disconnects VPN before closing. If the tray icon is
@@ -70,14 +72,14 @@ monitor acceptance remains pending.
 
 ## Initial release limits
 
-0.2.0 is a preview. Automated tests and builds do not substitute for testing against
+0.3.0 is a preview. Automated tests and builds do not substitute for testing against
 your Kerio Control. Live corporate-server and physical ARM64-device acceptance are
 not yet confirmed. See [validation](VALIDATION.md).
 
 The protocol transports IPv4, and the outer server must resolve to IPv4. When the
 server requests a full IPv4 tunnel, global IPv6 is routed into the adapter and dropped.
 There is no system-wide kill switch: ordinary networking remains available between
-reconnection attempts. Closing the app disconnects VPN; there is no background
+reconnection attempts. Exit from the tray disconnects VPN; there is no background
 service or pre-login autostart. Windows DNS behavior also depends on OS and corporate policies.
 
 Settings are stored in `%LOCALAPPDATA%\OpenControl\profiles.json`. Retained passwords
@@ -108,3 +110,7 @@ entries are skipped; existing profiles are never replaced. Maximum 100 profiles.
 The result shows added and skipped counts.
 
 Unsupported or damaged password entries are marked for manual entry. Passwords are not shown in the preview or written to logs.
+
+Windows may place the icon in its notification overflow. Enable it in taskbar settings to keep it next to the clock.
+
+The main window shows the selected server and username. Configure opens profile settings; Remember password is available directly on the connection screen.

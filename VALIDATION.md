@@ -1,4 +1,4 @@
-# Validation / Проверки — 0.2.0
+# Validation / Проверки — 0.3.0
 
 Date / Дата: 2026-10-15.
 
@@ -8,7 +8,7 @@ Date / Дата: 2026-10-15.
 | Protocol dependency | 0.2.0, upstream HEAD `35a5c848fb2a25a64da36268026906ce3757b974` |
 | Formatting / Форматирование | Passed / Пройдено |
 | Clippy all targets, warnings denied | Passed / Пройдено |
-| Unit + ROUTES regression tests | 28 passed / 28 пройдено |
+| Unit + ROUTES regression tests | 30 passed / 30 пройдено |
 | Native release builds | x86, x64, ARM64 passed |
 | MSI platform and language | 3 packages: Intel/x64/Arm64; installer 1049; application RU/EN |
 | Extracted EXE | Matches release build SHA256; PE machine 014c/8664/aa64 |
@@ -49,3 +49,7 @@ D3S compatibility: independent synthetic .NET TripleDES vectors, ASCII/UTF-8, in
 
 Native tray interaction, Explorer restart, physical monitor changes and real VPN connection are not exercised by headless rendering. These remain manual acceptance items.
 Работа нативного трея, перезапуск Explorer, смена физических мониторов и реальное VPN-подключение не проверяются программным рендером и требуют ручной приёмки.
+
+0.3.0: two added regression tests verify that closing a window with a tray preserves the session cancellation token and that unavailable-tray cleanup does not leave an unreachable active session. Windows ExtractIconEx checks both large and small icons from the EXE and the MSI icon stream. The extracted MSI icon stream must match the release EXE; branding BMPs must match the source artwork. Actual main-window RU/EN renders at 100/125/150/200% and narrow width were inspected. Native Windows icon extraction is not a full installed-shell acceptance test.
+
+0.3.0: два новых теста проверяют сохранение сессии при закрытии окна в трей и безопасное завершение при недоступном трее. Windows ExtractIconEx проверяет большие и малые значки EXE и потока значка MSI. Поток значка MSI должен совпадать с EXE сборки; BMP оформления — с исходными изображениями. Проверен рендер нового главного окна RU/EN на 100/125/150/200% и при узкой ширине. Извлечение значков Windows не заменяет проверку установленного приложения в оболочке.
