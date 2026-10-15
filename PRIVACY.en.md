@@ -15,3 +15,5 @@ Profiles are local. Retaining a password is optional and uses current-user Windo
 DPAPI protection. Session-only passwords are not written to settings. The in-memory
 activity history contains connection states, not traffic contents. Deleting a profile
 removes its retained secret. MSI uninstall does not automatically remove profiles.
+
+User-excluded networks use the regular connection outside VPN, including DNS servers within those networks. The exclusion list is stored locally and applies to all profiles. Windows notifications contain the connected profile name, never passwords.

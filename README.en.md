@@ -67,12 +67,12 @@ monitor acceptance remains pending.
 - Repeated ROUTES without resetting keys or replacing the adapter for unchanged routes.
 - Persistent reconnection after the first successful connection, until Disconnect.
 - Traffic counters and bounded state-only activity history; no packet or password logs.
-- No split-tunneling controls: no app selection or user network exclusions.
+- Shared IPv4 network exclusions; no per-app routing.
   The corporate server specifies VPN routes.
 
 ## Initial release limits
 
-0.4.0 is a preview. Automated tests and builds do not substitute for testing against
+0.5.0 is a preview. Automated tests and builds do not substitute for testing against
 your Kerio Control. Live corporate-server and physical ARM64-device acceptance are
 not yet confirmed. See [validation](VALIDATION.md).
 
@@ -120,3 +120,13 @@ Version 0.4 stops the progress indicator once connected. Light and dark themes u
 Editable fields support Ctrl+C, Ctrl+X and Ctrl+V. Password fields accept pasted text; copying or cutting a hidden password does not export it to the clipboard.
 
 The Profiles tab supports adding and deleting profiles. Adding saves immediately. Deletion requires confirmation; deleting the last profile leaves an empty form for a new connection. A deleted default profile is cleared. Failed saves roll back the change. Disconnect VPN before managing profiles.
+
+## New in 0.5: networks and tray
+
+The **Networks** tab contains shared IPv4 exclusions for all profiles, such as `192.168.1.0/24` or a single address `10.0.0.5/32`. Up to 128 networks; use newlines, spaces, commas or semicolons. Addresses are normalized and duplicates removed. Click **Save exclusions**. Disconnect VPN before editing; the list applies on the next connection and subsequent server route updates.
+
+Excluded networks, including DNS servers inside them, use the regular connection outside VPN. IPv6 exclusions and per-app routing are not supported. An empty list preserves previous behavior.
+
+Tray **Reconnect** waits for the old session and route cleanup, then reconnects the same profile without opening the window. **Disconnect** and **Exit** cancel a pending restart.
+
+Successful connection displays **Tunnel “Profile name” connected**. It does not repeat on UI refresh; it may appear again after connection recovery. Windows notification settings control visibility. The green tray shield is larger. Installer artwork is freshly rendered at four times the previous resolution.
