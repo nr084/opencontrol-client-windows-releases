@@ -1,14 +1,14 @@
-# Validation / Проверки — 0.1.1
+# Validation / Проверки — 0.2.0
 
 Date / Дата: 2026-10-15.
 
 | Check / Проверка | Result / Результат |
 |---|---|
-| Rust stable | 1.99.0, stable channel verified against upstream |
+| Rust stable | 1.99.1, stable channel verified against upstream |
 | Protocol dependency | 0.2.0, upstream HEAD `35a5c848fb2a25a64da36268026906ce3757b974` |
 | Formatting / Форматирование | Passed / Пройдено |
 | Clippy all targets, warnings denied | Passed / Пройдено |
-| Unit + ROUTES regression tests | 24 passed / 24 пройдено |
+| Unit + ROUTES regression tests | 28 passed / 28 пройдено |
 | Native release builds | x86, x64, ARM64 passed |
 | MSI platform and language | 3 packages: Intel/x64/Arm64; installer 1049; application RU/EN |
 | Extracted EXE | Matches release build SHA256; PE machine 014c/8664/aa64 |
@@ -42,3 +42,10 @@ Kerio import: 7 synthetic regression tests cover XML parsing, DTD rejection, siz
 D3S compatibility: independent synthetic .NET TripleDES vectors, ASCII/UTF-8, invalid padding, savePassword policy, DPAPI roundtrip and profile binding. Read-only format checks used an external sample; no profiles were saved and no passwords printed. This does not verify server authentication.
 
 Совместимость D3S: независимые синтетические векторы .NET TripleDES, ASCII/UTF-8, неверное дополнение, флаг savePassword, DPAPI и привязка к профилю. Внешний пример проверен только на чтение; профили не сохранялись, пароли не выводились. Авторизация на сервере не проверялась.
+
+0.2.0 additions: certificate review tests cover consent gating, stale endpoints and unchanged/replaced certificates. Status badges are checked at six resolutions. RU/EN render checks cover 100/125/150/200%, a 470-point-wide window and a native-scale change within one egui context. Embedded icon includes 16/24/32/48/64/128/256 pixel sizes; the executable manifest declares PerMonitorV2. The MSI Shortcut table is checked for both Start menu and Desktop entries in all three architectures.
+
+Дополнения 0.2.0: тесты проверки сертификата охватывают ожидание согласия, устаревший адрес и прежний/заменённый сертификат. Значки статуса проверены в шести размерах. Рендер RU/EN проверен на 100/125/150/200%, при ширине 470 логических пикселей и смене масштаба одного контекста egui. Значок EXE содержит размеры 16/24/32/48/64/128/256; манифест объявляет PerMonitorV2. Таблица Shortcut каждого MSI проверяется на наличие ярлыков «Пуск» и рабочего стола.
+
+Native tray interaction, Explorer restart, physical monitor changes and real VPN connection are not exercised by headless rendering. These remain manual acceptance items.
+Работа нативного трея, перезапуск Explorer, смена физических мониторов и реальное VPN-подключение не проверяются программным рендером и требуют ручной приёмки.

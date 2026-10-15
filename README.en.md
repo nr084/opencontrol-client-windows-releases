@@ -9,7 +9,7 @@ This project does not provide VPN servers or access credentials.
 
 ## Installation
 
-[Download MSI](https://github.com/nr084/opencontrol-client-windows-releases/releases/tag/v0.1.1). One package per architecture.
+[Download MSI](https://github.com/nr084/opencontrol-client-windows-releases/releases).
 Find your system type in Settings → System → About:
 
 | System | Package |
@@ -22,6 +22,7 @@ One MSI per architecture, with a Russian installer. Both languages are available
 the app via RU/EN. Windows 11 has no 32-bit edition; use x64 or ARM64. Administrator
 permission is required. Close the client before upgrading or uninstalling.
 The installer includes official signed Wintun 0.14.1; the adapter is created on connection.
+Start menu and desktop shortcuts are installed by default for all users.
 
 The project EXE/MSI do not yet have publisher Authenticode signatures. This is
 separate from the valid WireGuard LLC signature on the included driver. Verify SHA256SUMS.
@@ -29,14 +30,31 @@ separate from the valid WireGuard LLC signature on the included driver. Verify S
 ## First connection
 
 1. Open Profiles and enter name, server, port (usually 4090), username and password.
-2. Inspect the certificate and verify its SHA-256 with your administrator through
-   a trusted channel before confirming trust. Alternatively, supply a trusted CA
-   in PEM format with no fingerprint.
-3. Save the profile. Enable the separate checkbox to retain the password.
-4. Read the traffic disclosure on the Connection tab and connect.
+2. Enable the separate checkbox to retain the password, then save the profile.
+3. Read the traffic disclosure on the Connection tab and click Connect.
+4. When no trusted certificate is configured, the client automatically retrieves it
+   and opens a confirmation. Verify SHA-256 with your administrator through a trusted
+   channel and confirm trust: connection continues automatically. No further prompt
+   is needed while that certificate remains valid and unchanged. Alternatively,
+   supply a trusted CA in PEM format.
 
 Expired certificates require separate explicit consent bound to their exact SHA-256.
-Changed certificates and certificates that are not yet valid remain rejected.
+Changed certificates stop the connection and require a new review. Certificates
+that are not yet valid remain rejected. No password is sent before trust is confirmed.
+Manual certificate inspection remains available in Profiles.
+
+## Tray and display scaling
+
+After a successful connection the window automatically hides to the system tray.
+A green check means VPN is connected; a red cross means disconnected, including
+reconnection attempts. Left-click opens the window. Right-click offers Open OpenControl,
+Disconnect and Exit. Exit disconnects VPN before closing. If the tray icon is
+unavailable, the window stays visible.
+
+The interface uses PerMonitorV2 to scale text and controls when moving between
+monitors with different DPI. Status icons are rendered for the display scale.
+Headless RU/EN rendering was checked at 100%, 125%, 150% and 200%; physical mixed-DPI
+monitor acceptance remains pending.
 
 ## Features
 
@@ -52,7 +70,7 @@ Changed certificates and certificates that are not yet valid remain rejected.
 
 ## Initial release limits
 
-0.1.1 is a preview. Automated tests and builds do not substitute for testing against
+0.2.0 is a preview. Automated tests and builds do not substitute for testing against
 your Kerio Control. Live corporate-server and physical ARM64-device acceptance are
 not yet confirmed. See [validation](VALIDATION.md).
 
@@ -75,6 +93,7 @@ separate project. Kerio Control belongs to its trademark owner; this client is n
 an official Kerio/GFI product.
 
 ![Actual UI rendered headlessly with synthetic data](assets/connection-en.png)
+
 ## Import from Kerio VPN
 
 On first launch, if `%APPDATA%\Kerio\VpnClient\user.cfg` exists, the application
