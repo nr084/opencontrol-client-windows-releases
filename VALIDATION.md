@@ -1,4 +1,4 @@
-# Validation / Проверки — 0.3.0
+# Validation / Проверки — 0.4.0
 
 Date / Дата: 2026-10-15.
 
@@ -8,7 +8,7 @@ Date / Дата: 2026-10-15.
 | Protocol dependency | 0.2.0, upstream HEAD `35a5c848fb2a25a64da36268026906ce3757b974` |
 | Formatting / Форматирование | Passed / Пройдено |
 | Clippy all targets, warnings denied | Passed / Пройдено |
-| Unit + ROUTES regression tests | 30 passed / 30 пройдено |
+| Unit + ROUTES regression tests | 37 passed / 37 пройдено |
 | Native release builds | x86, x64, ARM64 passed |
 | MSI platform and language | 3 packages: Intel/x64/Arm64; installer 1049; application RU/EN |
 | Extracted EXE | Matches release build SHA256; PE machine 014c/8664/aa64 |
@@ -53,3 +53,7 @@ Native tray interaction, Explorer restart, physical monitor changes and real VPN
 0.3.0: two added regression tests verify that closing a window with a tray preserves the session cancellation token and that unavailable-tray cleanup does not leave an unreachable active session. Windows ExtractIconEx checks both large and small icons from the EXE and the MSI icon stream. The extracted MSI icon stream must match the release EXE; branding BMPs must match the source artwork. Actual main-window RU/EN renders at 100/125/150/200% and narrow width were inspected. Native Windows icon extraction is not a full installed-shell acceptance test.
 
 0.3.0: два новых теста проверяют сохранение сессии при закрытии окна в трей и безопасное завершение при недоступном трее. Windows ExtractIconEx проверяет большие и малые значки EXE и потока значка MSI. Поток значка MSI должен совпадать с EXE сборки; BMP оформления — с исходными изображениями. Проверен рендер нового главного окна RU/EN на 100/125/150/200% и при узкой ширине. Извлечение значков Windows не заменяет проверку установленного приложения в оболочке.
+
+0.4.0: seven additional tests cover connected-state animation, synthetic Unicode paste/copy/cut events in actual text fields, password clipboard protection, consistent dark/light colors, profile JSON roundtrip, last-profile deletion and failed-save rollback. The native eframe → egui-winit → arboard clipboard feature chain is enabled. Personal clipboard contents were neither read nor changed; native interactive clipboard acceptance remains pending. Light RU/EN renders cover 100/125/150/200% and narrow width; dark renders include normal and narrow layouts. Tray status icons pass checks at nine sizes from 16 to 128 pixels.
+
+0.4.0: семь новых тестов проверяют отсутствие анимации после подключения, синтетические события Unicode-вставки/копирования/вырезания в настоящих текстовых полях, защиту пароля от копирования, согласованность цветов тем, сериализацию профилей, удаление последнего профиля и откат при ошибке записи. Включена цепочка нативного буфера eframe → egui-winit → arboard. Личный буфер не читался и не менялся; интерактивная проверка нативного буфера остаётся отдельной приёмкой. Светлый интерфейс RU/EN отрендерен на 100/125/150/200% и узкой ширине; тёмный — в обычном и узком окне. Значки трея проверены в девяти размерах от 16 до 128 пикселей.

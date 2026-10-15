@@ -72,7 +72,7 @@ monitor acceptance remains pending.
 
 ## Initial release limits
 
-0.3.0 is a preview. Automated tests and builds do not substitute for testing against
+0.4.0 is a preview. Automated tests and builds do not substitute for testing against
 your Kerio Control. Live corporate-server and physical ARM64-device acceptance are
 not yet confirmed. See [validation](VALIDATION.md).
 
@@ -114,3 +114,9 @@ Unsupported or damaged password entries are marked for manual entry. Passwords a
 Windows may place the icon in its notification overflow. Enable it in taskbar settings to keep it next to the clock.
 
 The main window shows the selected server and username. Configure opens profile settings; Remember password is available directly on the connection screen.
+
+Version 0.4 stops the progress indicator once connected. Light and dark themes update the background and text together. The tray shield is larger with a smaller status badge.
+
+Editable fields support Ctrl+C, Ctrl+X and Ctrl+V. Password fields accept pasted text; copying or cutting a hidden password does not export it to the clipboard.
+
+The Profiles tab supports adding and deleting profiles. Adding saves immediately. Deletion requires confirmation; deleting the last profile leaves an empty form for a new connection. A deleted default profile is cleared. Failed saves roll back the change. Disconnect VPN before managing profiles.
