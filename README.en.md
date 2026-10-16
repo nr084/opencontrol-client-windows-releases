@@ -17,7 +17,7 @@ An independent Kerio Control VPN client built on the OpenControl Protocol Librar
 
 One MSI per architecture; Russian installer, RU/EN application. Desktop and Start menu shortcuts are installed by default.
 
-0.6.0 installs **OpenControl VPN** (`OpenControlVpn`), an automatically started LocalSystem service that manages the adapter, routes and DNS. The interface runs with ordinary user permissions: connecting and disconnecting do not require UAC. Administrator permission is needed to install, upgrade or uninstall. The service supports one VPN session at a time; only its connected local pipe client controls that session. If the interface crashes, the session is stopped.
+1.0.0 installs **OpenControl VPN** (`OpenControlVpn`), an automatically started LocalSystem service that manages the adapter, routes and DNS. The interface runs with ordinary user permissions: connecting and disconnecting do not require UAC. Administrator permission is needed to install, upgrade or uninstall. The service supports one VPN session at a time; only its connected local pipe client controls that session. If the interface crashes, the session is stopped.
 
 Before upgrading or uninstalling, choose **Exit** in the tray menu. Uninstall through **Windows Settings → Apps → Installed apps → OpenControl → Uninstall**, or standard `msiexec /x` with the original MSI. MSI stops and removes the service, program files and both shortcuts. User profiles and external synchronization files are preserved. A shared Wintun driver is not removed from the system when other applications may use it.
 
@@ -32,7 +32,7 @@ Official Wintun 0.14.1 is signed by WireGuard LLC. The project EXE/MSI do not ye
 
 Closing the window hides it without disconnecting. The tray icon exists throughout the application's lifetime: green mark when connected, red cross when disconnected. Windows may place it in the overflow area. Its right-click menu offers Open, Reconnect, Disconnect and **Exit**. Only Exit terminates the application after network cleanup. Reconnect finishes the old session before starting another.
 
-The green shield fills most of the icon, retaining the red background. CPU rendering through Windows GDI requires no OpenGL, DirectX or 3D accelerator. Windows DPI scaling is respected. Light/dark themes change both background and text. Connected sessions never show a progress spinner.
+The green shield fills most of the icon, with a transparent background. CPU rendering through Windows GDI requires no OpenGL, DirectX or 3D accelerator. Windows DPI scaling is respected. Light/dark themes change both background and text. Connected sessions never show a progress spinner.
 
 Text fields support Ctrl+C / Ctrl+X / Ctrl+V. Password paste is supported; hidden passwords are not copied or cut to the clipboard. Saved passwords use Windows DPAPI bound to the user and profile.
 
@@ -42,11 +42,11 @@ Add/delete profiles while VPN is disconnected. **Delete selected** is a button w
 
 ## Settings: Kerio and synchronization
 
-On first launch, the app offers to review an existing `%APPDATA%\Kerio\VpnClient\user.cfg`; import requires confirmation. **Settings → Import Kerio** selects another file. Names, endpoints, logins and saved D3S passwords are imported; certificate trust and Kerio startup settings are not. Duplicates are skipped, maximum 100 profiles. Unsupported passwords require manual entry. A normal import does not modify the source file.
+On first launch, the app offers to review an existing `%APPDATA%\Kerio\VpnClient\user.cfg`; import requires confirmation. **Settings → Import Kerio** selects another file. Names, endpoints, logins and saved D3S passwords are imported; certificate trust and Kerio startup settings are not. Duplicates require an explicit Keep existing / Replace from file / Keep both choice; maximum 100 profiles. Unsupported passwords require manual entry. A normal import does not modify the source file.
 
-**Export Users.cfg** writes the whole list in Kerio XML format, including saved passwords. Session-only passwords are excluded. Format compatibility is tested by synthetic re-import; acceptance by the external Kerio client requires a separate check.
+**Export user.cfg** writes the whole list in Kerio XML format, including saved passwords. Session-only passwords are excluded. Format compatibility is tested by synthetic re-import; acceptance by the external Kerio client requires a separate check.
 
-**Select local users.cfg** enables two-way synchronization including deletions. Initially lists are merged; differing versions of the same connection require a choice. Later changes are compared with the last synchronized baseline. Concurrent edits to the same record pause synchronization and offer the client or file version for conflicts; unrelated changes are merged. The file is checked approximately every five seconds while VPN is disconnected and the profile editor is closed. Missing/malformed files or unsupported passwords pause synchronization without clearing profiles. **Unlink file** preserves both the file and local profiles.
+**Select local user.cfg** enables two-way synchronization including deletions. Initially lists are merged; differing versions of the same connection require a choice. Later changes are compared with the last synchronized baseline. Concurrent edits to the same record pause synchronization and offer the client or file version for conflicts; unrelated changes are merged. The file is checked approximately every hour while VPN is disconnected and the profile editor is closed. Missing/malformed files or unsupported passwords pause synchronization without clearing profiles. **Unlink file** preserves both the file and local profiles.
 
 Local disks only; network paths are unsupported. Kerio options outside the connection list are preserved. CFG contains portable passwords in Kerio's reversible format: restrict access to it. The client does not upload it to a cloud service.
 
@@ -58,7 +58,7 @@ Profiles offers QR import from PNG, **Show QR**, and **Save QR to PNG**. The for
 
 ## Release status
 
-0.6.0 is a preview. See [VALIDATION.md](VALIDATION.md) for actual checks. Operation in the reported Windows 11 ARM VM on Mac and a real corporate connection require testing on the target system; successful builds do not replace that testing.
+1.0.0 is a release with the checks documented below. See [VALIDATION.md](VALIDATION.md) for actual checks. Operation in the reported Windows 11 ARM VM on Mac and a real corporate connection require testing on the target system; successful builds do not replace that testing.
 
 [Privacy](PRIVACY.en.md) · [Русская политика](PRIVACY.md)
 
@@ -74,3 +74,13 @@ This public repository contains binaries and user documentation only. Client sou
 ![networks](assets/networks-en.png)
 
 </details>
+
+## Version 1.0 behavior
+
+The interface opens when Finish is clicked after an interactive installation. It starts in the tray at Windows sign-in without connecting VPN automatically. Windows Startup Apps can disable this entry. Silent installation does not open an interactive window. Uninstall removes the startup entry.
+
+The switch shows ON/OFF; tabs fill equal-width columns. The icon has a transparent background, smooth contours and multiple sizes. Connected tray state uses a green dot with a white rim. Hover shows total Upload/Download for the session, including automatic reconnects. A new manually started session resets counters.
+
+Choose any CFG file in the import dialog, including on first launch. Duplicate server/port/username records require an explicit Keep existing / Replace from file / Keep both choice. Replacement retains local profile identity and certificate trust; passwords are protected for that identity. Keeping both may require resolving duplicate records before linking CFG synchronization. Export defaults to user.cfg; linked-file synchronization runs hourly while idle, or manually using Sync now.
+
+New or changed server certificates require confirmation. Expired certificates require separate consent bound to that fingerprint. Trust and expiry consent are remembered for the profile; a different certificate requires a new decision.

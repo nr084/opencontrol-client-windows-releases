@@ -1,4 +1,4 @@
-# Validation / Проверки — 0.6.0
+# Validation / Проверки — 1.0.0
 
 Date / Дата: 2026-10-16.
 
@@ -7,7 +7,7 @@ Date / Дата: 2026-10-16.
 | Rust stable | 1.99.1, upstream check passed |
 | OpenControl Protocol | 0.2.0, upstream HEAD 35a5c848fb2a25a64da36268026906ce3757b974 |
 | Format + clippy all targets, warnings denied | Passed / Пройдено |
-| Unit + ROUTES regression tests | 53 + 4 = 57 passed |
+| Unit + ROUTES regression tests | 57 + 4 = 61 passed |
 | Native release builds, static CRT | x86 / x64 / ARM64 passed |
 | MSI payloads | Six allowlisted files per package; extracted EXE SHA256 matches build |
 | MSI platform/language | Intel / x64 / Arm64; Russian installer 1049; application RU/EN |
@@ -16,7 +16,7 @@ Date / Дата: 2026-10-16.
 | Service registration/removal tables | LocalSystem, automatic, --service, stop/delete on uninstall; standard RemoveFiles/RemoveShortcuts/RemoveFolders |
 | GUI manifest | asInvoker; PerMonitorV2 |
 | CPU native startup | Hidden native x64 window created/rendered/closed using synthetic settings |
-| UI headless | Actual production painter, RU/EN, dark/light, 100/150/200%, widths 620/760; visually inspected |
+| UI headless | Actual production painter, RU/EN, dark/light, 100/150/200%, widths 620/900; visually inspected |
 | Dependencies | softbuffer 0.4.8, egui-winit clipboard + arboard 3.7.0; no glow/glutin/wgpu in ARM64 normal graph |
 | IPC rejection | Fake native named-pipe endpoint receives no credentials; malformed/oversized requests rejected |
 | CFG | Synthetic Unicode/D3S export-reimport, saved-password policy, merge/conflicts/deletions, missing-file protection, stale-write rejection |
@@ -33,3 +33,5 @@ Service boundary: local interactive clients only, protected pipe ACL without use
 Граница службы: локальные интерактивные клиенты, ограниченный ACL канала без права создавать экземпляры, запрет удалённых подключений, проверка PID службы через SCM до отправки пароля. Одна сессия принадлежит одному открытому каналу. Служба не загружает пользовательские профили, не принимает команды оболочки и не сохраняет пароли. Это проверки кода и тестов, а не завершённая проверка установленной службы.
 
 No real credentials, private profiles or user screenshots are included in this repository or its assets. All displayed UI images use synthetic data. The privacy audit does not cover inaccessible deleted GitHub objects/caches or third-party copies.
+
+1.0 additions: duplicate import policies and DPAPI rebinding, atomic replacement rollback, cumulative reconnect traffic, localized bounded tray tooltip. Autostart Run registration and interactive Finish action are checked in MSI tables; actual sign-in/Finish behavior remains a Windows acceptance check. Tray badges are supersampled; the UI logo is filtered to the current DPI. Physical multi-monitor DPI acceptance remains unverified.
