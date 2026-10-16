@@ -2,12 +2,14 @@
 
 ## Русский
 
+- Единое название OpenControl Client: окно, установщик, папка установки, ярлыки, автозапуск, сведения о программе и службе. Обновлены значки информации и предупреждения в мастере установки.
+
 - Русский язык по умолчанию при первом запуске; сохранённый выбор языка не сбрасывается.
 
 - Исправлено повторное подключение после неверного пароля: завершённый IPC-канал заменяется новым после очистки сеанса, без перезапуска службы. Кратковременная занятость канала ожидается до 5 секунд; ошибки службы разделены по причинам.
 - Исправлено обновление GUID-значка трея: подключение показывает зелёную точку в белой оправе. Крестик окна скрывает и неподключённый клиент; выход только через меню трея.
 - Шрифт интерфейса — установленный в Windows Segoe UI. «Client» под названием; справа от переключателя — причина ошибки, без дублирующего статуса. Включение VPN не требует отдельного чекбокса разрешения.
-- Пакеты: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. Обновлённый выпуск сохраняет номер 1.0.0; если 1.0.0 уже установлена, удалите её штатно и установите новый MSI. Локальные профили сохраняются.
+- Пакеты: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`.
 
 - Переключатель ВКЛ / ВЫКЛ без подписи «Подключить»; вкладки одинаковой ширины, адаптивные ряды для узкого окна.
 - Новый крупный зелёный щит на прозрачном фоне. Плавные контуры, сглаживание отметок трея, ICO 16–256 px и PNG 1024 px; картинка в окне подготавливается под текущий DPI.
@@ -24,12 +26,14 @@
 
 ## English
 
+- Consistent OpenControl Client branding across the window, installer, installation folder, shortcuts, startup entry, About and service display name. Updated information and warning icons in the installer.
+
 - Russian is the first-launch default; saved language preferences are preserved.
 
 - Fixed retry after an incorrect password: the completed IPC pipe is replaced after session cleanup, without restarting the service. Transient pipe contention is retried for up to 5 seconds; service errors now identify the failure category.
 - Fixed GUID-based tray icon updates: connected sessions show a green dot with a white rim. Closing the window hides even an idle client; only tray Exit terminates it.
 - Uses the installed Windows Segoe UI font. “Client” appears below the title; the area to the right of the switch shows failure reasons without a duplicate connection status. Enabling VPN requires no separate permission checkbox.
-- Packages: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. This replacement retains version 1.0.0; if 1.0.0 is already installed, uninstall it normally before installing the new MSI. Local profiles are preserved.
+- Packages: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`.
 
 - ON / OFF switch without a Connect caption; equal-width tabs and adaptive rows for narrow windows.
 - Larger green shield on a transparent background. Smooth contours, antialiased tray badges, 16–256 px ICO and 1024 px PNG; the UI image is filtered for the current DPI.
@@ -55,6 +59,8 @@ See [VALIDATION.md](https://github.com/nr084/opencontrol-client-windows-releases
 
 ![networks ru](https://raw.githubusercontent.com/nr084/opencontrol-client-windows-releases/v1.0.0/assets/networks-ru.png)
 
+![about ru](https://raw.githubusercontent.com/nr084/opencontrol-client-windows-releases/v1.0.0/assets/about-ru.png)
+
 </details>
 
 <details>
@@ -68,6 +74,8 @@ See [VALIDATION.md](https://github.com/nr084/opencontrol-client-windows-releases
 
 ![networks en](https://raw.githubusercontent.com/nr084/opencontrol-client-windows-releases/v1.0.0/assets/networks-en.png)
 
+![about en](https://raw.githubusercontent.com/nr084/opencontrol-client-windows-releases/v1.0.0/assets/about-en.png)
+
 </details>
 
 ## Полная история изменений / Full changelog
@@ -80,13 +88,6 @@ See [VALIDATION.md](https://github.com/nr084/opencontrol-client-windows-releases
 # OpenControl Client 0.6.0
 
 ## Русский
-
-- Русский язык по умолчанию при первом запуске; сохранённый выбор языка не сбрасывается.
-
-- Исправлено повторное подключение после неверного пароля: завершённый IPC-канал заменяется новым после очистки сеанса, без перезапуска службы. Кратковременная занятость канала ожидается до 5 секунд; ошибки службы разделены по причинам.
-- Исправлено обновление GUID-значка трея: подключение показывает зелёную точку в белой оправе. Крестик окна скрывает и неподключённый клиент; выход только через меню трея.
-- Шрифт интерфейса — установленный в Windows Segoe UI. «Client» под названием; справа от переключателя — причина ошибки, без дублирующего статуса. Включение VPN не требует отдельного чекбокса разрешения.
-- Пакеты: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. Обновлённый выпуск сохраняет номер 1.0.0; если 1.0.0 уже установлена, удалите её штатно и установите новый MSI. Локальные профили сохраняются.
 
 - Интерфейс работает без прав администратора. MSI устанавливает автоматически запускаемую службу OpenControl VPN (LocalSystem) для адаптера, маршрутов и DNS. Установка и удаление требуют повышения прав.
 - Отрисовка на CPU через Windows GDI: убрана зависимость от OpenGL/GPU, из-за которой запуск в ARM64 VM мог завершаться без окна. Ошибки запуска теперь показываются явно.
@@ -103,13 +104,6 @@ See [VALIDATION.md](https://github.com/nr084/opencontrol-client-windows-releases
 Перед обновлением выберите «Выйти» в меню трея старой версии. Личные соединения и пароли не включены в исходники и пакеты.
 
 ## English
-
-- Russian is the first-launch default; saved language preferences are preserved.
-
-- Fixed retry after an incorrect password: the completed IPC pipe is replaced after session cleanup, without restarting the service. Transient pipe contention is retried for up to 5 seconds; service errors now identify the failure category.
-- Fixed GUID-based tray icon updates: connected sessions show a green dot with a white rim. Closing the window hides even an idle client; only tray Exit terminates it.
-- Uses the installed Windows Segoe UI font. “Client” appears below the title; the area to the right of the switch shows failure reasons without a duplicate connection status. Enabling VPN requires no separate permission checkbox.
-- Packages: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. This replacement retains version 1.0.0; if 1.0.0 is already installed, uninstall it normally before installing the new MSI. Local profiles are preserved.
 
 - The interface runs without administrator permission. MSI installs an automatic LocalSystem OpenControl VPN service for the adapter, routes and DNS; installation/removal require elevation.
 - CPU rendering through Windows GDI removes the OpenGL/GPU dependency that could prevent startup in ARM64 VMs. Startup failures now show an explicit error.
@@ -134,13 +128,6 @@ Choose Exit in the old version's tray menu before upgrading. Personal connection
 
 ## Русский
 
-- Русский язык по умолчанию при первом запуске; сохранённый выбор языка не сбрасывается.
-
-- Исправлено повторное подключение после неверного пароля: завершённый IPC-канал заменяется новым после очистки сеанса, без перезапуска службы. Кратковременная занятость канала ожидается до 5 секунд; ошибки службы разделены по причинам.
-- Исправлено обновление GUID-значка трея: подключение показывает зелёную точку в белой оправе. Крестик окна скрывает и неподключённый клиент; выход только через меню трея.
-- Шрифт интерфейса — установленный в Windows Segoe UI. «Client» под названием; справа от переключателя — причина ошибки, без дублирующего статуса. Включение VPN не требует отдельного чекбокса разрешения.
-- Пакеты: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. Обновлённый выпуск сохраняет номер 1.0.0; если 1.0.0 уже установлена, удалите её штатно и установите новый MSI. Локальные профили сохраняются.
-
 - Новая вкладка **«Сети»**: общие IPv4-исключения для всех профилей, как в Android. До 128 CIDR-сетей, нормализация адресов и удаление повторов. Исключения применяются при подключении и обновлениях маршрутов сервера.
 - Исключённые сети и DNS-серверы внутри них используют обычное подключение вне VPN. Изменение списка доступно после отключения VPN. IPv6-исключений и выбора приложений нет.
 - **«Переподключиться» в трее** завершает старую сессию и очистку маршрутов, затем подключает тот же профиль. Повторные нажатия не создают параллельных соединений; «Отключить» и «Выход» отменяют перезапуск.
@@ -157,13 +144,6 @@ EXE/MSI не подписаны издателем; Wintun 0.14.1 имеет о�
 Предварительная версия: синтетические тесты и рендер не заменяют проверку реального VPN, системных уведомлений, установки/обновления и отображения MSI на физических мониторах с разным DPI. Подробности — в VALIDATION.md.
 
 ## English
-
-- Russian is the first-launch default; saved language preferences are preserved.
-
-- Fixed retry after an incorrect password: the completed IPC pipe is replaced after session cleanup, without restarting the service. Transient pipe contention is retried for up to 5 seconds; service errors now identify the failure category.
-- Fixed GUID-based tray icon updates: connected sessions show a green dot with a white rim. Closing the window hides even an idle client; only tray Exit terminates it.
-- Uses the installed Windows Segoe UI font. “Client” appears below the title; the area to the right of the switch shows failure reasons without a duplicate connection status. Enabling VPN requires no separate permission checkbox.
-- Packages: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. This replacement retains version 1.0.0; if 1.0.0 is already installed, uninstall it normally before installing the new MSI. Local profiles are preserved.
 
 - New **Networks** tab: shared IPv4 exclusions for all profiles, matching Android. Up to 128 CIDR networks with address normalization and deduplication. Applied on connection and server route updates.
 - Excluded networks and DNS servers inside them use the regular connection outside VPN. Disconnect before editing. No IPv6 exclusions or per-app routing.
@@ -189,13 +169,6 @@ Preview: synthetic tests and rendering do not replace live VPN, native notificat
 
 ## Русский
 
-- Русский язык по умолчанию при первом запуске; сохранённый выбор языка не сбрасывается.
-
-- Исправлено повторное подключение после неверного пароля: завершённый IPC-канал заменяется новым после очистки сеанса, без перезапуска службы. Кратковременная занятость канала ожидается до 5 секунд; ошибки службы разделены по причинам.
-- Исправлено обновление GUID-значка трея: подключение показывает зелёную точку в белой оправе. Крестик окна скрывает и неподключённый клиент; выход только через меню трея.
-- Шрифт интерфейса — установленный в Windows Segoe UI. «Client» под названием; справа от переключателя — причина ошибки, без дублирующего статуса. Включение VPN не требует отдельного чекбокса разрешения.
-- Пакеты: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. Обновлённый выпуск сохраняет номер 1.0.0; если 1.0.0 уже установлена, удалите её штатно и установите новый MSI. Локальные профили сохраняются.
-
 - После подключения индикатор ожидания больше не вращается.
 - Включена поддержка буфера обмена Windows: копирование, вырезание и вставка в редактируемых полях. Вставка пароля работает; скрытый пароль не копируется в буфер.
 - Исправлена смена темы: фон, текст и элементы управления переключаются согласованно.
@@ -210,13 +183,6 @@ Preview: synthetic tests and rendering do not replace live VPN, native notificat
 Предварительный выпуск: результаты и границы проверок описаны в VALIDATION.md. Чистая установка/обновление, интерактивный буфер Windows, физический ARM64 и реальное VPN-подключение требуют отдельной приёмки.
 
 ## English
-
-- Russian is the first-launch default; saved language preferences are preserved.
-
-- Fixed retry after an incorrect password: the completed IPC pipe is replaced after session cleanup, without restarting the service. Transient pipe contention is retried for up to 5 seconds; service errors now identify the failure category.
-- Fixed GUID-based tray icon updates: connected sessions show a green dot with a white rim. Closing the window hides even an idle client; only tray Exit terminates it.
-- Uses the installed Windows Segoe UI font. “Client” appears below the title; the area to the right of the switch shows failure reasons without a duplicate connection status. Enabling VPN requires no separate permission checkbox.
-- Packages: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. This replacement retains version 1.0.0; if 1.0.0 is already installed, uninstall it normally before installing the new MSI. Local profiles are preserved.
 
 - The progress indicator stops once connected.
 - Enabled Windows clipboard support: copy, cut and paste in editable fields. Password paste works; hidden passwords are not exported to the clipboard.
@@ -240,13 +206,6 @@ Preview release: see VALIDATION.md for evidence and limitations. Clean install/u
 
 ## Русский
 
-- Русский язык по умолчанию при первом запуске; сохранённый выбор языка не сбрасывается.
-
-- Исправлено повторное подключение после неверного пароля: завершённый IPC-канал заменяется новым после очистки сеанса, без перезапуска службы. Кратковременная занятость канала ожидается до 5 секунд; ошибки службы разделены по причинам.
-- Исправлено обновление GUID-значка трея: подключение показывает зелёную точку в белой оправе. Крестик окна скрывает и неподключённый клиент; выход только через меню трея.
-- Шрифт интерфейса — установленный в Windows Segoe UI. «Client» под названием; справа от переключателя — причина ошибки, без дублирующего статуса. Включение VPN не требует отдельного чекбокса разрешения.
-- Пакеты: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. Обновлённый выпуск сохраняет номер 1.0.0; если 1.0.0 уже установлена, удалите её штатно и установите новый MSI. Локальные профили сохраняются.
-
 - Исправлены значки ярлыков рабочего стола и меню «Пуск»: MSI теперь содержит корректный PE-ресурс значка с расширением `.exe`.
 - Исправлен значок панели задач: окно явно назначает большой значок Windows в дополнение к значку заголовка.
 - Значок трея существует постоянно с запуска до выхода, в том числе без VPN. Зелёная галочка означает подключение, красный крестик — отсутствие соединения.
@@ -265,13 +224,6 @@ Preview release: see VALIDATION.md for evidence and limitations. Clean install/u
 физический ARM64 и интерактивная проверка панели задач/трея требуют приёмки.
 
 ## English
-
-- Russian is the first-launch default; saved language preferences are preserved.
-
-- Fixed retry after an incorrect password: the completed IPC pipe is replaced after session cleanup, without restarting the service. Transient pipe contention is retried for up to 5 seconds; service errors now identify the failure category.
-- Fixed GUID-based tray icon updates: connected sessions show a green dot with a white rim. Closing the window hides even an idle client; only tray Exit terminates it.
-- Uses the installed Windows Segoe UI font. “Client” appears below the title; the area to the right of the switch shows failure reasons without a duplicate connection status. Enabling VPN requires no separate permission checkbox.
-- Packages: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. This replacement retains version 1.0.0; if 1.0.0 is already installed, uninstall it normally before installing the new MSI. Local profiles are preserved.
 
 - Fixed desktop and Start menu shortcut icons: the MSI now embeds a valid PE icon resource with the `.exe` extension.
 - Fixed the taskbar icon: the window explicitly sets the Windows large icon in addition to its title-bar icon.
@@ -299,13 +251,6 @@ interactive taskbar/tray acceptance remain pending.
 
 ## Русский
 
-- Русский язык по умолчанию при первом запуске; сохранённый выбор языка не сбрасывается.
-
-- Исправлено повторное подключение после неверного пароля: завершённый IPC-канал заменяется новым после очистки сеанса, без перезапуска службы. Кратковременная занятость канала ожидается до 5 секунд; ошибки службы разделены по причинам.
-- Исправлено обновление GUID-значка трея: подключение показывает зелёную точку в белой оправе. Крестик окна скрывает и неподключённый клиент; выход только через меню трея.
-- Шрифт интерфейса — установленный в Windows Segoe UI. «Client» под названием; справа от переключателя — причина ошибки, без дублирующего статуса. Включение VPN не требует отдельного чекбокса разрешения.
-- Пакеты: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. Обновлённый выпуск сохраняет номер 1.0.0; если 1.0.0 уже установлена, удалите её штатно и установите новый MSI. Локальные профили сохраняются.
-
 - При нажатии «Подключиться» сертификат автоматически запрашивается, если доверие ещё не настроено. После однократной проверки SHA-256 и подтверждения подключение продолжается автоматически. Пароль до подтверждения не передаётся.
 - Изменившийся сертификат требует нового подтверждения; просроченный — отдельного согласия. Проверка TLS не отключается.
 - После успешного подключения окно скрывается в трей. Зелёная галочка означает активный VPN, красный крестик — отсутствие соединения. Левый щелчок открывает окно; меню содержит открытие, отключение и выход.
@@ -320,13 +265,6 @@ EXE/MSI не имеют подписи издателя. Проверяйте SH
 физический ARM64 и перенос окна между физическими мониторами требуют приёмки.
 
 ## English
-
-- Russian is the first-launch default; saved language preferences are preserved.
-
-- Fixed retry after an incorrect password: the completed IPC pipe is replaced after session cleanup, without restarting the service. Transient pipe contention is retried for up to 5 seconds; service errors now identify the failure category.
-- Fixed GUID-based tray icon updates: connected sessions show a green dot with a white rim. Closing the window hides even an idle client; only tray Exit terminates it.
-- Uses the installed Windows Segoe UI font. “Client” appears below the title; the area to the right of the switch shows failure reasons without a duplicate connection status. Enabling VPN requires no separate permission checkbox.
-- Packages: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. This replacement retains version 1.0.0; if 1.0.0 is already installed, uninstall it normally before installing the new MSI. Local profiles are preserved.
 
 - Connect automatically retrieves the server certificate when trust is not configured. After a one-time SHA-256 review and trust confirmation, connection continues automatically. No password is sent before confirmation.
 - Replaced certificates require a new review; expired certificates require separate consent. TLS verification remains enabled.
@@ -350,13 +288,6 @@ moving between physical mixed-DPI monitors still require acceptance.
 
 ## Русский
 
-- Русский язык по умолчанию при первом запуске; сохранённый выбор языка не сбрасывается.
-
-- Исправлено повторное подключение после неверного пароля: завершённый IPC-канал заменяется новым после очистки сеанса, без перезапуска службы. Кратковременная занятость канала ожидается до 5 секунд; ошибки службы разделены по причинам.
-- Исправлено обновление GUID-значка трея: подключение показывает зелёную точку в белой оправе. Крестик окна скрывает и неподключённый клиент; выход только через меню трея.
-- Шрифт интерфейса — установленный в Windows Segoe UI. «Client» под названием; справа от переключателя — причина ошибки, без дублирующего статуса. Включение VPN не требует отдельного чекбокса разрешения.
-- Пакеты: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. Обновлённый выпуск сохраняет номер 1.0.0; если 1.0.0 уже установлена, удалите её штатно и установите новый MSI. Локальные профили сохраняются.
-
 Добавлена возможность импорта user.cfg из Kerio VPN: предложение при первом запуске,
 предварительный просмотр и ручной выбор файла во вкладке «Профили». Перенос выполняется
 только после подтверждения пользователя. Названия, серверы, порты, логины и сохранённые пароли D3S (с защитой DPAPI); без переноса
@@ -369,13 +300,6 @@ Windows 10/11, x86/x64/ARM64, один MSI на архитектуру, прил
 официальный Wintun имеет действительную подпись WireGuard LLC.
 
 ## English
-
-- Russian is the first-launch default; saved language preferences are preserved.
-
-- Fixed retry after an incorrect password: the completed IPC pipe is replaced after session cleanup, without restarting the service. Transient pipe contention is retried for up to 5 seconds; service errors now identify the failure category.
-- Fixed GUID-based tray icon updates: connected sessions show a green dot with a white rim. Closing the window hides even an idle client; only tray Exit terminates it.
-- Uses the installed Windows Segoe UI font. “Client” appears below the title; the area to the right of the switch shows failure reasons without a duplicate connection status. Enabling VPN requires no separate permission checkbox.
-- Packages: `OpenControl-client-1.0.0-windows-{x86,x64,arm64}.msi`. This replacement retains version 1.0.0; if 1.0.0 is already installed, uninstall it normally before installing the new MSI. Local profiles are preserved.
 
 Added Kerio VPN user.cfg import: first-launch offer, review before confirmation,
 and manual file selection in Profiles. Import runs only after user confirmation.

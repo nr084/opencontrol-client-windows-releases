@@ -31,7 +31,7 @@ Once connected, the window hides in the tray and a notification identifies the t
 |---|---|
 | Close the window | The X hides the app in the tray, even while disconnected |
 | Connection indicator | Green dot with a white rim: connected. Red cross: disconnected |
-| Reopen | Click the tray icon or select Open OpenControl |
+| Reopen | Click the tray icon or select Open OpenControl Client |
 | Reconnect | Right-click the tray → Reconnect; the old session finishes before the next starts |
 | Disconnect or exit | Disconnect ends VPN; Exit also closes the app |
 | Traffic totals | Hover over the tray for session Upload / Download; totals also appear in the window |
@@ -82,9 +82,9 @@ In **Networks**, enter destinations that should use your regular connection, suc
 
 ## Updates, uninstall and checks
 
-Before updating, choose **Exit** from the tray. This release replaces the previous **1.0.0** files: if 1.0.0 is already installed, uninstall it normally before installing the new MSI. Profiles are preserved.
+Before updating, choose **Exit** from the tray.
 
-Uninstall through **Windows Settings → Apps → OpenControl → Uninstall**. The program, service, shortcuts and startup entry are removed; profiles and external CFG files remain. Installation and removal require administrator rights, ordinary operation does not. The service starts with Windows and serves one VPN session at a time.
+Uninstall through **Windows Settings → Apps → OpenControl Client → Uninstall**. The program, service, shortcuts and startup entry are removed; profiles and external CFG files remain. Installation and removal require administrator rights, ordinary operation does not. The service starts with Windows and serves one VPN session at a time.
 
 The Wintun driver is officially signed. Project EXE/MSI files are not yet publisher-signed. Check [SHA256SUMS](SHA256SUMS).
 
@@ -93,3 +93,10 @@ The Wintun driver is officially signed. Project EXE/MSI files are not yet publis
 All screenshots contain fictional profiles. This repository publishes installers and documentation; client sources are private. The [protocol library](https://github.com/nr084/opencontrol-protocol) is a separate public project.
 
 [Changelog](RELEASE_NOTES.md) · [Privacy](PRIVACY.en.md) · [Component licenses](THIRD-PARTY-NOTICES.txt)
+
+
+<details><summary>About</summary>
+
+![About](assets/about-en.png)
+
+</details>
