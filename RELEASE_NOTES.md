@@ -2,6 +2,9 @@
 
 ## Русский
 
+- О программе: кликабельная домашняя страница, ручная и ежедневная проверка обновлений GitHub. Новая версия автоматически скачивается и проверяется по SHA256; тихая установка ждёт отключения VPN, без принудительной перезагрузки. Возможен запрос UAC.
+- Новое обновление отмечается жёлтым восклицательным знаком в трее и уведомлением; значок подключения остаётся виден.
+
 - Единое название OpenControl Client: окно, установщик, папка установки, ярлыки, автозапуск, сведения о программе и службе. Обновлены значки информации и предупреждения в мастере установки.
 
 - Русский язык по умолчанию при первом запуске; сохранённый выбор языка не сбрасывается.
@@ -25,6 +28,9 @@
 Проверки сборки и тестов описаны в [VALIDATION.md](https://github.com/nr084/opencontrol-client-windows-releases/blob/v1.0.0/VALIDATION.md). Реальное подключение, полный цикл установки службы и целевая Windows 11 ARM VM на Mac ещё требуют проверки; номер 1.0 не означает, что эти проверки выполнены. В исходниках, пакетах и скриншотах нет личных соединений пользователя.
 
 ## English
+
+- About: clickable home page, manual and daily GitHub update checks. New releases download automatically with SHA256 verification; silent installation waits for VPN disconnection, with no forced restart. Windows may request UAC.
+- Available updates show a yellow tray exclamation badge and a version notification while retaining the VPN status badge.
 
 - Consistent OpenControl Client branding across the window, installer, installation folder, shortcuts, startup entry, About and service display name. Updated information and warning icons in the installer.
 

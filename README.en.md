@@ -82,13 +82,17 @@ In **Networks**, enter destinations that should use your regular connection, suc
 
 ## Updates, uninstall and checks
 
-Before updating, choose **Exit** from the tray.
+**About** contains the home page link and **Check for updates** button. GitHub is checked automatically once a day, including while the window is hidden in the tray. A newer version adds a yellow exclamation badge alongside the VPN status indicator and shows a notification with its version.
+
+The client downloads the MSI for its architecture and checks SHA256 against the checksum file and GitHub metadata. Installation waits until VPN is disconnected and editing is finished, then runs without the setup wizard; Windows may request UAC. No restart is forced. The client returns to the tray afterwards. Equal or older versions are never installed automatically. Retry the manual check after an error or cancellation.
+
+For manual MSI installation, first choose **Exit** from the tray.
 
 Uninstall through **Windows Settings → Apps → OpenControl Client → Uninstall**. The program, service, shortcuts and startup entry are removed; profiles and external CFG files remain. Installation and removal require administrator rights, ordinary operation does not. The service starts with Windows and serves one VPN session at a time.
 
 The Wintun driver is officially signed. Project EXE/MSI files are not yet publisher-signed. Check [SHA256SUMS](SHA256SUMS).
 
-64 automated tests, three architecture builds and MSI content checks passed. Retry after authentication failure was tested with a synthetic Windows pipe; native tray updates were also checked. Full operation on the target ARM VM and a real firewall remains outside these tests. See [VALIDATION.md](VALIDATION.md).
+72 automated tests, three architecture builds and MSI content checks passed. Retry after authentication failure was tested with a synthetic Windows pipe; native tray updates were also checked. Full operation on the target ARM VM and a real firewall remains outside these tests. See [VALIDATION.md](VALIDATION.md).
 
 All screenshots contain fictional profiles. This repository publishes installers and documentation; client sources are private. The [protocol library](https://github.com/nr084/opencontrol-protocol) is a separate public project.
 

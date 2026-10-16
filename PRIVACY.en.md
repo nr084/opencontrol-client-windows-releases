@@ -23,3 +23,6 @@ User-excluded networks use the regular connection outside VPN, including DNS ser
 The interface runs as an ordinary user. The LocalSystem service receives VPN parameters and the password through a local Windows pipe with restricted permissions; remote clients are rejected. Credentials remain in memory for the connection, are not written to disk by the service and are not sent to the developer. Closing the client process ends its session.
 
 When explicitly selected by the user, export and two-way synchronization write connections and saved passwords to a chosen local CFG. CFG passwords use Kerio's reversible D3S format; DPAPI protection applies to the OpenControl store, not a portable CFG. Synchronization includes deletions and can be unlinked in Settings. Uninstall preserves the user's store and selected external files.
+
+
+Manual and daily automatic update checks contact the public GitHub API and GitHub download servers. Requests expose normal HTTPS request information, including the IP address and client version in User-Agent. VPN profiles, server addresses, usernames, passwords and logs are not sent. The check time and notified version are stored locally; MSI files are temporarily cached locally.
