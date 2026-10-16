@@ -1,3 +1,23 @@
+# OpenControl Client 1.0.2
+
+## Русский
+
+- После успешного обновления открывается главное окно. Учтён переход с предыдущего обновлятора, который передавал `--autostart`; обычный запуск с Windows остаётся в трее.
+- Импорт Kerio предлагает найденный `%APPDATA%\Kerio\VpnClient\user.cfg` только из Roaming. Можно использовать его, выбрать свой CFG или отменить импорт. При отсутствии файла сразу открывается выбор.
+- Сохранены предварительный просмотр и запрос при дублях. До подтверждения профили не изменяются, исходный CFG не перезаписывается.
+- Обновлены RU/EN-инструкции и скриншоты. Версия, передаваемая серверу: **1.0.2 · build 3**.
+- Три MSI: x86, x64 и ARM64, в каждом русский и английский. 79 автоматических тестов и проверки содержимого MSI пройдены. Полный цикл автообновления с UAC на чистой VM и работа на целевой ARM VM не проверены.
+
+## English
+
+- Successful updates open the main window, including upgrades from the previous updater passing `--autostart`. Normal Windows sign-in startup remains in the tray.
+- Kerio import offers the detected `%APPDATA%\Kerio\VpnClient\user.cfg` from Roaming only. Use it, choose your own CFG, or cancel. If missing, the file picker opens directly.
+- Import preview and duplicate decisions remain required. Profiles stay unchanged before confirmation; the source CFG is not overwritten.
+- Updated RU/EN guides and screenshots. Server-reported version: **1.0.2 · build 3**.
+- Three bilingual MSI packages: x86, x64 and ARM64. 79 automated tests and MSI payload checks passed. Full automatic upgrade/UAC on a clean VM and the target ARM VM remain untested.
+
+---
+
 # OpenControl Client 1.0.1
 
 ## Русский

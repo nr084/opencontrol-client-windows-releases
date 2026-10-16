@@ -2,7 +2,7 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">Your organization’s network · Windows 10 / 11</p>
 <p align="center"><a href="README.md">Русский</a> · <b>English</b></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.0.1</a> · <a href="RELEASE_NOTES.md">What’s new</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.0.2</a> · <a href="RELEASE_NOTES.md">What’s new</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 OpenControl connects your PC to a private corporate network through Kerio Control. Your organization supplies the server address and account. This independent client is not an official Kerio/GFI product or a provider of VPN access.
 
@@ -14,9 +14,9 @@ Each MSI includes Russian and English. **Russian is the default on first launch*
 
 | Computer | Download |
 |---|---|
-| Intel / AMD 64-bit PC | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.1/OpenControl-client-1.0.1-windows-x64.msi) |
-| Windows 10, 32-bit | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.1/OpenControl-client-1.0.1-windows-x86.msi) |
-| Windows on ARM, including a Windows 11 VM on Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.1/OpenControl-client-1.0.1-windows-arm64.msi) |
+| Intel / AMD 64-bit PC | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.2/OpenControl-client-1.0.2-windows-x64.msi) |
+| Windows 10, 32-bit | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.2/OpenControl-client-1.0.2-windows-x86.msi) |
+| Windows on ARM, including a Windows 11 VM on Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.2/OpenControl-client-1.0.2-windows-arm64.msi) |
 
 1. Install the app. Desktop and Start menu shortcuts are created by default.
 2. Add a connection in **Profiles**, or import your CFG in **Settings**.
@@ -45,7 +45,7 @@ Windows may put the icon in its overflow area. Notification visibility depends o
 
 ![Activity](assets/activity-en.png)
 
-The activity log keeps the time, tunnel name, connections, disconnections and errors across profile changes: up to 500 events in memory until exit, newest first, using Windows local time. The client reports its actual version to the server: **1.0.1 · build 2**, visible on the next connection.
+The activity log keeps the time, tunnel name, connections, disconnections and errors across profile changes: up to 500 events in memory until exit, newest first, using Windows local time. The client reports its actual version to the server: **1.0.2 · build 3**, visible on the next connection.
 
 With multiple profiles, use **Switch profile** in the tray menu: choosing a profile disconnects the old tunnel and connects the selected one automatically. A password or certificate prompt appears only when needed.
 
@@ -65,7 +65,9 @@ New or changed certificates require confirmation; expired certificates require a
 
 ![Settings](assets/settings-en.png)
 
-**Import CFG…** selects your own file. First launch also offers to review an existing Kerio `user.cfg`. Names, servers, ports, usernames and supported saved D3S passwords are imported. Unsupported passwords need manual entry; certificate trust is not imported.
+![Kerio CFG](assets/kerio-import-en.png)
+
+**Import CFG…** looks for `user.cfg` only in `%APPDATA%\Kerio\VpnClient` (Roaming). If found, it displays the path and offers **use this file**, **choose your own CFG**, or **cancel**. If missing, the file picker opens directly. Profiles stay unchanged until you choose and confirm the import. This offer works both on first launch and during manual import. Names, servers, ports, usernames and supported saved D3S passwords are imported. Unsupported passwords need manual entry; certificate trust is not imported.
 
 Duplicates require **Keep existing**, **Replace from file**, or **Keep both**. Normal import leaves the original file unchanged. Up to 100 profiles are supported.
 
@@ -92,7 +94,7 @@ In **Networks**, enter destinations that should use your regular connection, suc
 
 **About** contains the home page link and **Check for updates** button. GitHub is checked automatically once a day, including while the window is hidden in the tray. A newer version adds a yellow exclamation badge alongside the VPN status indicator and shows a notification with its version.
 
-The client downloads the MSI for its architecture and checks SHA256 against the checksum file and GitHub metadata. Installation waits until VPN is disconnected and editing is finished, then runs without the setup wizard; Windows may request UAC. No restart is forced. The client returns to the tray afterwards. Equal or older versions are never installed automatically. Retry the manual check after an error or cancellation.
+The client downloads the MSI for its architecture and checks SHA256 against the checksum file and GitHub metadata. Installation waits until VPN is disconnected and editing is finished, then runs without the setup wizard; Windows may request UAC. No restart is forced. After a successful update, the main window opens. Normal Windows sign-in startup remains in the tray. Equal or older versions are never installed automatically. Retry the manual check after an error or cancellation.
 
 For manual MSI installation, first choose **Exit** from the tray.
 
@@ -100,7 +102,7 @@ Uninstall through **Windows Settings → Apps → OpenControl Client → Uninsta
 
 The Wintun driver is officially signed. Project EXE/MSI files are not yet publisher-signed. Check [SHA256SUMS](SHA256SUMS).
 
-75 automated tests, three architecture builds and MSI content checks passed. Retry after authentication failure was tested with a synthetic Windows pipe; native tray updates were also checked. Full operation on the target ARM VM and a real firewall remains outside these tests. See [VALIDATION.md](VALIDATION.md).
+79 automated tests, three architecture builds and MSI content checks passed. Retry after authentication failure was tested with a synthetic Windows pipe; native tray updates were also checked. Full operation on the target ARM VM and a real firewall remains outside these tests. See [VALIDATION.md](VALIDATION.md).
 
 All screenshots contain fictional profiles. This repository publishes installers and documentation; client sources are private. The [protocol library](https://github.com/nr084/opencontrol-protocol) is a separate public project.
 
