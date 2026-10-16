@@ -1,4 +1,4 @@
-# Validation / Проверки — 1.0.0
+# Validation / Проверки — 1.0.1
 
 Date / Дата: 2026-10-16.
 
@@ -7,7 +7,7 @@ Date / Дата: 2026-10-16.
 | Rust stable | 1.99.1, upstream check passed |
 | OpenControl Protocol | 0.2.0, upstream HEAD 35a5c848fb2a25a64da36268026906ce3757b974 |
 | Format + clippy all targets, warnings denied | Passed / Пройдено |
-| Unit + ROUTES regression tests | 68 + 4 = 72 passed |
+| Unit + ROUTES regression tests | 71 + 4 = 75 passed |
 | Native release builds, static CRT | x86 / x64 / ARM64 passed |
 | MSI payloads | Six allowlisted files per package; extracted EXE SHA256 matches build |
 | MSI platform/language | Intel / x64 / Arm64; Russian installer 1049; application RU/EN |
@@ -40,3 +40,5 @@ Reissue checks: native Windows named-pipe regression reproduces EOF/closing-pipe
 Branding rebuild: all three MSI ProductName, installation folder, shortcut names, service display name and extracted EXE ProductName/FileDescription checked against OpenControl Client. Installed EXE filename is OpenControl-client.exe. Embedded information/warning ICO streams match the new transparent multi-resolution assets. Fresh synthetic RU/EN screenshots rendered at 150%, including About. Native installer dialog appearance on physical DPI settings remains unverified.
 
 Updater checks: numeric stable-version comparison, architecture selection, fixed-repository assets and HTTPS redirects, checksum ambiguity rejection, MSI corruption detection and native deny-write/delete file locking passed. Native tray updates with and without the update badge passed. Live public GitHub metadata check correctly reports no newer version at 1.0.0; no MSI was downloaded or installed by this check. Silent upgrade, UAC cancellation and restart on a clean Windows VM remain untested. GitHub checksum verification is an integrity check, not an independent publisher signature. Fresh RU/EN About screenshots show the manual update button and home page.
+
+1.0.1: wire metadata version matches Cargo; build 2 and Windows OS identity checked. Synthetic profile-switch tests verify cleanup waiting, stable profile identity, duplicate/stale action rejection and cancellation. History tests verify timestamps, tunnel names, loss-of-connection entries and deduplication. Native tray submenu add/update/remove and RU/EN updates passed. Actual remote administration table and live switching between corporate servers were not tested. © 2026 nr084 is included in About and EXE resources.

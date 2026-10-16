@@ -1,3 +1,23 @@
+# OpenControl Client 1.0.1
+
+## Русский
+
+- Сервер получает актуальную версию Windows-клиента: 1.0.1 · build 2 вместо постоянного 0.1.0 · build 1. Версия берётся из сборки и обновляется при следующем подключении.
+- При нескольких профилях в трее есть «Сменить профиль». Одно нажатие на другой профиль отключает текущий туннель и автоматически подключает выбранный после очистки сети. Повторные действия не запускают параллельные сеансы. При необходимости открывается запрос пароля или сертификата.
+- Журнал показывает дату, время Windows, название туннеля, подключения, отключения и ошибки. Последние 500 событий сохраняются в памяти между переключениями профилей до выхода из клиента.
+- «© 2026 nr084» в разделе «О программе» и свойствах EXE.
+- MSI для x86, x64 и ARM64; RU/EN. Обновлены документация и скриншоты.
+
+## English
+
+- The server receives the actual Windows client version: 1.0.1 · build 2 instead of the hard-coded 0.1.0 · build 1. Version metadata comes from the build and updates on the next connection.
+- Multiple profiles enable the tray’s Switch profile menu. Selecting another profile disconnects the current tunnel, completes network cleanup and connects the chosen profile automatically. Duplicate actions cannot start overlapping sessions; credentials or certificate consent are requested only when needed.
+- Activity shows Windows local date/time, tunnel name, connections, disconnections and errors. Up to 500 events remain in memory across profile switches until application exit.
+- © 2026 nr084 in About and EXE properties.
+- x86, x64 and ARM64 MSI, RU/EN; refreshed documentation and screenshots.
+
+---
+
 # OpenControl Client 1.0.0
 
 ## Русский

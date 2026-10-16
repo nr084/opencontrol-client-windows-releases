@@ -26,3 +26,6 @@ When explicitly selected by the user, export and two-way synchronization write c
 
 
 Manual and daily automatic update checks contact the public GitHub API and GitHub download servers. Requests expose normal HTTPS request information, including the IP address and client version in User-Agent. VPN profiles, server addresses, usernames, passwords and logs are not sent. The check time and notified version are stored locally; MSI files are temporarily cached locally.
+
+
+The connection log contains event times, user-defined tunnel names and states/errors. Up to 500 events stay in memory for the current run, survive profile switching and are cleared on exit. Passwords and packet contents are not recorded.
