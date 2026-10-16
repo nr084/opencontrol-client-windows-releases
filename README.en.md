@@ -1,86 +1,95 @@
-<p align="center"><img src="assets/icon.png" width="104" alt="OpenControl" /></p>
-<h1 align="center">OpenControl for Windows</h1>
-<p align="center">Your corporate network · Windows 10 / 11</p>
+<p align="center"><img src="assets/icon.png" width="96" alt="OpenControl" /></p>
+<h1 align="center">OpenControl Windows</h1>
+<p align="center">Your organization’s network · Windows 10 / 11</p>
 <p align="center"><a href="README.md">Русский</a> · <b>English</b></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.0.0</a> · <a href="RELEASE_NOTES.md">What’s new</a> · <a href="SHA256SUMS">SHA256</a></p>
 
-An independent Kerio Control VPN client built on the OpenControl Protocol Library. Your organization supplies the private server address and account. This project does not provide VPN access.
+OpenControl connects your PC to a private corporate network through Kerio Control. Your organization supplies the server address and account. This independent client is not an official Kerio/GFI product or a provider of VPN access.
 
-## Install and uninstall
+![Main window](assets/connection-en.png)
 
-[Download MSI](https://github.com/nr084/opencontrol-client-windows-releases/releases).
+## Install and connect
 
-| System | Package |
+Each MSI includes Russian and English. **Russian is the default on first launch**, regardless of the Windows language. Click **EN / RU** to switch; your choice is saved.
+
+| Computer | Download |
 |---|---|
-| Windows 10/11 Intel/AMD 64-bit | x64 |
-| Windows 10 32-bit | x86 |
-| Windows 10/11 ARM64 | arm64 |
+| Intel / AMD 64-bit PC | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.0/OpenControl-client-1.0.0-windows-x64.msi) |
+| Windows 10, 32-bit | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.0/OpenControl-client-1.0.0-windows-x86.msi) |
+| Windows on ARM, including a Windows 11 VM on Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.0/OpenControl-client-1.0.0-windows-arm64.msi) |
 
-One MSI per architecture; Russian installer, RU/EN application. Desktop and Start menu shortcuts are installed by default.
+1. Install the app. Desktop and Start menu shortcuts are created by default.
+2. Add a connection in **Profiles**, or import your CFG in **Settings**.
+3. Select the profile and turn the switch **ON**. No separate permission checkbox is needed.
+4. When prompted, verify the server certificate fingerprint with your administrator before trusting it.
 
-1.0.0 installs **OpenControl VPN** (`OpenControlVpn`), an automatically started LocalSystem service that manages the adapter, routes and DNS. The interface runs with ordinary user permissions: connecting and disconnecting do not require UAC. Administrator permission is needed to install, upgrade or uninstall. The service supports one VPN session at a time; only its connected local pipe client controls that session. If the interface crashes, the session is stopped.
+Once connected, the window hides in the tray and a notification identifies the tunnel. A failure reason, such as an incorrect password, appears beside the switch. Hover to read longer messages.
 
-Before upgrading or uninstalling, choose **Exit** in the tray menu. Uninstall through **Windows Settings → Apps → Installed apps → OpenControl → Uninstall**, or standard `msiexec /x` with the original MSI. MSI stops and removes the service, program files and both shortcuts. User profiles and external synchronization files are preserved. A shared Wintun driver is not removed from the system when other applications may use it.
+## Window and tray controls
 
-Official Wintun 0.14.1 is signed by WireGuard LLC. The project EXE/MSI do not yet have publisher Authenticode signatures; driver signing is separate. Verify SHA256SUMS.
+| Feature | How it works |
+|---|---|
+| Close the window | The X hides the app in the tray, even while disconnected |
+| Connection indicator | Green dot with a white rim: connected. Red cross: disconnected |
+| Reopen | Click the tray icon or select Open OpenControl |
+| Reconnect | Right-click the tray → Reconnect; the old session finishes before the next starts |
+| Disconnect or exit | Disconnect ends VPN; Exit also closes the app |
+| Traffic totals | Hover over the tray for session Upload / Download; totals also appear in the window |
+| Windows startup | Starts in the tray without connecting VPN automatically; disable in Windows Startup Apps if desired |
+| Appearance | Light/dark theme, Windows Segoe UI, DPI scaling and multi-size icons; no 3D accelerator required |
+| Activity | Connection events, without passwords or packet contents |
 
-## Connect and use
+Windows may put the icon in its overflow area. Notification visibility depends on Windows settings. After an established connection drops, the client attempts to restore it and retains session traffic totals.
 
-1. In **Profiles**, choose **New profile**, enter name, server, port (usually 4090), username and password, then save.
-2. Select a connection on the **Connection** tab. Profiles are sorted by name, ignoring case.
-3. Use the central VPN switch between OpenControl and Theme. On first connection, verify the certificate fingerprint with your administrator. A changed certificate requires another review.
-4. On successful connection the window hides to the tray and a notification identifies the tunnel. Windows notification settings control its visibility.
+## Profiles and QR
 
-Closing the window hides it without disconnecting. The tray icon exists throughout the application's lifetime: green mark when connected, red cross when disconnected. Windows may place it in the overflow area. Its right-click menu offers Open, Reconnect, Disconnect and **Exit**. Only Exit terminates the application after network cleanup. Reconnect finishes the old session before starting another.
+![Profiles](assets/profiles-en.png)
 
-The green shield fills most of the icon, with a transparent background. CPU rendering through Windows GDI requires no OpenGL, DirectX or 3D accelerator. Windows DPI scaling is respected. Light/dark themes change both background and text. Connected sessions never show a progress spinner.
+Add, edit and delete connections while VPN is disconnected. Profiles sort by name. Deletion has a separate confirmation button; a profile can be set as default.
 
-Text fields support Ctrl+C / Ctrl+X / Ctrl+V. Password paste is supported; hidden passwords are not copied or cut to the clipboard. Saved passwords use Windows DPAPI bound to the user and profile.
+Use a password for one session or save it with Windows protection for the current user. Text fields support copy/paste. Password fields accept paste but do not copy or cut hidden passwords.
 
-Add/delete profiles while VPN is disconnected. **Delete selected** is a button with confirmation. Deleting the last profile leaves a blank editor.
+Move one profile using **Show QR**, **Save QR to PNG**, or **Import QR from PNG**. The format is compatible with OpenControl for Android.
 
-![Interface with synthetic data](assets/connection-en.png)
+New or changed certificates require confirmation; expired certificates require a separate decision. Trust is remembered for that profile’s specific certificate.
 
-## Settings: Kerio and synchronization
+## Kerio import and file synchronization
 
-On first launch, the app offers to review an existing `%APPDATA%\Kerio\VpnClient\user.cfg`; import requires confirmation. **Settings → Import Kerio** selects another file. Names, endpoints, logins and saved D3S passwords are imported; certificate trust and Kerio startup settings are not. Duplicates require an explicit Keep existing / Replace from file / Keep both choice; maximum 100 profiles. Unsupported passwords require manual entry. A normal import does not modify the source file.
+![Settings](assets/settings-en.png)
 
-**Export user.cfg** writes the whole list in Kerio XML format, including saved passwords. Session-only passwords are excluded. Format compatibility is tested by synthetic re-import; acceptance by the external Kerio client requires a separate check.
+**Import CFG…** selects your own file. First launch also offers to review an existing Kerio `user.cfg`. Names, servers, ports, usernames and supported saved D3S passwords are imported. Unsupported passwords need manual entry; certificate trust is not imported.
 
-**Select local user.cfg** enables two-way synchronization including deletions. Initially lists are merged; differing versions of the same connection require a choice. Later changes are compared with the last synchronized baseline. Concurrent edits to the same record pause synchronization and offer the client or file version for conflicts; unrelated changes are merged. The file is checked approximately every hour while VPN is disconnected and the profile editor is closed. Missing/malformed files or unsupported passwords pause synchronization without clearing profiles. **Unlink file** preserves both the file and local profiles.
+Duplicates require **Keep existing**, **Replace from file**, or **Keep both**. Normal import leaves the original file unchanged. Up to 100 profiles are supported.
 
-Local disks only; network paths are unsupported. Kerio options outside the connection list are preserved. CFG contains portable passwords in Kerio's reversible format: restrict access to it. The client does not upload it to a cloud service.
+**Export user.cfg** saves all profiles and saved passwords in Kerio format; session-only passwords are excluded. The file contains portable passwords, so treat it as access data. Synthetic re-import is tested; acceptance by the external Kerio client still needs checking.
 
-## QR and network exclusions
+**Select local user.cfg** links the profile list to a file:
 
-Profiles offers QR import from PNG, **Show QR**, and **Save QR to PNG**. The format is compatible with OpenControl for Android.
+- Edits and deletions synchronize both ways.
+- Checks run hourly or with **Sync now**.
+- Checks pause while connecting, connected, or editing profiles.
+- Conflicting edits ask you to choose a version.
+- A missing or malformed file never clears the profile list.
+- **Unlink file** preserves both the file and local profiles.
 
-**Networks** configures shared IPv4 exclusions for all profiles, up to 128 CIDRs, such as `192.168.1.0/24` or `10.0.0.5/32`. Excluded networks and DNS servers use the regular connection outside VPN. Changes apply from the next connection. IPv6 exclusions and per-app routing are not provided.
+Network paths are unsupported. The file is not uploaded to the cloud.
 
-## Release status
+## Networks outside VPN
 
-1.0.0 is a release with the checks documented below. See [VALIDATION.md](VALIDATION.md) for actual checks. Operation in the reported Windows 11 ARM VM on Mac and a real corporate connection require testing on the target system; successful builds do not replace that testing.
+![Network exclusions](assets/networks-en.png)
 
-[Privacy](PRIVACY.en.md) · [Русская политика](PRIVACY.md)
+In **Networks**, enter destinations that should use your regular connection, such as `192.168.1.0/24` or `10.0.0.5/32`. These are shared IPv4 exclusions for all profiles, up to 128 entries, applied on the next connection. Per-app routing and IPv6 exclusions are not provided.
 
-This public repository contains binaries and user documentation only. Client sources are private; the [protocol library](https://github.com/nr084/opencontrol-protocol) is a separate public project. This is not an official Kerio/GFI product.
+## Updates, uninstall and checks
 
-<details>
-<summary>Profiles, settings and network exclusions</summary>
+Before updating, choose **Exit** from the tray. This release replaces the previous **1.0.0** files: if 1.0.0 is already installed, uninstall it normally before installing the new MSI. Profiles are preserved.
 
-![profiles](assets/profiles-en.png)
+Uninstall through **Windows Settings → Apps → OpenControl → Uninstall**. The program, service, shortcuts and startup entry are removed; profiles and external CFG files remain. Installation and removal require administrator rights, ordinary operation does not. The service starts with Windows and serves one VPN session at a time.
 
-![settings](assets/settings-en.png)
+The Wintun driver is officially signed. Project EXE/MSI files are not yet publisher-signed. Check [SHA256SUMS](SHA256SUMS).
 
-![networks](assets/networks-en.png)
+64 automated tests, three architecture builds and MSI content checks passed. Retry after authentication failure was tested with a synthetic Windows pipe; native tray updates were also checked. Full operation on the target ARM VM and a real firewall remains outside these tests. See [VALIDATION.md](VALIDATION.md).
 
-</details>
+All screenshots contain fictional profiles. This repository publishes installers and documentation; client sources are private. The [protocol library](https://github.com/nr084/opencontrol-protocol) is a separate public project.
 
-## Version 1.0 behavior
-
-The interface opens when Finish is clicked after an interactive installation. It starts in the tray at Windows sign-in without connecting VPN automatically. Windows Startup Apps can disable this entry. Silent installation does not open an interactive window. Uninstall removes the startup entry.
-
-The switch shows ON/OFF; tabs fill equal-width columns. The icon has a transparent background, smooth contours and multiple sizes. Connected tray state uses a green dot with a white rim. Hover shows total Upload/Download for the session, including automatic reconnects. A new manually started session resets counters.
-
-Choose any CFG file in the import dialog, including on first launch. Duplicate server/port/username records require an explicit Keep existing / Replace from file / Keep both choice. Replacement retains local profile identity and certificate trust; passwords are protected for that identity. Keeping both may require resolving duplicate records before linking CFG synchronization. Export defaults to user.cfg; linked-file synchronization runs hourly while idle, or manually using Sync now.
-
-New or changed server certificates require confirmation. Expired certificates require separate consent bound to that fingerprint. Trust and expiry consent are remembered for the profile; a different certificate requires a new decision.
+[Changelog](RELEASE_NOTES.md) · [Privacy](PRIVACY.en.md) · [Component licenses](THIRD-PARTY-NOTICES.txt)
