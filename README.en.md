@@ -1,5 +1,5 @@
 <p align="center"><img src="assets/icon.png" width="96" alt="OpenControl" /></p>
-<h1 align="center">OpenControl Windows</h1>
+<h1 align="center">OpenControl Client</h1>
 <p align="center">Your organization’s network · Windows 10 / 11</p>
 <p align="center"><a href="README.md">Русский</a> · <b>English</b></p>
 <p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.0.0</a> · <a href="RELEASE_NOTES.md">What’s new</a> · <a href="SHA256SUMS">SHA256</a></p>

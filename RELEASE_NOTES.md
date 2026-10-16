@@ -1,4 +1,4 @@
-# OpenControl Windows 1.0.0
+# OpenControl Client 1.0.0
 
 ## Русский
 
@@ -77,7 +77,7 @@ See [VALIDATION.md](https://github.com/nr084/opencontrol-client-windows-releases
 <details>
 <summary>v0.6.0</summary>
 
-# OpenControl Windows 0.6.0
+# OpenControl Client 0.6.0
 
 ## Русский
 
@@ -130,7 +130,7 @@ Choose Exit in the old version's tray menu before upgrading. Personal connection
 <details>
 <summary>v0.5.0</summary>
 
-# OpenControl Windows 0.5.0
+# OpenControl Client 0.5.0
 
 ## Русский
 
@@ -185,7 +185,7 @@ Preview: synthetic tests and rendering do not replace live VPN, native notificat
 <details>
 <summary>v0.4.0</summary>
 
-# OpenControl Windows 0.4.0
+# OpenControl Client 0.4.0
 
 ## Русский
 
@@ -236,7 +236,7 @@ Preview release: see VALIDATION.md for evidence and limitations. Clean install/u
 <details>
 <summary>v0.3.0</summary>
 
-# OpenControl Windows 0.3.0
+# OpenControl Client 0.3.0
 
 ## Русский
 
@@ -295,7 +295,7 @@ interactive taskbar/tray acceptance remain pending.
 <details>
 <summary>v0.2.0</summary>
 
-# OpenControl Windows 0.2.0
+# OpenControl Client 0.2.0
 
 ## Русский
 
