@@ -3,130 +3,74 @@
 <p align="center">Your corporate network · Windows 10 / 11</p>
 <p align="center"><a href="README.md">Русский</a> · <b>English</b></p>
 
-An independent Kerio Control VPN client built on the OpenControl Protocol Library.
-Your organization’s administrator supplies the private server address and account.
-This project does not provide VPN servers or access credentials.
+An independent Kerio Control VPN client built on the OpenControl Protocol Library. Your organization supplies the private server address and account. This project does not provide VPN access.
 
-## Installation
+## Install and uninstall
 
 [Download MSI](https://github.com/nr084/opencontrol-client-windows-releases/releases).
-Find your system type in Settings → System → About:
 
 | System | Package |
 |---|---|
-| Windows 10/11, 64-bit Intel/AMD | `x64` |
-| Windows 10, 32-bit | `x86` |
-| Windows 10/11, ARM64 | `arm64` |
+| Windows 10/11 Intel/AMD 64-bit | x64 |
+| Windows 10 32-bit | x86 |
+| Windows 10/11 ARM64 | arm64 |
 
-One MSI per architecture, with a Russian installer. Both languages are available in
-the app via RU/EN. Windows 11 has no 32-bit edition; use x64 or ARM64. Administrator
-permission is required. Choose Exit in the tray before upgrading or uninstalling.
-The installer includes official signed Wintun 0.14.1; the adapter is created on connection.
-Start menu and desktop shortcuts are installed by default for all users.
+One MSI per architecture; Russian installer, RU/EN application. Desktop and Start menu shortcuts are installed by default.
 
-The project EXE/MSI do not yet have publisher Authenticode signatures. This is
-separate from the valid WireGuard LLC signature on the included driver. Verify SHA256SUMS.
+0.6.0 installs **OpenControl VPN** (`OpenControlVpn`), an automatically started LocalSystem service that manages the adapter, routes and DNS. The interface runs with ordinary user permissions: connecting and disconnecting do not require UAC. Administrator permission is needed to install, upgrade or uninstall. The service supports one VPN session at a time; only its connected local pipe client controls that session. If the interface crashes, the session is stopped.
 
-## First connection
+Before upgrading or uninstalling, choose **Exit** in the tray menu. Uninstall through **Windows Settings → Apps → Installed apps → OpenControl → Uninstall**, or standard `msiexec /x` with the original MSI. MSI stops and removes the service, program files and both shortcuts. User profiles and external synchronization files are preserved. A shared Wintun driver is not removed from the system when other applications may use it.
 
-1. Open Profiles and enter name, server, port (usually 4090), username and password.
-2. Enable the separate checkbox to retain the password, then save the profile.
-3. Read the traffic disclosure on the Connection tab and click Connect.
-4. When no trusted certificate is configured, the client automatically retrieves it
-   and opens a confirmation. Verify SHA-256 with your administrator through a trusted
-   channel and confirm trust: connection continues automatically. No further prompt
-   is needed while that certificate remains valid and unchanged. Alternatively,
-   supply a trusted CA in PEM format.
+Official Wintun 0.14.1 is signed by WireGuard LLC. The project EXE/MSI do not yet have publisher Authenticode signatures; driver signing is separate. Verify SHA256SUMS.
 
-Expired certificates require separate explicit consent bound to their exact SHA-256.
-Changed certificates stop the connection and require a new review. Certificates
-that are not yet valid remain rejected. No password is sent before trust is confirmed.
-Manual certificate inspection remains available in Profiles.
+## Connect and use
 
-## Tray and display scaling
+1. In **Profiles**, choose **New profile**, enter name, server, port (usually 4090), username and password, then save.
+2. Select a connection on the **Connection** tab. Profiles are sorted by name, ignoring case.
+3. Use the central VPN switch between OpenControl and Theme. On first connection, verify the certificate fingerprint with your administrator. A changed certificate requires another review.
+4. On successful connection the window hides to the tray and a notification identifies the tunnel. Windows notification settings control its visibility.
 
-The tray icon exists from startup until Exit, including while disconnected.
-Closing the window hides it to the tray and keeps VPN running. Successful connections
-also hide the window automatically.
-A green check means VPN is connected; a red cross means disconnected, including
-reconnection attempts. Left-click opens the window. Right-click offers Open OpenControl,
-Disconnect and Exit. Exit disconnects VPN before closing. If the tray icon is
-unavailable, the window stays visible.
+Closing the window hides it without disconnecting. The tray icon exists throughout the application's lifetime: green mark when connected, red cross when disconnected. Windows may place it in the overflow area. Its right-click menu offers Open, Reconnect, Disconnect and **Exit**. Only Exit terminates the application after network cleanup. Reconnect finishes the old session before starting another.
 
-The interface uses PerMonitorV2 to scale text and controls when moving between
-monitors with different DPI. Status icons are rendered for the display scale.
-Headless RU/EN rendering was checked at 100%, 125%, 150% and 200%; physical mixed-DPI
-monitor acceptance remains pending.
+The green shield fills most of the icon, retaining the red background. CPU rendering through Windows GDI requires no OpenGL, DirectX or 3D accelerator. Windows DPI scaling is respected. Light/dark themes change both background and text. Connected sessions never show a progress spinner.
 
-## Features
+Text fields support Ctrl+C / Ctrl+X / Ctrl+V. Password paste is supported; hidden passwords are not copied or cut to the clipboard. Saved passwords use Windows DPAPI bound to the user and profile.
 
-- Android-compatible profile QR import/export (PNG); exported QR contains the password.
-- Multiple profiles, default profile and user-scoped Windows DPAPI password storage.
-- Russian and English UI, light/dark themes and the Android client’s icon.
-- TLS, encrypted UDP, key rotation and replay protection.
-- Repeated ROUTES without resetting keys or replacing the adapter for unchanged routes.
-- Persistent reconnection after the first successful connection, until Disconnect.
-- Traffic counters and bounded state-only activity history; no packet or password logs.
-- Shared IPv4 network exclusions; no per-app routing.
-  The corporate server specifies VPN routes.
+Add/delete profiles while VPN is disconnected. **Delete selected** is a button with confirmation. Deleting the last profile leaves a blank editor.
 
-## Initial release limits
+![Interface with synthetic data](assets/connection-en.png)
 
-0.5.0 is a preview. Automated tests and builds do not substitute for testing against
-your Kerio Control. Live corporate-server and physical ARM64-device acceptance are
-not yet confirmed. See [validation](VALIDATION.md).
+## Settings: Kerio and synchronization
 
-The protocol transports IPv4, and the outer server must resolve to IPv4. When the
-server requests a full IPv4 tunnel, global IPv6 is routed into the adapter and dropped.
-There is no system-wide kill switch: ordinary networking remains available between
-reconnection attempts. Exit from the tray disconnects VPN; there is no background
-service or pre-login autostart. Windows DNS behavior also depends on OS and corporate policies.
+On first launch, the app offers to review an existing `%APPDATA%\Kerio\VpnClient\user.cfg`; import requires confirmation. **Settings → Import Kerio** selects another file. Names, endpoints, logins and saved D3S passwords are imported; certificate trust and Kerio startup settings are not. Duplicates are skipped, maximum 100 profiles. Unsupported passwords require manual entry. A normal import does not modify the source file.
 
-Settings are stored in `%LOCALAPPDATA%\OpenControl\profiles.json`. Retained passwords
-are user-scoped DPAPI blobs and cannot be transferred to another Windows account by
-copying the file. Uninstalling the MSI retains user profiles.
+**Export Users.cfg** writes the whole list in Kerio XML format, including saved passwords. Session-only passwords are excluded. Format compatibility is tested by synthetic re-import; acceptance by the external Kerio client requires a separate check.
 
-[Privacy policy](PRIVACY.en.md) · [Конфиденциальность](PRIVACY.md)
+**Select local users.cfg** enables two-way synchronization including deletions. Initially lists are merged; differing versions of the same connection require a choice. Later changes are compared with the last synchronized baseline. Concurrent edits to the same record pause synchronization and offer the client or file version for conflicts; unrelated changes are merged. The file is checked approximately every five seconds while VPN is disconnected and the profile editor is closed. Missing/malformed files or unsupported passwords pause synchronization without clearing profiles. **Unlink file** preserves both the file and local profiles.
 
-This public repository contains user documentation and release artifacts only.
-Client sources are in a separate private repository. The public
-[OpenControl Protocol Library](https://github.com/nr084/opencontrol-protocol) is a
-separate project. Kerio Control belongs to its trademark owner; this client is not
-an official Kerio/GFI product.
+Local disks only; network paths are unsupported. Kerio options outside the connection list are preserved. CFG contains portable passwords in Kerio's reversible format: restrict access to it. The client does not upload it to a cloud service.
 
-![Actual UI rendered headlessly with synthetic data](assets/connection-en.png)
+## QR and network exclusions
 
-## Import from Kerio VPN
+Profiles offers QR import from PNG, **Show QR**, and **Save QR to PNG**. The format is compatible with OpenControl for Android.
 
-On first launch, if `%APPDATA%\Kerio\VpnClient\user.cfg` exists, the application
- offers to review its connections. Nothing is imported until you click Import.
-Use Profiles → Import Kerio VPN… to select a file manually, including after skipping
- the initial offer. The source file is read only.
+**Networks** configures shared IPv4 exclusions for all profiles, up to 128 CIDRs, such as `192.168.1.0/24` or `10.0.0.5/32`. Excluded networks and DNS servers use the regular connection outside VPN. Changes apply from the next connection. IPv6 exclusions and per-app routing are not provided.
 
-Names, servers, ports, usernames and saved D3S passwords are imported. Passwords are protected with Windows DPAPI. Verify
-server certificates before connecting. Kerio startup settings and trust are not migrated.
-Semicolon-separated servers become separate profiles. Matching server, port and username
-entries are skipped; existing profiles are never replaced. Maximum 100 profiles.
-The result shows added and skipped counts.
+## Release status
 
-Unsupported or damaged password entries are marked for manual entry. Passwords are not shown in the preview or written to logs.
+0.6.0 is a preview. See [VALIDATION.md](VALIDATION.md) for actual checks. Operation in the reported Windows 11 ARM VM on Mac and a real corporate connection require testing on the target system; successful builds do not replace that testing.
 
-Windows may place the icon in its notification overflow. Enable it in taskbar settings to keep it next to the clock.
+[Privacy](PRIVACY.en.md) · [Русская политика](PRIVACY.md)
 
-The main window shows the selected server and username. Configure opens profile settings; Remember password is available directly on the connection screen.
+This public repository contains binaries and user documentation only. Client sources are private; the [protocol library](https://github.com/nr084/opencontrol-protocol) is a separate public project. This is not an official Kerio/GFI product.
 
-Version 0.4 stops the progress indicator once connected. Light and dark themes update the background and text together. The tray shield is larger with a smaller status badge.
+<details>
+<summary>Profiles, settings and network exclusions</summary>
 
-Editable fields support Ctrl+C, Ctrl+X and Ctrl+V. Password fields accept pasted text; copying or cutting a hidden password does not export it to the clipboard.
+![profiles](assets/profiles-en.png)
 
-The Profiles tab supports adding and deleting profiles. Adding saves immediately. Deletion requires confirmation; deleting the last profile leaves an empty form for a new connection. A deleted default profile is cleared. Failed saves roll back the change. Disconnect VPN before managing profiles.
+![settings](assets/settings-en.png)
 
-## New in 0.5: networks and tray
+![networks](assets/networks-en.png)
 
-The **Networks** tab contains shared IPv4 exclusions for all profiles, such as `192.168.1.0/24` or a single address `10.0.0.5/32`. Up to 128 networks; use newlines, spaces, commas or semicolons. Addresses are normalized and duplicates removed. Click **Save exclusions**. Disconnect VPN before editing; the list applies on the next connection and subsequent server route updates.
-
-Excluded networks, including DNS servers inside them, use the regular connection outside VPN. IPv6 exclusions and per-app routing are not supported. An empty list preserves previous behavior.
-
-Tray **Reconnect** waits for the old session and route cleanup, then reconnects the same profile without opening the window. **Disconnect** and **Exit** cancel a pending restart.
-
-Successful connection displays **Tunnel “Profile name” connected**. It does not repeat on UI refresh; it may appear again after connection recovery. Windows notification settings control visibility. The green tray shield is larger. Installer artwork is freshly rendered at four times the previous resolution.
+</details>

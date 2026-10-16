@@ -1,2 +1,6 @@
 *.msi
 *.wixpdb
+[Uu][Ss][Ee][Rr].[Cc][Ff][Gg]
+[Uu][Ss][Ee][Rr][Ss].[Cc][Ff][Gg]
+profiles.json
+profiles.json.*
