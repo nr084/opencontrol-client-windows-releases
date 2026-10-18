@@ -2,7 +2,7 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">Your organization’s network · Windows 10 / 11</p>
 <p align="center"><a href="README.md">Русский</a> · <b>English</b></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.0.2</a> · <a href="RELEASE_NOTES.md">What’s new</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.0.3</a> · <a href="RELEASE_NOTES.md">What’s new</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 OpenControl connects your PC to a private corporate network through Kerio Control. Your organization supplies the server address and account. This independent client is not an official Kerio/GFI product or a provider of VPN access.
 
@@ -14,9 +14,9 @@ Each MSI includes Russian and English. **Russian is the default on first launch*
 
 | Computer | Download |
 |---|---|
-| Intel / AMD 64-bit PC | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.2/OpenControl-client-1.0.2-windows-x64.msi) |
-| Windows 10, 32-bit | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.2/OpenControl-client-1.0.2-windows-x86.msi) |
-| Windows on ARM, including a Windows 11 VM on Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.2/OpenControl-client-1.0.2-windows-arm64.msi) |
+| Intel / AMD 64-bit PC | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.3/OpenControl-client-1.0.3-windows-x64.msi) |
+| Windows 10, 32-bit | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.3/OpenControl-client-1.0.3-windows-x86.msi) |
+| Windows on ARM, including a Windows 11 VM on Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.3/OpenControl-client-1.0.3-windows-arm64.msi) |
 
 1. Install the app. Desktop and Start menu shortcuts are created by default.
 2. Add a connection in **Profiles**, or import your CFG in **Settings**.
@@ -35,7 +35,7 @@ Once connected, the window hides in the tray and a notification identifies the t
 | Reconnect | Right-click the tray → Reconnect; the old session finishes before the next starts |
 | Disconnect or exit | Disconnect ends VPN; Exit also closes the app |
 | Traffic totals | Hover over the tray for session Upload / Download; totals also appear in the window |
-| Windows startup | Starts in the tray without connecting VPN automatically; disable in Windows Startup Apps if desired |
+| Windows startup | Starts in the tray without connecting VPN automatically; enable or disable it in Settings |
 | Appearance | Light/dark theme, Windows Segoe UI, DPI scaling and multi-size icons; no 3D accelerator required |
 | Activity | Connection events, without passwords or packet contents |
 
@@ -45,7 +45,7 @@ Windows may put the icon in its overflow area. Notification visibility depends o
 
 ![Activity](assets/activity-en.png)
 
-The activity log keeps the time, tunnel name, connections, disconnections and errors across profile changes: up to 500 events in memory until exit, newest first, using Windows local time. The client reports its actual version to the server: **1.0.2 · build 3**, visible on the next connection.
+The activity log keeps the time, tunnel name, connections, disconnections and errors across profile changes: up to 500 events in memory until exit, newest first, using Windows local time. The client reports its actual version to the server: **1.0.3 · build 4**, visible on the next connection.
 
 With multiple profiles, use **Switch profile** in the tray menu: choosing a profile disconnects the old tunnel and connects the selected one automatically. A password or certificate prompt appears only when needed.
 
@@ -71,6 +71,8 @@ New or changed certificates require confirmation; expired certificates require a
 
 Duplicates require **Keep existing**, **Replace from file**, or **Keep both**. Normal import leaves the original file unchanged. Up to 100 profiles are supported.
 
+Export follows the Kerio layout: UTF-8 without BOM, LF, two-space indentation and an `application` section. Synchronization preserves existing application options.
+
 **Export user.cfg** saves all profiles and saved passwords in Kerio format; session-only passwords are excluded. The file contains portable passwords, so treat it as access data. Synthetic re-import is tested; acceptance by the external Kerio client still needs checking.
 
 **Select local user.cfg** links the profile list to a file:
@@ -82,6 +84,8 @@ Duplicates require **Keep existing**, **Replace from file**, or **Keep both**. N
 - A missing or malformed file never clears the profile list.
 - **Unlink file** preserves both the file and local profiles.
 
+Settings shows the last sync time, uploaded/downloaded change counts or an error reason. Current profile/password edits are saved first. Temporary errors retry hourly; conflicts require a decision.
+
 Network paths are unsupported. The file is not uploaded to the cloud.
 
 ## Networks outside VPN
@@ -89,6 +93,18 @@ Network paths are unsupported. The file is not uploaded to the cloud.
 ![Network exclusions](assets/networks-en.png)
 
 In **Networks**, enter destinations that should use your regular connection, such as `192.168.1.0/24` or `10.0.0.5/32`. These are shared IPv4 exclusions for all profiles, up to 128 entries, applied on the next connection. Per-app routing and IPv6 exclusions are not provided.
+
+## VPN before Windows sign-in
+
+1. In **Profiles**, choose the default profile, save its password and trust the server certificate.
+2. In **Settings**, choose **Enable VPN before sign-in** and approve UAC.
+3. On the next Windows start, the service connects the saved profile before anyone signs in, retrying temporary network failures.
+
+After sign-in the client takes control of the running tunnel. Disconnecting or switching profiles finishes the previous tunnel first. **Disable VPN before sign-in** disables future service-start connections; use the ordinary switch to disconnect the current session. Apply the setting again after changing the password, certificate, default profile or network exclusions.
+
+This is a computer-wide setting. Its protected connection copy uses Windows DPAPI and SYSTEM/Administrators-only access. Configuration requires administrator approval. Unknown or changed certificates are never silently accepted. Uninstall removes this copy; upgrades preserve it.
+
+**Start the client at Windows sign-in** controls only the user application, independently of the pre-sign-in VPN.
 
 ## Updates, uninstall and checks
 
@@ -102,7 +118,7 @@ Uninstall through **Windows Settings → Apps → OpenControl Client → Uninsta
 
 The Wintun driver is officially signed. Project EXE/MSI files are not yet publisher-signed. Check [SHA256SUMS](SHA256SUMS).
 
-79 automated tests, three architecture builds and MSI content checks passed. Retry after authentication failure was tested with a synthetic Windows pipe; native tray updates were also checked. Full operation on the target ARM VM and a real firewall remains outside these tests. See [VALIDATION.md](VALIDATION.md).
+85 automated tests, three architecture builds and MSI content checks passed. Retry after authentication failure was tested with a synthetic Windows pipe; native tray updates were also checked. Full operation on the target ARM VM and a real firewall remains outside these tests. See [VALIDATION.md](VALIDATION.md).
 
 All screenshots contain fictional profiles. This repository publishes installers and documentation; client sources are private. The [protocol library](https://github.com/nr084/opencontrol-protocol) is a separate public project.
 

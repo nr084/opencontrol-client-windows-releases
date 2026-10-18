@@ -20,7 +20,9 @@ User-excluded networks use the regular connection outside VPN, including DNS ser
 
 ## Service and local files (0.6)
 
-The interface runs as an ordinary user. The LocalSystem service receives VPN parameters and the password through a local Windows pipe with restricted permissions; remote clients are rejected. Credentials remain in memory for the connection, are not written to disk by the service and are not sent to the developer. Closing the client process ends its session.
+The interface runs as an ordinary user. The LocalSystem service receives VPN parameters and the password through a local Windows pipe with restricted permissions; remote clients are rejected. During ordinary connections, credentials remain in memory and are not sent to the developer. Closing the client process ends its session.
+
+When pre-sign-in VPN is explicitly enabled, the UAC helper saves a protected profile/password copy in a fixed machine registry key using machine DPAPI and SYSTEM/Administrators-only access. The service reads it at startup. Disabling this feature or uninstalling deletes the copy; upgrades preserve it. Deleting the ordinary user profile does not remove this separate copy: disable pre-sign-in VPN in Settings. Until the interface takes control, the connection runs independently of user sign-in.
 
 When explicitly selected by the user, export and two-way synchronization write connections and saved passwords to a chosen local CFG. CFG passwords use Kerio's reversible D3S format; DPAPI protection applies to the OpenControl store, not a portable CFG. Synchronization includes deletions and can be unlinked in Settings. Uninstall preserves the user's store and selected external files.
 

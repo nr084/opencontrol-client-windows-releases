@@ -1,3 +1,27 @@
+# OpenControl Client 1.0.3
+
+## Русский
+
+- Синхронизация сохраняет изменения профиля и пароля перед выгрузкой. Добавлены время последней попытки, число изменений в обе стороны и причина ошибки; временные ошибки повторяются через час, конфликты решаются вручную.
+- Экспорт CFG оформлен в формате Kerio: UTF-8 без BOM, LF, отступы по два пробела, секция application. Синхронизация сохраняет существующие параметры приложения.
+- В настройках можно включать и выключать запуск клиента при входе в Windows.
+- Добавлено подключение профиля по умолчанию до входа пользователя через службу. Включение требует сохранённого пароля, подтверждённого сертификата и UAC. Защищённая копия хранится для SYSTEM/администраторов; после изменения профиля настройку нужно применить повторно.
+- После входа клиент управляет уже работающим туннелем. При смене профиля старое соединение завершается перед новым.
+- Обновлены RU/EN-инструкции и скриншоты. MSI x86/x64/ARM64, оба языка в каждом пакете. Версия сервера: 1.0.3 · build 4.
+- 85 автоматических тестов. Проверка фактической перезагрузки, UAC и подключения до входа на целевом компьютере остаётся необходимой; реальный корпоративный VPN и ARM VM здесь не проверялись.
+
+## English
+
+- Synchronization saves profile and password edits before upload. Settings shows the last attempt time, bidirectional change counts and errors. Temporary failures retry hourly; conflicts require a choice.
+- CFG export follows Kerio formatting: UTF-8 without BOM, LF, two-space indentation, application section. Sync preserves existing application options.
+- Settings can enable or disable client startup at Windows sign-in.
+- The default VPN profile can connect through the service before sign-in. Enabling requires a saved password, trusted certificate and UAC. The protected copy is restricted to SYSTEM/Administrators; apply again after profile changes.
+- After sign-in, the client controls the running tunnel. Profile switching finishes the old connection first.
+- Updated RU/EN guides and screenshots. Bilingual x86/x64/ARM64 MSI packages. Server-reported version: 1.0.3 · build 4.
+- 85 automated tests. Actual reboot/UAC/pre-sign-in VPN acceptance remains necessary on the target machine; real corporate VPN and ARM VM operation were not tested here.
+
+---
+
 # OpenControl Client 1.0.2
 
 ## Русский

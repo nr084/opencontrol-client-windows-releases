@@ -1,13 +1,13 @@
-# Validation / Проверки — 1.0.2
+# Validation / Проверки — 1.0.3
 
-Date / Дата: 2026-10-16.
+Date / Дата: 2026-10-18.
 
 | Check / Проверка | Result / Результат |
 |---|---|
 | Rust stable | 1.99.1, upstream check passed |
 | OpenControl Protocol | 0.2.0, upstream HEAD 35a5c848fb2a25a64da36268026906ce3757b974 |
 | Format + clippy all targets, warnings denied | Passed / Пройдено |
-| Unit + ROUTES regression tests | 75 + 4 = 79 passed |
+| Unit + ROUTES regression tests | 81 + 4 = 85 passed |
 | Native release builds, static CRT | x86 / x64 / ARM64 passed |
 | MSI payloads | Six allowlisted files per package; extracted EXE SHA256 matches build |
 | MSI platform/language | Intel / x64 / Arm64; Russian installer 1049; application RU/EN |
@@ -28,9 +28,9 @@ Date / Дата: 2026-10-16.
 | Live corporate VPN, suspend/resume, actual network cleanup | Not tested / Не проверено |
 | External Kerio client accepting exported CFG | Not tested; synthetic re-import only |
 
-Service boundary: local interactive clients only, protected pipe ACL without user pipe-instance creation, remote-pipe rejection, server PID checked against SCM before credentials. Each VPN session owns a fresh pipe instance; the old protected handle remains until its successor exists, after VPN cleanup. The service does not load user profiles, accept shell commands or persist passwords. These are source/unit checks, not a completed installed-service security assessment.
+Service boundary: local interactive clients only, protected pipe ACL without user pipe-instance creation, remote-pipe rejection, server PID checked against SCM before credentials. Each VPN session owns a fresh pipe instance; the old protected handle remains until its successor exists, after VPN cleanup. The service does not load per-user profile files or accept shell commands. In 1.0.3 it may read the explicitly configured protected machine boot profile; only the UAC helper writes that credential. These are source/unit checks, not a completed installed-service security assessment.
 
-Граница службы: локальные интерактивные клиенты, ограниченный ACL канала без права создавать экземпляры, запрет удалённых подключений, проверка PID службы через SCM до отправки пароля. Одна сессия принадлежит одному открытому каналу. Служба не загружает пользовательские профили, не принимает команды оболочки и не сохраняет пароли. Это проверки кода и тестов, а не завершённая проверка установленной службы.
+Граница службы: локальные интерактивные клиенты, ограниченный ACL канала без права создавать экземпляры, запрет удалённых подключений, проверка PID службы через SCM до отправки пароля. Одна сессия принадлежит одному открытому каналу. Служба не загружает файлы пользовательских профилей и не принимает команды оболочки. В 1.0.3 она читает отдельно настроенную защищённую конфигурацию запуска компьютера; записывает её только UAC-помощник. Это проверки кода и тестов, а не завершённая проверка установленной службы.
 
 No real credentials, private profiles or user screenshots are included in this repository or its assets. All displayed UI images use synthetic data. The privacy audit does not cover inaccessible deleted GitHub objects/caches or third-party copies.
 
@@ -47,3 +47,8 @@ Updater checks: numeric stable-version comparison, architecture selection, fixed
 1.0.2: successful update results 0/3010 open the main window even with the legacy --autostart argument; failed/cancelled updates retain tray startup. Synthetic Kerio tests cover existing/missing paths, no read before selection, cancellation without profile changes, own-file preview, read failure and duplicate decisions. RU/EN import and About screenshots use synthetic settings. Preview timestamps advance to let modal animations settle. Native x64 CPU startup/render/shutdown passed. Full MSI update/UAC/relaunch and target ARM VM acceptance remain untested.
 
 1.0.2: результаты обновления 0/3010 открывают окно, в том числе при старом --autostart. Синтетические тесты проверяют выбор CFG, отмену, отсутствие файла, ошибку чтения и дубли. Полный цикл автообновления с UAC на чистой VM не проверен.
+
+
+1.0.3: synthetic export matches exact Kerio XML layout, including declaration, LF, indentation, empty elements and application section. Bidirectional sync tests cover add/edit/delete uploads and repeat no-op. Result timestamps, counts and error codes are persisted. No personal fixtures are shipped.
+
+Pre-sign-in VPN: machine DPAPI roundtrip, required saved-password/pin validation, one-shot GUI-owned pipe creation, boot-tunnel status/cleanup handoff and existing broker retry tests pass. GUI helper verifies the elevated child PID, helper verifies parent pipe PID. Its one-shot pipe is restricted to owner/Administrators/SYSTEM; the existing VPN service ACL is unchanged. The fixed registry credential key is restricted to SYSTEM/Administrators. MSI uninstall cleanup is fixed-purpose, deferred and excluded from upgrades. Actual UAC, machine registry persistence, reboot-before-logon and live VPN acceptance remain untested; unit tests do not replace these checks.
