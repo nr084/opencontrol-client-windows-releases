@@ -2,7 +2,7 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">Доступ к сети вашей организации · Windows 10 / 11</p>
 <p align="center"><b>Русский</b> · <a href="README.en.md">English</a></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Скачать 1.0.3</a> · <a href="RELEASE_NOTES.md">Что нового</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Скачать 1.0.4</a> · <a href="RELEASE_NOTES.md">Что нового</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 OpenControl подключает компьютер к частной корпоративной сети через Kerio Control. Адрес сервера, логин и пароль выдаёт ваша организация. Это независимый клиент, не официальный продукт Kerio/GFI и не сервис продажи VPN-доступа.
 
@@ -14,9 +14,9 @@ OpenControl подключает компьютер к частной корпо
 
 | Компьютер | Скачать |
 |---|---|
-| Обычный ПК Intel / AMD, 64 бита | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.3/OpenControl-client-1.0.3-windows-x64.msi) |
-| Windows 10, 32 бита | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.3/OpenControl-client-1.0.3-windows-x86.msi) |
-| Windows на ARM, в том числе Windows 11 VM на Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.3/OpenControl-client-1.0.3-windows-arm64.msi) |
+| Обычный ПК Intel / AMD, 64 бита | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.4/OpenControl-client-1.0.4-windows-x64.msi) |
+| Windows 10, 32 бита | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.4/OpenControl-client-1.0.4-windows-x86.msi) |
+| Windows на ARM, в том числе Windows 11 VM на Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.4/OpenControl-client-1.0.4-windows-arm64.msi) |
 
 1. Установите приложение. Ярлыки появятся на рабочем столе и в меню «Пуск».
 2. Добавьте соединение во вкладке **Профили** или импортируйте свой CFG во вкладке **Настройки**.
@@ -44,9 +44,11 @@ Windows может поместить значок в область скрыт�
 
 ## История подключений
 
+Уведомление об успехе показывается один раз после ручного подключения, переподключения или смены профиля. Автоматическое восстановление, в том числе после сна, и подхват VPN до входа работают без повторных уведомлений. При выключенном экране, блокировке или режиме тишины ожидающее уведомление отбрасывается, а после возвращения не повторяется. Актуальное состояние остаётся в трее и журнале.
+
 ![Журнал](assets/activity-ru.png)
 
-Журнал не очищается при смене профиля. Время указано по часам Windows; новые события сверху. Клиент передаёт серверу свою настоящую версию — в этом выпуске **1.0.3 · build 4**. Она появится после нового подключения.
+Журнал не очищается при смене профиля. Время указано по часам Windows; новые события сверху. Клиент передаёт серверу свою настоящую версию — в этом выпуске **1.0.4 · build 5**. Она появится после нового подключения.
 
 ## Профили и QR
 
@@ -117,7 +119,7 @@ Windows может поместить значок в область скрыт�
 
 Драйвер Wintun имеет официальную подпись. EXE и MSI проекта пока не подписаны издателем. Контрольные суммы находятся в [SHA256SUMS](SHA256SUMS).
 
-Пройдены 85 автоматических тестов, сборки трёх архитектур и проверки содержимого MSI. Повторное подключение после ошибки пароля проверено на синтетическом канале Windows; нативное обновление трея тоже проверено. Полная проверка на целевой ARM-виртуальной машине и реальном firewall остаётся за пределами этих тестов. Подробности — [VALIDATION.md](VALIDATION.md).
+Пройдены 89 автоматических тестов, сборки трёх архитектур и проверки содержимого MSI. Повторное подключение после ошибки пароля проверено на синтетическом канале Windows; нативное обновление трея тоже проверено. Полная проверка на целевой ARM-виртуальной машине и реальном firewall остаётся за пределами этих тестов. Подробности — [VALIDATION.md](VALIDATION.md).
 
 Все скриншоты используют вымышленные профили. Здесь публикуются установщики и документация; исходники клиента находятся в закрытом репозитории. [Библиотека протокола](https://github.com/nr084/opencontrol-protocol) — отдельный открытый проект.
 

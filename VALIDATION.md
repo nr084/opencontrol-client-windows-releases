@@ -1,13 +1,13 @@
-# Validation / Проверки — 1.0.3
+# Validation / Проверки — 1.0.4
 
-Date / Дата: 2026-10-18.
+Date / Дата: 2026-10-21.
 
 | Check / Проверка | Result / Результат |
 |---|---|
 | Rust stable | 1.99.1, upstream check passed |
 | OpenControl Protocol | 0.2.0, upstream HEAD 35a5c848fb2a25a64da36268026906ce3757b974 |
 | Format + clippy all targets, warnings denied | Passed / Пройдено |
-| Unit + ROUTES regression tests | 81 + 4 = 85 passed |
+| Unit + ROUTES regression tests | 85 + 4 = 89 passed |
 | Native release builds, static CRT | x86 / x64 / ARM64 passed |
 | MSI payloads | Six allowlisted files per package; extracted EXE SHA256 matches build |
 | MSI platform/language | Intel / x64 / Arm64; Russian installer 1049; application RU/EN |
@@ -16,7 +16,7 @@ Date / Дата: 2026-10-18.
 | Service registration/removal tables | LocalSystem, automatic, --service, stop/delete on uninstall; standard RemoveFiles/RemoveShortcuts/RemoveFolders |
 | GUI manifest | asInvoker; PerMonitorV2 |
 | CPU native startup | Hidden native x64 window created/rendered/closed using synthetic settings |
-| UI headless | Actual production painter, RU/EN, dark/light, 100/150/200%, widths 620/900; visually inspected |
+| UI headless | 1.0.4 About RU/EN rendered and visually inspected; earlier dark/light, 100/150/200%, widths 620/900 checks retained from previous releases |
 | Dependencies | softbuffer 0.4.8, egui-winit clipboard + arboard 3.7.0; no glow/glutin/wgpu in ARM64 normal graph |
 | IPC rejection | Fake native named-pipe endpoint receives no credentials; malformed/oversized requests rejected |
 | CFG | Synthetic Unicode/D3S export-reimport, saved-password policy, merge/conflicts/deletions, missing-file protection, stale-write rejection |
@@ -52,3 +52,8 @@ Updater checks: numeric stable-version comparison, architecture selection, fixed
 1.0.3: synthetic export matches exact Kerio XML layout, including declaration, LF, indentation, empty elements and application section. Bidirectional sync tests cover add/edit/delete uploads and repeat no-op. Result timestamps, counts and error codes are persisted. No personal fixtures are shipped.
 
 Pre-sign-in VPN: machine DPAPI roundtrip, required saved-password/pin validation, one-shot GUI-owned pipe creation, boot-tunnel status/cleanup handoff and existing broker retry tests pass. GUI helper verifies the elevated child PID, helper verifies parent pipe PID. Its one-shot pipe is restricted to owner/Administrators/SYSTEM; the existing VPN service ACL is unchanged. The fixed registry credential key is restricted to SYSTEM/Administrators. MSI uninstall cleanup is fixed-purpose, deferred and excluded from upgrades. Actual UAC, machine registry persistence, reboot-before-logon and live VPN acceptance remain untested; unit tests do not replace these checks.
+
+
+1.0.4: notification policy tests cover manual attempt success, repeated automatic reconnects, silent boot attachment, sleep/lock interruption, returning between UI polls, missing tray and suppressed notifications. Native synthetic-window checks verify power/session registration and dispatch of display off/on, lock and suspend messages. The test does not suspend or lock Windows. CPU native startup/shutdown and clippy pass. Physical Modern Standby, screen/lid transitions and Shell balloon presentation on the target laptop remain untested. No claim is made about purging the entire Windows notification queue.
+
+API reference: [Windows notification state](https://learn.microsoft.com/en-us/windows/win32/api/shellapi/ne-shellapi-query_user_notification_state). The implementation additionally tracks session display power events rather than assuming that a hidden app window means an absent user.

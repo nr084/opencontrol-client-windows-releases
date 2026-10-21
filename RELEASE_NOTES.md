@@ -1,3 +1,25 @@
+# OpenControl Client 1.0.4
+
+## Русский
+
+- Убраны повторные уведомления при автоматическом восстановлении VPN после сна и сетевых обрывов. История подключений и восстановление работают как прежде.
+- Одно уведомление об успехе относится к ручному подключению, переподключению или смене профиля.
+- Сон, выключение/затемнение экрана, блокировка и отключение пользовательского сеанса отменяют ожидающее уведомление. Режим тишины Windows также учитывается. Пропущенные уведомления не воспроизводятся после возвращения.
+- Подхват соединения, созданного службой до входа, не создаёт лишнее уведомление. Устаревший текущий баллон этого значка убирается при смене состояния; чужие уведомления не затрагиваются.
+- Версия 1.0.4 · build 5; MSI для x86, x64 и ARM64, RU/EN в каждом.
+- 89 автоматических тестов и нативная проверка на собственном скрытом окне. Физические циклы Modern Standby на ноутбуке ещё требуют проверки.
+
+## English
+
+- Automatic VPN recovery after sleep or network loss no longer repeats success notifications. Recovery and activity logging are preserved.
+- One success notification belongs to a manual connect, reconnect or profile switch.
+- Sleep, display off/dim, session lock and session disconnection cancel a pending notification. Windows notification suppression is respected. Missed notifications are not replayed on return.
+- Attaching to a pre-sign-in service tunnel is silent. The icon's stale current balloon is cleared on state changes; other applications' notifications are untouched.
+- Version 1.0.4 · build 5; bilingual x86, x64 and ARM64 MSI packages.
+- 89 automated tests plus native checks on an owned hidden window. Physical Modern Standby cycles on a laptop remain untested.
+
+---
+
 # OpenControl Client 1.0.3
 
 ## Русский
