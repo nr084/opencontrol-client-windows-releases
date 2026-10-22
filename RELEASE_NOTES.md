@@ -1,3 +1,23 @@
+# OpenControl Client 1.0.5
+
+## Русский
+
+- Подсказка трея показывает название активного туннеля, состояние и трафик за сессию. Длинные имена и эмодзи не вытесняют счётчики.
+- В Настройках отдельно управляются запуск клиента при входе в Windows и подключение к выбранному туннелю после запуска приложения.
+- Автоподключение по умолчанию выключено, использует сохранённый пароль и подтверждённый сертификат. Если данных не хватает, открывается окно клиента. Работающее соединение службы сохраняется.
+- Выбор туннеля сохраняется при переименовании и сортировке. Удаление выбранного профиля отключает автоподключение; ручное отключение не запускает его повторно.
+- Версия 1.0.5 · build 6. MSI x86, x64 и ARM64, RU/EN в каждом. 95 автоматических тестов. Проверка входа в Windows и VPN на целевых устройствах остаётся отдельной приёмкой.
+
+## English
+
+- The tray tooltip includes the active tunnel name, state and session traffic. Long Unicode names do not displace traffic counters.
+- Settings separates client startup at Windows sign-in from connecting a selected tunnel when the application starts.
+- Automatic connection is off by default and uses a saved password and trusted certificate. Missing data opens the client window. An existing service connection is preserved.
+- Tunnel selection survives renaming and sorting. Deleting the selected profile disables automatic connection; manual disconnection does not trigger it again.
+- Version 1.0.5 · build 6. Bilingual x86, x64 and ARM64 MSI packages. 95 automated tests. Actual Windows sign-in and VPN acceptance on target devices remain separate checks.
+
+---
+
 # OpenControl Client 1.0.4
 
 ## Русский

@@ -1,13 +1,13 @@
-# Validation / Проверки — 1.0.4
+# Validation / Проверки — 1.0.5
 
-Date / Дата: 2026-10-21.
+Date / Дата: 2026-10-22.
 
 | Check / Проверка | Result / Результат |
 |---|---|
 | Rust stable | 1.99.1, upstream check passed |
 | OpenControl Protocol | 0.2.0, upstream HEAD 35a5c848fb2a25a64da36268026906ce3757b974 |
 | Format + clippy all targets, warnings denied | Passed / Пройдено |
-| Unit + ROUTES regression tests | 85 + 4 = 89 passed |
+| Unit + ROUTES regression tests | 91 + 4 = 95 passed |
 | Native release builds, static CRT | x86 / x64 / ARM64 passed |
 | MSI payloads | Six allowlisted files per package; extracted EXE SHA256 matches build |
 | MSI platform/language | Intel / x64 / Arm64; Russian installer 1049; application RU/EN |
@@ -16,7 +16,7 @@ Date / Дата: 2026-10-21.
 | Service registration/removal tables | LocalSystem, automatic, --service, stop/delete on uninstall; standard RemoveFiles/RemoveShortcuts/RemoveFolders |
 | GUI manifest | asInvoker; PerMonitorV2 |
 | CPU native startup | Hidden native x64 window created/rendered/closed using synthetic settings |
-| UI headless | 1.0.4 About RU/EN rendered and visually inspected; earlier dark/light, 100/150/200%, widths 620/900 checks retained from previous releases |
+| UI headless | 1.0.5 About and Settings RU/EN rendered and visually inspected; earlier dark/light, 100/150/200%, widths 620/900 checks retained from previous releases |
 | Dependencies | softbuffer 0.4.8, egui-winit clipboard + arboard 3.7.0; no glow/glutin/wgpu in ARM64 normal graph |
 | IPC rejection | Fake native named-pipe endpoint receives no credentials; malformed/oversized requests rejected |
 | CFG | Synthetic Unicode/D3S export-reimport, saved-password policy, merge/conflicts/deletions, missing-file protection, stale-write rejection |
@@ -57,3 +57,7 @@ Pre-sign-in VPN: machine DPAPI roundtrip, required saved-password/pin validation
 1.0.4: notification policy tests cover manual attempt success, repeated automatic reconnects, silent boot attachment, sleep/lock interruption, returning between UI polls, missing tray and suppressed notifications. Native synthetic-window checks verify power/session registration and dispatch of display off/on, lock and suspend messages. The test does not suspend or lock Windows. CPU native startup/shutdown and clippy pass. Physical Modern Standby, screen/lid transitions and Shell balloon presentation on the target laptop remain untested. No claim is made about purging the entire Windows notification queue.
 
 API reference: [Windows notification state](https://learn.microsoft.com/en-us/windows/win32/api/shellapi/ne-shellapi-query_user_notification_state). The implementation additionally tracks session display power events rather than assuming that a hidden app window means an absent user.
+
+1.0.5: synthetic tests cover independent startup preferences, legacy defaults (no automatic VPN), one-shot startup intent, waiting for the service probe, preserving an existing service/manual tunnel, UUID selection across rename/sort, deleted/missing profiles and missing credentials without network activity. Tooltip tests cover RU/EN, long Unicode/emoji names, control filtering, UTF-16 limits and preserved traffic counters. Native GUID tray updates and hidden CPU startup checks passed. These tests do not perform real user sign-in, install a service or connect to a corporate firewall.
+
+1.0.5 dependency refresh: Rust stable 1.99.1 and protocol HEAD unchanged; compatible stable Cargo updates include Tokio 1.54.1, rustls-webpki 0.103.16 and schannel 0.1.30. Cargo.lock pins the complete resolved graph.
