@@ -1,3 +1,27 @@
+# OpenControl Client 1.1.2
+
+## Русский
+
+- Сервер получает конкретную версию Windows, выпуск, номер сборки с обновлением и нативную архитектуру x86/x64/ARM64 вместо общей строки Windows 10/11.
+- При эмуляции дополнительно указывается архитектура клиента. Например: `Windows 11 24H2 (26100.1234), ARM64 (client x64)`.
+- Определение выполняется при каждом новом подключении, включая VPN до входа в Windows. Старые сохранённые конфигурации совместимы; устаревшее поле ОС игнорируется.
+- Имя компьютера, имя пользователя Windows и серийные номера не передаются. При недоступных сведениях используется нейтральное обозначение без угадывания.
+- Новые сведения появятся после обновления и переподключения. Версия приложения передаётся отдельно: **1.1.2 · build 9**.
+- Три MSI: x86, x64, ARM64; русский и английский в каждом. Protocol Library 0.9.0; Rust stable 1.99.1.
+- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). EXE/MSI без издательской подписи; официальный Wintun имеет собственную проверенную подпись.
+
+## English
+
+- The server receives the specific Windows version, release, OS build with update revision and native x86/x64/ARM64 architecture instead of Windows 10/11.
+- Emulated clients also report their process architecture. Example: `Windows 11 24H2 (26100.1234), ARM64 (client x64)`.
+- Detection runs on every new connection, including before-sign-in VPN. Existing saved configurations remain compatible; obsolete OS fields are ignored.
+- Computer names, Windows user names and serial numbers are not transmitted. Unavailable details use a neutral fallback rather than guessed values.
+- Update and reconnect to see the new description. The application version remains separate: **1.1.2 · build 9**.
+- Three MSI packages: x86, x64, ARM64; Russian and English in each. Protocol Library 0.9.0; Rust stable 1.99.1.
+- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). EXE/MSI have no publisher signature; official Wintun has its own verified signature.
+
+---
+
 # OpenControl Client 1.1.1
 
 ## Русский
