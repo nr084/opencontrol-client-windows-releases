@@ -1,3 +1,27 @@
+# OpenControl Client 1.1.1
+
+## Русский
+
+- Настройки разбиты на отдельные блоки: клиент, автоподключение, перенос соединений и синхронизация.
+- VPN до входа в Windows и подключение после запуска клиента теперь взаимоисключающие. Автозапуск самого приложения настраивается отдельно.
+- Одна кнопка «Включить VPN до входа» открывает выбор профиля. После подтверждения и успешного сохранения она становится «Отключить VPN до входа». Отмена или ошибка не меняет прежний режим.
+- Последний выбранный профиль запоминается как профиль по умолчанию. Отдельный чекбокс убран; сортировка не сбрасывает выбор.
+- Убран неподдерживаемый символ рядом с состоянием синхронизации.
+- Windows 10/11: x86, x64, ARM64; русский и английский в каждом MSI. Версия 1.1.1, build 8; Protocol Library 0.9.0.
+- [Результаты и ограничения проверок](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). EXE/MSI не подписаны издательским сертификатом; официальный драйвер Wintun подписан отдельно.
+
+## English
+
+- Settings are grouped into client startup, automatic connection, connection transfer and file synchronization.
+- VPN before Windows sign-in and VPN on client startup are now mutually exclusive. Starting the application itself remains independent.
+- One “Enable VPN before sign-in” button opens profile selection. After approval and a successful save it becomes “Disable VPN before sign-in”. Cancellation or failure preserves the previous mode.
+- The last selected profile is remembered as the default. Removed the separate checkbox; sorting preserves the selection.
+- Removed the unsupported synchronization status glyph.
+- Windows 10/11: x86, x64, ARM64; Russian and English in every MSI. Version 1.1.1, build 8; Protocol Library 0.9.0.
+- [Validation results and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). EXE/MSI have no publisher signature; official Wintun has its own verified signature.
+
+---
+
 # OpenControl Client 1.1.0
 
 ## Русский

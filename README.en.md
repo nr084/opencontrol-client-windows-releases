@@ -2,7 +2,7 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">Your organization’s network · Windows 10 / 11</p>
 <p align="center"><a href="README.md">Русский</a> · <b>English</b></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.1.0</a> · <a href="RELEASE_NOTES.md">What’s new</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.1.1</a> · <a href="RELEASE_NOTES.md">What’s new</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 OpenControl connects your PC to a private corporate network through Kerio Control. Your organization supplies the server address and account. This independent client is not an official Kerio/GFI product or a provider of VPN access.
 
@@ -14,9 +14,9 @@ Each MSI includes Russian and English. **Russian is the default on first launch*
 
 | Computer | Download |
 |---|---|
-| Intel / AMD 64-bit PC | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.0/OpenControl-client-1.1.0-windows-x64.msi) |
-| Windows 10, 32-bit | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.0/OpenControl-client-1.1.0-windows-x86.msi) |
-| Windows on ARM, including a Windows 11 VM on Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.0/OpenControl-client-1.1.0-windows-arm64.msi) |
+| Intel / AMD 64-bit PC | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.1/OpenControl-client-1.1.1-windows-x64.msi) |
+| Windows 10, 32-bit | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.1/OpenControl-client-1.1.1-windows-x86.msi) |
+| Windows on ARM, including a Windows 11 VM on Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.1/OpenControl-client-1.1.1-windows-arm64.msi) |
 
 1. Install the app. Desktop and Start menu shortcuts are created by default.
 2. Add a connection in **Profiles**, or import your CFG in **Settings**.
@@ -47,7 +47,7 @@ A success notification is shown once after a manual connection, reconnect or pro
 
 ![Activity](assets/activity-en.png)
 
-The activity log keeps the time, tunnel name, connections, disconnections and errors across profile changes: up to 500 events in memory until exit, newest first, using Windows local time. The client reports its actual version to the server: **1.1.0 · build 7**, visible on the next connection.
+The activity log keeps the time, tunnel name, connections, disconnections and errors across profile changes: up to 500 events in memory until exit, newest first, using Windows local time. The client reports its actual version to the server: **1.1.1 · build 8**, visible on the next connection.
 
 With multiple profiles, use **Switch profile** in the tray menu: choosing a profile disconnects the old tunnel and connects the selected one automatically. A password or certificate prompt appears only when needed.
 
@@ -98,22 +98,26 @@ In **Networks**, enter destinations that should use your regular connection, suc
 
 ## Client startup and automatic connection
 
-**Settings → Startup** provides two independent switches:
+**Settings → Startup and connection** separates application startup from VPN connection:
 
 - **Start the client at Windows sign-in** enables or disables tray startup for your Windows account.
-- **Connect to VPN when the client starts** connects the tunnel selected in the list on the next application start, whether manual or at sign-in. Off by default. Changing this setting does not connect immediately.
+- **Connect when the client starts** connects the tunnel selected in the list on the next application start, whether manual or at sign-in. Off by default. Changing this setting does not connect immediately.
 
 Save the profile password and trust the certificate through a regular connection first. Missing data opens the main window with an explanation. An existing service tunnel is preserved; startup connection does not replace it or run again after manual disconnection. Deleting the selected profile disables this setting.
 
 The tray tooltip shows the active tunnel name, state and total session traffic. Very long names use an ellipsis while traffic counters remain visible. Automatic startup connection does not show a success notification.
 
+The last selected profile is the default; there is no separate default-profile control.
+
 ## VPN before Windows sign-in
 
-1. In **Profiles**, choose the default profile, save its password and trust the server certificate.
-2. In **Settings**, choose **Enable VPN before sign-in** and approve UAC.
+1. In **Profiles**, save the profile password and trust the server certificate.
+2. In **Settings**, choose **Enable VPN before sign-in**, select a profile, click **Apply** and approve UAC. After a successful save the button becomes **Disable VPN before sign-in**.
 3. On the next Windows start, the service connects the saved profile before anyone signs in, retrying temporary network failures.
 
-After sign-in the client takes control of the running tunnel. Disconnecting or switching profiles finishes the previous tunnel first. **Disable VPN before sign-in** disables future service-start connections; use the ordinary switch to disconnect the current session. Apply the setting again after changing the password, certificate, default profile or network exclusions.
+After sign-in the client takes control of the running tunnel. Disconnecting or switching profiles finishes the previous tunnel first. **Disable VPN before sign-in** disables future service-start connections; use the ordinary switch to disconnect the current session. Apply the setting again after changing the password, certificate, chosen profile or network exclusions.
+
+**Mutually exclusive modes:** enabling VPN before sign-in turns off VPN on client startup. Disable before-sign-in VPN before choosing the other mode. Cancelled or failed UAC preserves previous settings. Client window startup remains independent.
 
 This is a computer-wide setting. Its protected connection copy uses Windows DPAPI and SYSTEM/Administrators-only access. Configuration requires administrator approval. Unknown or changed certificates are never silently accepted. Uninstall removes this copy; upgrades preserve it.
 
@@ -131,7 +135,7 @@ Uninstall through **Windows Settings → Apps → OpenControl Client → Uninsta
 
 The Wintun driver is officially signed. Project EXE/MSI files are not yet publisher-signed. Check [SHA256SUMS](SHA256SUMS).
 
-95 automated tests, three architecture builds and MSI content checks passed. Retry after authentication failure was tested with a synthetic Windows pipe; native tray updates were also checked. Full operation on the target ARM VM and a real firewall remains outside these tests. See [VALIDATION.md](VALIDATION.md).
+106 automated tests, three architecture builds and MSI content checks passed. The UI was checked with synthetic profiles. Installed-service, UAC and pre-sign-in connection were not exercised on a separate Windows machine in this release; the existing user VPN was not interrupted. See [VALIDATION.md](VALIDATION.md).
 
 All screenshots contain fictional profiles. This repository publishes installers and documentation; client sources are private. The [protocol library](https://github.com/nr084/opencontrol-protocol) is a separate public project.
 
@@ -146,7 +150,7 @@ All screenshots contain fictional profiles. This repository publishes installers
 
 © 2026 nr084
 
-## Compatibility mode and network recovery — 1.1.0
+## Compatibility mode and network recovery — 1.1.1
 
 Profiles now offer an optional Legacy compatibility mode. It is off by default:
 AES-GCM remains the normal mode. Legacy provides weaker protection without GCM
