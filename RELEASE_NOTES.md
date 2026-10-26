@@ -1,3 +1,29 @@
+# OpenControl Client 1.1.0
+
+## Русский
+
+- Обновлена OpenControl Protocol Library до 0.9.0; Rust stable 1.99.1.
+- Один координатор ведёт весь сеанс: повторные списки сетей не пересоздают туннель, ключи и защиту от повторных пакетов. Незавершённый список START без END не применяется.
+- Применение маршрутов подтверждается по операциям. Ошибки повторяются, частично созданные ресурсы учитываются; маршрут к VPN-серверу защищается через исходный интерфейс до полного туннеля.
+- Журнал восстановления хранит сведения о маршрутах и DNS. Чужие изменения не затираются; при неудачной очистке повторное подключение блокируется до восстановления.
+- В профиле появился выключенный по умолчанию совместимый режим Legacy. Он обеспечивает более слабую защиту без GCM-аутентификации, требует явного выбора и нового соединения. AES-GCM остаётся штатным режимом; автоматического понижения защиты нет.
+- Проверяются оба слота ключей, поколения, подтверждения rekey и отмена старых сеансов. Активность управляющего канала и UDP учитывается отдельно. Бесшовная смена UDP endpoint не заявляется.
+- Windows 10/11: три MSI — x86, x64, ARM64, русский и английский в каждом. Версия 1.1.0, build 7.
+- Фактические результаты и ограничения проверок: [VALIDATION.md](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). EXE/MSI не подписаны издательским сертификатом; официальный Wintun 0.14.1 имеет отдельную действительную подпись.
+
+## English
+
+- Updated OpenControl Protocol Library to 0.9.0; Rust stable 1.99.1.
+- One coordinator owns the entire session. Repeated route advertisements preserve the tunnel, keys and replay state. START without END is staged, never applied prematurely.
+- Route operations are acknowledged individually. Failures are retried and partial resources remain tracked. The VPN endpoint is protected through the original uplink before full-tunnel routes.
+- A recovery journal retains route/DNS state. External edits are not overwritten; failed cleanup blocks reconnect until restoration succeeds.
+- Optional per-profile Legacy mode defaults to off. It has weaker protection without GCM authentication, requires explicit opt-in and a new connection. AES-GCM remains the default; errors never cause automatic downgrade.
+- Both key slots, generations, rekey acknowledgments and stale-session cancellation are checked. Control and UDP liveness are separate. Seamless UDP endpoint migration is not claimed.
+- Three Windows 10/11 MSI packages: x86, x64, ARM64, each with Russian and English. Version 1.1.0, build 7.
+- Actual checks and limitations: [VALIDATION.md](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). EXE/MSI have no publisher signature; the official Wintun 0.14.1 driver has its own valid signature.
+
+---
+
 # OpenControl Client 1.0.5
 
 ## Русский

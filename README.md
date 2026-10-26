@@ -2,7 +2,7 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">Доступ к сети вашей организации · Windows 10 / 11</p>
 <p align="center"><b>Русский</b> · <a href="README.en.md">English</a></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Скачать 1.0.5</a> · <a href="RELEASE_NOTES.md">Что нового</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Скачать 1.1.0</a> · <a href="RELEASE_NOTES.md">Что нового</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 OpenControl подключает компьютер к частной корпоративной сети через Kerio Control. Адрес сервера, логин и пароль выдаёт ваша организация. Это независимый клиент, не официальный продукт Kerio/GFI и не сервис продажи VPN-доступа.
 
@@ -14,9 +14,9 @@ OpenControl подключает компьютер к частной корпо
 
 | Компьютер | Скачать |
 |---|---|
-| Обычный ПК Intel / AMD, 64 бита | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.5/OpenControl-client-1.0.5-windows-x64.msi) |
-| Windows 10, 32 бита | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.5/OpenControl-client-1.0.5-windows-x86.msi) |
-| Windows на ARM, в том числе Windows 11 VM на Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.0.5/OpenControl-client-1.0.5-windows-arm64.msi) |
+| Обычный ПК Intel / AMD, 64 бита | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.0/OpenControl-client-1.1.0-windows-x64.msi) |
+| Windows 10, 32 бита | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.0/OpenControl-client-1.1.0-windows-x86.msi) |
+| Windows на ARM, в том числе Windows 11 VM на Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.0/OpenControl-client-1.1.0-windows-arm64.msi) |
 
 1. Установите приложение. Ярлыки появятся на рабочем столе и в меню «Пуск».
 2. Добавьте соединение во вкладке **Профили** или импортируйте свой CFG во вкладке **Настройки**.
@@ -48,7 +48,7 @@ Windows может поместить значок в область скрыт�
 
 ![Журнал](assets/activity-ru.png)
 
-Журнал не очищается при смене профиля. Время указано по часам Windows; новые события сверху. Клиент передаёт серверу свою настоящую версию — в этом выпуске **1.0.5 · build 6**. Она появится после нового подключения.
+Журнал не очищается при смене профиля. Время указано по часам Windows; новые события сверху. Клиент передаёт серверу свою настоящую версию — в этом выпуске **1.1.0 · build 7**. Она появится после нового подключения.
 
 ## Профили и QR
 
@@ -144,3 +144,14 @@ Windows может поместить значок в область скрыт�
 </details>
 
 © 2026 nr084
+
+## Совместимый режим и восстановление сети — 1.1.0
+
+В настройках профиля появился совместимый режим Legacy. По умолчанию он выключен:
+используется AES-GCM. Legacy обеспечивает более слабую защиту без GCM-аутентификации;
+включайте его только для сервера, которому он необходим. Режим сохраняется в профиле
+и применяется при новом подключении. Автоматического перехода после ошибок нет.
+Повторная передача списка сетей сервером не пересоздаёт туннель и ключи.
+Неудачные операции настройки маршрутов повторяются. При ошибке восстановления
+сети новое подключение блокируется до успешной очистки. Внешние изменения DNS
+не перезаписываются автоматически; сохранённые сведения о восстановлении остаются.
