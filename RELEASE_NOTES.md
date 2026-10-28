@@ -1,3 +1,23 @@
+# OpenControl Client 1.1.4
+
+## Русский
+
+- Переключатель ВКЛ/ВЫКЛ реагирует в том же кадре: бегунок переходит в середину, справа вращается индикатор с подписью «Подключение…» или «Отключение…».
+- ВКЛ отображается только после подтверждённого подключения. ВЫКЛ — после завершения сеанса; во время отключения повторные команды не запускаются.
+- Подключение можно отменить повторным нажатием. При запросе сертификата показывается «Подтвердите сертификат», без вращения. После завершения операции индикатор исчезает; ошибки остаются видны.
+- Три MSI: x86, x64, ARM64; русский и английский в каждом. Версия **1.1.4 · build 11**, Protocol Library 0.9.0, Rust stable 1.99.1.
+- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). Действующий VPN не прерывался. EXE/MSI без издательской подписи; официальный Wintun подписан.
+
+## English
+
+- ON/OFF responds in the same frame: the knob moves to the center and a spinner with “Connecting…” or “Disconnecting…” appears on its right.
+- ON is shown only after a confirmed connection. OFF is shown after the session ends; repeated commands cannot restart an operation while disconnection is finishing.
+- Click again to cancel a connection attempt. Certificate consent displays “Review certificate” without spinning. The indicator disappears when the operation finishes; errors remain visible.
+- Three MSI packages: x86, x64, ARM64; Russian and English in each. Version **1.1.4 · build 11**, Protocol Library 0.9.0, Rust stable 1.99.1.
+- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). The existing VPN was not interrupted. EXE/MSI are unsigned; official Wintun is signed.
+
+---
+
 # OpenControl Client 1.1.3
 
 ## Русский
