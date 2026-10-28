@@ -1,3 +1,23 @@
+# OpenControl Client 1.1.3
+
+## Русский
+
+- Двойной щелчок левой кнопкой по значку трея подключает выбранный профиль. Уже работающее подключение сохраняется; при необходимости клиент открывает настройки, запрос пароля или подтверждение сертификата.
+- Одинарный щелчок по-прежнему открывает окно: клиент учитывает настроенную в Windows скорость двойного щелчка, чтобы два действия не мешали друг другу.
+- Исправлена обработка ВКЛ/ВЫКЛ: стабильная область нажатия и одна команда после завершения отрисовки, включая повторные проходы интерфейса. Отключение отменяет также ожидающее подтверждение сертификата.
+- Три MSI: x86, x64, ARM64; русский и английский в каждом. Версия клиента **1.1.3 · build 10**. Protocol Library 0.9.0 и Rust stable 1.99.1.
+- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). Действующий VPN не прерывался. EXE/MSI без издательской подписи; официальный Wintun имеет проверенную подпись.
+
+## English
+
+- Double-left-click the tray icon to connect the selected profile. An active connection is preserved; missing settings, password or certificate consent open the client when needed.
+- A single click still opens the window. The Windows double-click interval separates the two gestures so they do not interfere.
+- Fixed ON/OFF handling with a stable click target and one intent committed after rendering, including repeated UI layout passes. Turning OFF also cancels pending certificate consent.
+- Three MSI packages: x86, x64, ARM64; Russian and English in each. Client **1.1.3 · build 10**. Protocol Library 0.9.0 and Rust stable 1.99.1.
+- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). The existing VPN was not interrupted. EXE/MSI are unsigned; official Wintun has its own verified signature.
+
+---
+
 # OpenControl Client 1.1.2
 
 ## Русский

@@ -2,7 +2,7 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">Your organization’s network · Windows 10 / 11</p>
 <p align="center"><a href="README.md">Русский</a> · <b>English</b></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.1.2</a> · <a href="RELEASE_NOTES.md">What’s new</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.1.3</a> · <a href="RELEASE_NOTES.md">What’s new</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 OpenControl connects your PC to a private corporate network through Kerio Control. Your organization supplies the server address and account. This independent client is not an official Kerio/GFI product or a provider of VPN access.
 
@@ -14,9 +14,9 @@ Each MSI includes Russian and English. **Russian is the default on first launch*
 
 | Computer | Download |
 |---|---|
-| Intel / AMD 64-bit PC | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.2/OpenControl-client-1.1.2-windows-x64.msi) |
-| Windows 10, 32-bit | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.2/OpenControl-client-1.1.2-windows-x86.msi) |
-| Windows on ARM, including a Windows 11 VM on Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.2/OpenControl-client-1.1.2-windows-arm64.msi) |
+| Intel / AMD 64-bit PC | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.3/OpenControl-client-1.1.3-windows-x64.msi) |
+| Windows 10, 32-bit | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.3/OpenControl-client-1.1.3-windows-x86.msi) |
+| Windows on ARM, including a Windows 11 VM on Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.3/OpenControl-client-1.1.3-windows-arm64.msi) |
 
 1. Install the app. Desktop and Start menu shortcuts are created by default.
 2. Add a connection in **Profiles**, or import your CFG in **Settings**.
@@ -47,7 +47,7 @@ A success notification is shown once after a manual connection, reconnect or pro
 
 ![Activity](assets/activity-en.png)
 
-The activity log keeps the time, tunnel name, connections, disconnections and errors across profile changes: up to 500 events in memory until exit, newest first, using Windows local time. The client reports its actual version to the server: **1.1.2 · build 9**, visible on the next connection.
+The activity log keeps the time, tunnel name, connections, disconnections and errors across profile changes: up to 500 events in memory until exit, newest first, using Windows local time. The client reports its actual version to the server: **1.1.3 · build 10**, visible on the next connection.
 
 With multiple profiles, use **Switch profile** in the tray menu: choosing a profile disconnects the old tunnel and connects the selected one automatically. A password or certificate prompt appears only when needed.
 
@@ -150,7 +150,7 @@ All screenshots contain fictional profiles. This repository publishes installers
 
 © 2026 nr084
 
-## Compatibility mode and network recovery — 1.1.2
+## Compatibility mode and network recovery — 1.1.3
 
 Profiles now offer an optional Legacy compatibility mode. It is off by default:
 AES-GCM remains the normal mode. Legacy provides weaker protection without GCM
@@ -172,3 +172,7 @@ sign-in. The application version remains separate. Computer names, Windows user
 names and serial numbers are not transmitted. Unavailable details are not guessed.
 Update and reconnect to display the new description; existing sessions retain
 previously supplied metadata. Existing boot configurations remain compatible.
+
+## Connect from the tray
+
+Double-left-click the tray icon to connect the last selected profile. An active connection is preserved. The client opens if profile settings, a password or certificate consent are needed. A single click opens the window after the short Windows double-click detection delay.
