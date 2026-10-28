@@ -1,3 +1,23 @@
+# OpenControl Client 1.1.5
+
+## Русский
+
+- Двойной щелчок по значку трея разворачивает скрытое или свёрнутое окно; повторный двойной щелчок скрывает открытое окно в трей. Он больше не запускает VPN и не разрывает текущее соединение.
+- Одиночный щелчок и пункт «Открыть OpenControl Client» показывают окно. Сопутствующие события двойного щелчка подавляются, чтобы окно не открывалось повторно сразу после скрытия.
+- Улучшен отклик: обработка трея выполняется раньше фоновых проверок, открываемое окно отрисовывается в том же кадре, при скрытии лишний кадр не рисуется. Ускорена CPU-отрисовка непрозрачных панелей без повышения графических требований.
+- Три MSI: x86, x64, ARM64; русский и английский в каждом. Версия **1.1.5 · build 12**, Protocol Library 0.9.0, Rust stable 1.99.1.
+- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). Действующий VPN не прерывался. EXE/MSI без издательской подписи; официальный Wintun подписан.
+
+## English
+
+- Double-click the tray icon to restore a hidden or minimized window, or hide an open window to the tray. It no longer starts VPN and does not disconnect an active session.
+- A single click and “Open OpenControl Client” show the window. Trailing double-click events are suppressed so the window does not immediately reopen after hiding.
+- Improved responsiveness: tray events are handled before background checks, opening windows are rendered in the same frame, and unnecessary drawing is skipped when hiding. Opaque panel CPU rendering is faster without higher graphics requirements.
+- Three MSI packages: x86, x64, ARM64; Russian and English in each. Version **1.1.5 · build 12**, Protocol Library 0.9.0, Rust stable 1.99.1.
+- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). The existing VPN was not interrupted. EXE/MSI are unsigned; official Wintun is signed.
+
+---
+
 # OpenControl Client 1.1.4
 
 ## Русский
