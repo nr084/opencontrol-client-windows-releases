@@ -1,3 +1,25 @@
+# OpenControl Client 1.1.6
+
+## Русский
+
+- В Настройках появился переключатель «Только выбранные сети через VPN» в стиле ВКЛ/ВЫКЛ. ВЫКЛ — исключать сети из VPN (по умолчанию); ВКЛ — направлять через VPN только сети из списка во вкладке «Сети».
+- Список общий для профилей: до 128 IPv4 CIDR. Пустой список в режиме ВКЛ не добавляет маршрутов через VPN. Серверные обновления ROUTES не расширяют выбранный список; адрес сервера защищён маршрутом через исходное подключение.
+- В режиме ВКЛ серверный DNS используется только если его адрес входит в список; остальной трафик и IPv6 идут напрямую. При необходимости добавьте адрес корпоративного DNS как `/32`.
+- Старые настройки сохраняют режим исключений. Изменения применяются при новом соединении. Для VPN до входа сохраните конфигурацию заново — отключите и снова включите этот режим запуска.
+- Три MSI: x86, x64, ARM64; RU/EN в каждом. **1.1.6 · build 13**, Protocol Library 0.9.0, Rust stable 1.99.1.
+- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md): автоматические проверки не заменяют проверку реальных маршрутов Windows. Действующий VPN не прерывался. MSI/EXE без издательской подписи; Wintun подписан.
+
+## English
+
+- Settings now has an ON/OFF “Route only selected networks through VPN” switch. OFF excludes listed networks (default); ON routes only the Networks-tab list through VPN.
+- The list is shared by profiles: up to 128 IPv4 CIDRs. Empty ON-mode lists add no VPN routes. Server ROUTES updates cannot expand the selection; the server endpoint retains its original-uplink bypass.
+- In ON mode, server DNS is used only if its address belongs to the list; other traffic and IPv6 go directly. Add the corporate DNS address as `/32` when needed.
+- Existing settings retain exclusion mode. Changes apply on a new connection. Re-save before-sign-in VPN configuration by disabling and re-enabling that startup mode.
+- Three MSI packages: x86, x64, ARM64; RU/EN in each. **1.1.6 · build 13**, Protocol Library 0.9.0, Rust stable 1.99.1.
+- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md): automated checks are not live Windows routing acceptance. The existing VPN was not interrupted. MSI/EXE are unsigned; Wintun is signed.
+
+---
+
 # OpenControl Client 1.1.5
 
 ## Русский

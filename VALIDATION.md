@@ -1,30 +1,31 @@
-# Validation / Проверки — 1.1.5
+# Validation / Проверки — 1.1.6
 
-Действующий VPN пользователя не прерывался. Новая установка MSI, живое VPN-подключение,
-ручной двойной щелчок в установленном клиенте и физическое ARM64-устройство не проверялись.
-Проверки событий и отрисовки используют синтетические данные.
+Действующий VPN не прерывался. Новая установка MSI, живая проверка маршрутов/DNS/Wintun
+и запуск на физическом ARM64 не выполнялись. Проверки политики и повторных ROUTES
+автоматические, без изменения сетевых ресурсов Windows.
 
-The existing user VPN was not interrupted. MSI installation, a new live VPN session,
-manual double-click acceptance in the installed client and physical ARM64 execution
-were not tested. Event and rendering tests use synthetic data.
+The existing VPN was not interrupted. MSI installation, live Windows routing/DNS/Wintun
+acceptance and physical ARM64 execution were not performed. Policy and repeated ROUTES
+tests are automated and do not mutate Windows network resources.
 
 | Check / Проверка | Result / Результат |
 |---|---|
 | Rust stable | 1.99.1; rustup update stable verified |
 | Protocol | 0.9.0, unchanged pinned cacf1a738e5013922ca9678d529d014fffc22d11 |
 | fmt + clippy all targets, warnings denied | Passed / Пройдено |
-| Automated tests | 111 unit + 7 ROUTES migration = 118 passed |
-| Tray gestures | Double-click emits ToggleWindow, suppresses the trailing release and preserves subsequent single clicks |
-| Visibility | Repeated hide/show with and without a synthetic worker; no cancellation, new connection intent or profile change; ignored during shutdown |
-| Minimized window | Restore issues Visible(true), Minimized(false), Focus without connecting |
-| Rendering | Opaque colors, non-white texture fallback, DPI clipping, transparent shared-edge blending |
-| Image comparison | RU/EN 760×780 synthetic frames before/after: maximum channel difference 1/255 (flat-color rounding) |
-| Timing observation | Same unoptimized synthetic renderer: 448/552 ms before versus 70/72 ms after; not a hardware-independent latency guarantee |
-| Build/MSI | x86, x64, ARM64; static CRT; ProductVersion 1.1.5; Russian installer 1049; application RU/EN |
-| MSI verification | PE architecture, payload hashes, icon extraction, shortcuts and standard service/uninstall tables checked |
-| Wintun | Official 0.14.1; pinned archive SHA256; packaged DLL Authenticode Valid |
+| Automated tests | 117 unit + 7 ROUTES migration = 124 passed |
+| Policy | Exclude parity; Include empty/full/overlapping/invalid lists; selected routes independent of full/split/empty server updates |
+| DNS | Include filters DNS outside selection; Exclude retains prior DNS behavior |
+| Persistence | Missing mode defaults to Exclude; explicit Include round-trip; unknown mode rejected; failed save rolls back |
+| Service and boot | Explicit Request mode serialized, default omitted; encrypted boot Config preserves Include and list; reconnect snapshot preserves mode |
+| UI | Active session blocks mode changes; pointer click survives repeated layout pass; RU/EN mode screenshots, 150% light layout |
+| Route lifecycle | Existing migration tests cover endpoint ordering, partial ACK/retry, unchanged ROUTES at 600/1200 seconds and cancellation |
+| Build/MSI | x86, x64, ARM64; ProductVersion 1.1.6; Russian installer 1049; application RU/EN |
+| MSI verification | PE architecture, payload hashes, icon extraction, shortcuts and service/uninstall tables checked |
+| Wintun | Official 0.14.1; pinned archive hash; packaged DLL Authenticode Valid |
 | Publisher signatures | EXE/MSI unsigned / EXE и MSI без издательской подписи |
-| UI | Synthetic RU/EN screenshots and native CPU window startup/shutdown |
+| Native UI | Synthetic CPU window startup/shutdown |
 
-Routes, DNS, TLS, authentication and protocol implementation are unchanged.
-Маршруты, DNS, TLS, авторизация и реализация протокола не изменялись.
+Include changes routing selection. Endpoint protection, ownership checks, recovery journals,
+TLS, authorization, encryption and rekey mechanisms remain unchanged. A live deployment
+must validate selected destinations, corporate DNS and cleanup on its own network.
