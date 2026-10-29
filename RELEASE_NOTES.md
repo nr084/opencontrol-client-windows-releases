@@ -1,3 +1,13 @@
+# 1.1.7 — 2026-10-29
+
+## Русский
+
+Переключатель режима перенесён из Настроек во вкладку «Сети», рядом с существующим списком. ВЫКЛ (по умолчанию) — сети списка исключаются из VPN. ВКЛ — только сети списка направляются через VPN. Список общий для обоих режимов; изменения применяются при следующем подключении. Поведение маршрутизации 1.1.6 сохранено. Подписи, подсказки и кнопка сохранения сразу отражают выбранный режим.
+
+## English
+
+Moved the routing mode switch from Settings to Networks, beside the existing shared list. OFF (default) excludes listed networks from VPN. ON routes only listed networks through VPN. Both modes use the same list; changes apply on the next connection. Routing behavior from 1.1.6 is preserved. Labels, hints and the save button immediately reflect the selected mode.
+
 # OpenControl Client 1.1.6
 
 ## Русский

@@ -2,7 +2,7 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">Your organization’s network · Windows 10 / 11</p>
 <p align="center"><a href="README.md">Русский</a> · <b>English</b></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.1.6</a> · <a href="RELEASE_NOTES.md">What’s new</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.1.7</a> · <a href="RELEASE_NOTES.md">What’s new</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 OpenControl connects your PC to a private corporate network through Kerio Control. Your organization supplies the server address and account. This independent client is not an official Kerio/GFI product or a provider of VPN access.
 
@@ -14,9 +14,9 @@ Each MSI includes Russian and English. **Russian is the default on first launch*
 
 | Computer | Download |
 |---|---|
-| Intel / AMD 64-bit PC | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.6/OpenControl-client-1.1.6-windows-x64.msi) |
-| Windows 10, 32-bit | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.6/OpenControl-client-1.1.6-windows-x86.msi) |
-| Windows on ARM, including a Windows 11 VM on Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.6/OpenControl-client-1.1.6-windows-arm64.msi) |
+| Intel / AMD 64-bit PC | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.7/OpenControl-client-1.1.7-windows-x64.msi) |
+| Windows 10, 32-bit | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.7/OpenControl-client-1.1.7-windows-x86.msi) |
+| Windows on ARM, including a Windows 11 VM on Mac | [ARM64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.1.7/OpenControl-client-1.1.7-windows-arm64.msi) |
 
 1. Install the app. Desktop and Start menu shortcuts are created by default.
 2. Add a connection in **Profiles**, or import your CFG in **Settings**.
@@ -47,7 +47,7 @@ A success notification is shown once after a manual connection, reconnect or pro
 
 ![Activity](assets/activity-en.png)
 
-The activity log keeps the time, tunnel name, connections, disconnections and errors across profile changes: up to 500 events in memory until exit, newest first, using Windows local time. The client reports its actual version to the server: **1.1.6 · build 13**, visible on the next connection.
+The activity log keeps the time, tunnel name, connections, disconnections and errors across profile changes: up to 500 events in memory until exit, newest first, using Windows local time. The client reports its actual version to the server: **1.1.7 · build 14**, visible on the next connection.
 
 With multiple profiles, use **Switch profile** in the tray menu: choosing a profile disconnects the old tunnel and connects the selected one automatically. A password or certificate prompt appears only when needed.
 
@@ -94,9 +94,9 @@ Network paths are unsupported. The file is not uploaded to the cloud.
 
 ![Network exclusions](assets/networks-en.png)
 
-In **Networks**, enter a shared IPv4 CIDR list for all profiles, up to 128 entries: for example `10.20.30.0/24` or a single host `10.20.30.53/32`. In **Settings → VPN routing**, use “Route only selected networks through VPN”:
+In **Networks**, enter a shared IPv4 CIDR list for all profiles, up to 128 entries: for example `10.20.30.0/24` or a single host `10.20.30.53/32`. In **Networks → VPN routing**, use “Route only selected networks through VPN”:
 
-- **OFF** — exclude selected networks from VPN; this is the default, including after an upgrade. Other routes are determined by the server.
+- **OFF** — exclude selected networks from VPN; this is the default. Upgrades preserve your previously selected mode. Other routes are determined by the server.
 - **ON** — route only selected networks through VPN. Server routes cannot expand the list. An empty list adds no VPN routes; other traffic and IPv6 go directly.
 
 Changes apply on the next connection; editing is disabled while connected. The VPN server endpoint keeps using the original uplink. In ON mode, VPN DNS is used only when its address belongs to the selection — add its `/32` if needed; otherwise regular DNS is used. The server must allow access to the selected networks. Re-save before-sign-in VPN configuration by disabling and re-enabling that startup mode. Per-app routing and IPv6 lists are not provided.
@@ -155,7 +155,7 @@ All screenshots contain fictional profiles. This repository publishes installers
 
 © 2026 nr084
 
-## Compatibility mode and network recovery — 1.1.6
+## Compatibility mode and network recovery — 1.1.7
 
 Profiles now offer an optional Legacy compatibility mode. It is off by default:
 AES-GCM remains the normal mode. Legacy provides weaker protection without GCM

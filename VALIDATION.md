@@ -1,4 +1,4 @@
-# Validation / Проверки — 1.1.6
+# Validation / Проверки — 1.1.7
 
 Действующий VPN не прерывался. Новая установка MSI, живая проверка маршрутов/DNS/Wintun
 и запуск на физическом ARM64 не выполнялись. Проверки политики и повторных ROUTES
@@ -18,13 +18,13 @@ tests are automated and do not mutate Windows network resources.
 | DNS | Include filters DNS outside selection; Exclude retains prior DNS behavior |
 | Persistence | Missing mode defaults to Exclude; explicit Include round-trip; unknown mode rejected; failed save rolls back |
 | Service and boot | Explicit Request mode serialized, default omitted; encrypted boot Config preserves Include and list; reconnect snapshot preserves mode |
-| UI | Active session blocks mode changes; pointer click survives repeated layout pass; RU/EN mode screenshots, 150% light layout |
+| UI | Active session blocks mode changes; pointer click survives repeated layout pass; RU/EN Networks tab screenshots in both modes, dynamic field/save hints, Settings without routing card; 150% light layout |
 | Route lifecycle | Existing migration tests cover endpoint ordering, partial ACK/retry, unchanged ROUTES at 600/1200 seconds and cancellation |
-| Build/MSI | x86, x64, ARM64; ProductVersion 1.1.6; Russian installer 1049; application RU/EN |
+| Build/MSI | x86, x64, ARM64; ProductVersion 1.1.7; Russian installer 1049; application RU/EN |
 | MSI verification | PE architecture, payload hashes, icon extraction, shortcuts and service/uninstall tables checked |
 | Wintun | Official 0.14.1; pinned archive hash; packaged DLL Authenticode Valid |
 | Publisher signatures | EXE/MSI unsigned / EXE и MSI без издательской подписи |
-| Native UI | Synthetic CPU window startup/shutdown |
+| Native UI | Headless production CPU painter; no installed-client launch in this release |
 
 Include changes routing selection. Endpoint protection, ownership checks, recovery journals,
 TLS, authorization, encryption and rekey mechanisms remain unchanged. A live deployment
