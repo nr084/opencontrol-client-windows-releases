@@ -1,3 +1,17 @@
+# OpenControl Client 1.1.8 — 2026-10-30
+
+## Русский
+
+Исправлена блокировка «Не удалось восстановить сеть» после исчезновения VPN-адаптера, в том числе после перезагрузки. Очистка подтверждает отсутствие прежнего адаптера по списку интерфейсов Windows. Сохранившийся адаптер определяется по его идентификатору, даже если номер интерфейса изменился. Ошибки чтения не считаются доказательством отсутствия; внешние изменения DNS не перезаписываются, а сведения восстановления сохраняются при ошибке записи.
+
+После обновления повторите подключение. Удалять журнал восстановления вручную не требуется. Другие причины ошибок восстановления по-прежнему блокируют подключение, чтобы не повредить настройки сети.
+
+## English
+
+Fixed the “Network recovery failed” block when the previous VPN adapter disappears, including after reboot. Cleanup confirms absence using the Windows interface table. A surviving adapter is identified by its LUID even if its interface index changes. Read failures do not imply absence; external DNS changes are not overwritten, and recovery evidence is retained if saving fails.
+
+Retry connecting after upgrading. Manual recovery-journal deletion is not required. Other recovery failures still block connection to protect network settings.
+
 # 1.1.7 — 2026-10-29
 
 ## Русский
