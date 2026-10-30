@@ -1,3 +1,13 @@
+# OpenControl Client 1.1.9 — 2026-10-30
+
+## Русский
+
+Исправлен дополнительный случай блокировки восстановления сети: скрытый остаточный адаптер сохраняет идентификатор в Windows, но уже не имеет IP/DNS-привязок. Клиент подтверждает отсутствие привязок полным перечислением IP-интерфейсов, DNS-клиентов и адаптеров. Остаточная запись больше не блокирует новое соединение; исходные сведения DNS сохраняются в защищённом архиве восстановления. Ошибки перечисления и внешние изменения DNS по-прежнему требуют безопасного восстановления. Общий драйвер Wintun автоматически не удаляется.
+
+## English
+
+Fixed an additional recovery block caused by a phantom adapter that retains a Windows identifier but has no IP/DNS bindings. The client requires successful full enumeration of IP interfaces, DNS clients and adapters before retiring the stale record. Original DNS recovery data is retained in a protected archive. Enumeration failures and external DNS changes still block unsafe recovery. The shared Wintun driver is not automatically removed.
+
 # OpenControl Client 1.1.8 — 2026-10-30
 
 ## Русский
