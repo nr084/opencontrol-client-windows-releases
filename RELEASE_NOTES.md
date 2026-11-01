@@ -41,7 +41,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - В режиме ВКЛ серверный DNS используется только если его адрес входит в список; остальной трафик и IPv6 идут напрямую. При необходимости добавьте адрес корпоративного DNS как `/32`.
 - Старые настройки сохраняют режим исключений. Изменения применяются при новом соединении. Для VPN до входа сохраните конфигурацию заново — отключите и снова включите этот режим запуска.
 - Три MSI: x86, x64, ARM64; RU/EN в каждом. **1.1.6 · build 13**, Protocol Library 0.9.0, Rust stable 1.99.1.
-- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md): автоматические проверки не заменяют проверку реальных маршрутов Windows. Действующий VPN не прерывался. MSI/EXE без издательской подписи; Wintun подписан.
+- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations): автоматические проверки не заменяют проверку реальных маршрутов Windows. Действующий VPN не прерывался. MSI/EXE без издательской подписи; Wintun подписан.
 
 ## English
 
@@ -50,7 +50,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - In ON mode, server DNS is used only if its address belongs to the list; other traffic and IPv6 go directly. Add the corporate DNS address as `/32` when needed.
 - Existing settings retain exclusion mode. Changes apply on a new connection. Re-save before-sign-in VPN configuration by disabling and re-enabling that startup mode.
 - Three MSI packages: x86, x64, ARM64; RU/EN in each. **1.1.6 · build 13**, Protocol Library 0.9.0, Rust stable 1.99.1.
-- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md): automated checks are not live Windows routing acceptance. The existing VPN was not interrupted. MSI/EXE are unsigned; Wintun is signed.
+- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations): automated checks are not live Windows routing acceptance. The existing VPN was not interrupted. MSI/EXE are unsigned; Wintun is signed.
 
 ---
 
@@ -62,7 +62,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - Одиночный щелчок и пункт «Открыть OpenControl Client» показывают окно. Сопутствующие события двойного щелчка подавляются, чтобы окно не открывалось повторно сразу после скрытия.
 - Улучшен отклик: обработка трея выполняется раньше фоновых проверок, открываемое окно отрисовывается в том же кадре, при скрытии лишний кадр не рисуется. Ускорена CPU-отрисовка непрозрачных панелей без повышения графических требований.
 - Три MSI: x86, x64, ARM64; русский и английский в каждом. Версия **1.1.5 · build 12**, Protocol Library 0.9.0, Rust stable 1.99.1.
-- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). Действующий VPN не прерывался. EXE/MSI без издательской подписи; официальный Wintun подписан.
+- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations). Действующий VPN не прерывался. EXE/MSI без издательской подписи; официальный Wintun подписан.
 
 ## English
 
@@ -70,7 +70,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - A single click and “Open OpenControl Client” show the window. Trailing double-click events are suppressed so the window does not immediately reopen after hiding.
 - Improved responsiveness: tray events are handled before background checks, opening windows are rendered in the same frame, and unnecessary drawing is skipped when hiding. Opaque panel CPU rendering is faster without higher graphics requirements.
 - Three MSI packages: x86, x64, ARM64; Russian and English in each. Version **1.1.5 · build 12**, Protocol Library 0.9.0, Rust stable 1.99.1.
-- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). The existing VPN was not interrupted. EXE/MSI are unsigned; official Wintun is signed.
+- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations). The existing VPN was not interrupted. EXE/MSI are unsigned; official Wintun is signed.
 
 ---
 
@@ -82,7 +82,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - ВКЛ отображается только после подтверждённого подключения. ВЫКЛ — после завершения сеанса; во время отключения повторные команды не запускаются.
 - Подключение можно отменить повторным нажатием. При запросе сертификата показывается «Подтвердите сертификат», без вращения. После завершения операции индикатор исчезает; ошибки остаются видны.
 - Три MSI: x86, x64, ARM64; русский и английский в каждом. Версия **1.1.4 · build 11**, Protocol Library 0.9.0, Rust stable 1.99.1.
-- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). Действующий VPN не прерывался. EXE/MSI без издательской подписи; официальный Wintun подписан.
+- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations). Действующий VPN не прерывался. EXE/MSI без издательской подписи; официальный Wintun подписан.
 
 ## English
 
@@ -90,7 +90,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - ON is shown only after a confirmed connection. OFF is shown after the session ends; repeated commands cannot restart an operation while disconnection is finishing.
 - Click again to cancel a connection attempt. Certificate consent displays “Review certificate” without spinning. The indicator disappears when the operation finishes; errors remain visible.
 - Three MSI packages: x86, x64, ARM64; Russian and English in each. Version **1.1.4 · build 11**, Protocol Library 0.9.0, Rust stable 1.99.1.
-- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). The existing VPN was not interrupted. EXE/MSI are unsigned; official Wintun is signed.
+- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations). The existing VPN was not interrupted. EXE/MSI are unsigned; official Wintun is signed.
 
 ---
 
@@ -102,7 +102,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - Одинарный щелчок по-прежнему открывает окно: клиент учитывает настроенную в Windows скорость двойного щелчка, чтобы два действия не мешали друг другу.
 - Исправлена обработка ВКЛ/ВЫКЛ: стабильная область нажатия и одна команда после завершения отрисовки, включая повторные проходы интерфейса. Отключение отменяет также ожидающее подтверждение сертификата.
 - Три MSI: x86, x64, ARM64; русский и английский в каждом. Версия клиента **1.1.3 · build 10**. Protocol Library 0.9.0 и Rust stable 1.99.1.
-- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). Действующий VPN не прерывался. EXE/MSI без издательской подписи; официальный Wintun имеет проверенную подпись.
+- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations). Действующий VPN не прерывался. EXE/MSI без издательской подписи; официальный Wintun имеет проверенную подпись.
 
 ## English
 
@@ -110,7 +110,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - A single click still opens the window. The Windows double-click interval separates the two gestures so they do not interfere.
 - Fixed ON/OFF handling with a stable click target and one intent committed after rendering, including repeated UI layout passes. Turning OFF also cancels pending certificate consent.
 - Three MSI packages: x86, x64, ARM64; Russian and English in each. Client **1.1.3 · build 10**. Protocol Library 0.9.0 and Rust stable 1.99.1.
-- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). The existing VPN was not interrupted. EXE/MSI are unsigned; official Wintun has its own verified signature.
+- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations). The existing VPN was not interrupted. EXE/MSI are unsigned; official Wintun has its own verified signature.
 
 ---
 
@@ -124,7 +124,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - Имя компьютера, имя пользователя Windows и серийные номера не передаются. При недоступных сведениях используется нейтральное обозначение без угадывания.
 - Новые сведения появятся после обновления и переподключения. Версия приложения передаётся отдельно: **1.1.2 · build 9**.
 - Три MSI: x86, x64, ARM64; русский и английский в каждом. Protocol Library 0.9.0; Rust stable 1.99.1.
-- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). EXE/MSI без издательской подписи; официальный Wintun имеет собственную проверенную подпись.
+- [Проверки и ограничения](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations). EXE/MSI без издательской подписи; официальный Wintun имеет собственную проверенную подпись.
 
 ## English
 
@@ -134,7 +134,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - Computer names, Windows user names and serial numbers are not transmitted. Unavailable details use a neutral fallback rather than guessed values.
 - Update and reconnect to see the new description. The application version remains separate: **1.1.2 · build 9**.
 - Three MSI packages: x86, x64, ARM64; Russian and English in each. Protocol Library 0.9.0; Rust stable 1.99.1.
-- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). EXE/MSI have no publisher signature; official Wintun has its own verified signature.
+- [Validation and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations). EXE/MSI have no publisher signature; official Wintun has its own verified signature.
 
 ---
 
@@ -148,7 +148,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - Последний выбранный профиль запоминается как профиль по умолчанию. Отдельный чекбокс убран; сортировка не сбрасывает выбор.
 - Убран неподдерживаемый символ рядом с состоянием синхронизации.
 - Windows 10/11: x86, x64, ARM64; русский и английский в каждом MSI. Версия 1.1.1, build 8; Protocol Library 0.9.0.
-- [Результаты и ограничения проверок](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). EXE/MSI не подписаны издательским сертификатом; официальный драйвер Wintun подписан отдельно.
+- [Результаты и ограничения проверок](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations). EXE/MSI не подписаны издательским сертификатом; официальный драйвер Wintun подписан отдельно.
 
 ## English
 
@@ -158,7 +158,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - The last selected profile is remembered as the default. Removed the separate checkbox; sorting preserves the selection.
 - Removed the unsupported synchronization status glyph.
 - Windows 10/11: x86, x64, ARM64; Russian and English in every MSI. Version 1.1.1, build 8; Protocol Library 0.9.0.
-- [Validation results and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). EXE/MSI have no publisher signature; official Wintun has its own verified signature.
+- [Validation results and limitations](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations). EXE/MSI have no publisher signature; official Wintun has its own verified signature.
 
 ---
 
@@ -173,7 +173,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - В профиле появился выключенный по умолчанию совместимый режим Legacy. Он обеспечивает более слабую защиту без GCM-аутентификации, требует явного выбора и нового соединения. AES-GCM остаётся штатным режимом; автоматического понижения защиты нет.
 - Проверяются оба слота ключей, поколения, подтверждения rekey и отмена старых сеансов. Активность управляющего канала и UDP учитывается отдельно. Бесшовная смена UDP endpoint не заявляется.
 - Windows 10/11: три MSI — x86, x64, ARM64, русский и английский в каждом. Версия 1.1.0, build 7.
-- Фактические результаты и ограничения проверок: [VALIDATION.md](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). EXE/MSI не подписаны издательским сертификатом; официальный Wintun 0.14.1 имеет отдельную действительную подпись.
+- Фактические результаты и ограничения проверок: [VALIDATION.md](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations). EXE/MSI не подписаны издательским сертификатом; официальный Wintun 0.14.1 имеет отдельную действительную подпись.
 
 ## English
 
@@ -184,7 +184,7 @@ Moved the routing mode switch from Settings to Networks, beside the existing sha
 - Optional per-profile Legacy mode defaults to off. It has weaker protection without GCM authentication, requires explicit opt-in and a new connection. AES-GCM remains the default; errors never cause automatic downgrade.
 - Both key slots, generations, rekey acknowledgments and stale-session cancellation are checked. Control and UDP liveness are separate. Seamless UDP endpoint migration is not claimed.
 - Three Windows 10/11 MSI packages: x86, x64, ARM64, each with Russian and English. Version 1.1.0, build 7.
-- Actual checks and limitations: [VALIDATION.md](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/VALIDATION.md). EXE/MSI have no publisher signature; the official Wintun 0.14.1 driver has its own valid signature.
+- Actual checks and limitations: [VALIDATION.md](https://github.com/nr084/opencontrol-client-windows-releases/blob/main/README.md#checks-and-limitations). EXE/MSI have no publisher signature; the official Wintun 0.14.1 driver has its own valid signature.
 
 ---
 

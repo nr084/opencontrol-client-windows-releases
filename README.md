@@ -139,7 +139,7 @@ Windows может поместить значок в область скрыт�
 
 Драйвер Wintun имеет официальную подпись. EXE и MSI проекта пока не подписаны издателем. Контрольные суммы находятся в [SHA256SUMS](SHA256SUMS).
 
-Пройдены 129 автоматических тестов, сборки трёх архитектур и проверки содержимого MSI. Интерфейс проверен на синтетических профилях. Установка службы, UAC и подключение до входа на отдельной Windows-машине в этом выпуске не проверялись: действующий VPN пользователя не отключался. Подробности — [VALIDATION.md](VALIDATION.md).
+Пройдены 129 автоматических тестов, сборки трёх архитектур и проверки содержимого MSI. Интерфейс проверен на синтетических профилях. Установка службы, UAC и подключение до входа на отдельной Windows-машине в этом выпуске не проверялись: действующий VPN пользователя не отключался. Подробности — [VALIDATION.md](README.md#checks-and-limitations).
 
 Все скриншоты используют вымышленные профили. Здесь публикуются установщики и документация; исходники клиента находятся в закрытом репозитории. [Библиотека протокола](https://github.com/nr084/opencontrol-protocol) — отдельный открытый проект.
 
@@ -186,3 +186,8 @@ Windows может поместить значок в область скрыт�
 ![Подключение VPN](assets/connecting-ru.png)
 
 ![VPN routing](assets/routing-ru.png)
+
+
+## Checks and limitations
+
+Windows: automated and synthetic checks do not certify a fresh MSI installation, installed-service/live routing/DNS/Wintun recovery, reboot or physical ARM64 behavior. EXE/MSI lack a publisher signature; the separately packaged official Wintun driver is signed. / Реальные установка, VPN/DNS после перезагрузки и физический ARM64 требуют отдельной проверки; EXE/MSI без издательской подписи.

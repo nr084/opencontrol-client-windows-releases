@@ -4,3 +4,16 @@
 [Uu][Ss][Ee][Rr][Ss].[Cc][Ff][Gg]
 profiles.json
 profiles.json.*
+
+# Local assistant instructions and working reports.
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+SKILL.md
+PROJECT_STATE.md
+VM_STATE.md
+MEMORY.md
+PLAN.md
+CHECKPOINT*.md
+RELEASE_VALIDATION*.md
+VALIDATION.md

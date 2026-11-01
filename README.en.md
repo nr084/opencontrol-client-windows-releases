@@ -140,7 +140,7 @@ Uninstall through **Windows Settings → Apps → OpenControl Client → Uninsta
 
 The Wintun driver is officially signed. Project EXE/MSI files are not yet publisher-signed. Check [SHA256SUMS](SHA256SUMS).
 
-129 automated tests, three architecture builds and MSI content checks passed. The UI was checked with synthetic profiles. Installed-service, UAC and pre-sign-in connection were not exercised on a separate Windows machine in this release; the existing user VPN was not interrupted. See [VALIDATION.md](VALIDATION.md).
+129 automated tests, three architecture builds and MSI content checks passed. The UI was checked with synthetic profiles. Installed-service, UAC and pre-sign-in connection were not exercised on a separate Windows machine in this release; the existing user VPN was not interrupted. See [VALIDATION.md](README.md#checks-and-limitations).
 
 All screenshots contain fictional profiles. This repository publishes installers and documentation; client sources are private. The [protocol library](https://github.com/nr084/opencontrol-protocol) is a separate public project.
 
@@ -187,3 +187,8 @@ Clicking ON/OFF immediately centers the switch and shows a connecting or disconn
 ![Connecting VPN](assets/connecting-en.png)
 
 ![VPN routing](assets/routing-en.png)
+
+
+## Checks and limitations
+
+Windows: automated and synthetic checks do not certify a fresh MSI installation, installed-service/live routing/DNS/Wintun recovery, reboot or physical ARM64 behavior. EXE/MSI lack a publisher signature; the separately packaged official Wintun driver is signed. / Реальные установка, VPN/DNS после перезагрузки и физический ARM64 требуют отдельной проверки; EXE/MSI без издательской подписи.
