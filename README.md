@@ -2,7 +2,7 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">VPN для частных сетей Kerio Control · Windows 10 и 11</p>
 <p align="center"><b>Русский</b> · <a href="README.en.md">English</a></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Скачать 1.5.1</a> · <a href="RELEASE_NOTES.md">Changelog</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Скачать 1.5.2</a> · <a href="RELEASE_NOTES.md">Changelog</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 Для подключения понадобятся адрес Kerio Control и учётные данные от вашей организации. OpenControl Client — независимый VPN-клиент.
 
@@ -10,9 +10,9 @@
 
 | Windows | Установщик |
 |---|---|
-| 64-разрядная Windows на Intel или AMD | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.1/OpenControl-client-1.5.1-windows-x64.msi) |
-| 32-разрядная Windows 10 | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.1/OpenControl-client-1.5.1-windows-x86.msi) |
-| Windows 11 на ARM, включая виртуальную машину на Mac | [arm64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.1/OpenControl-client-1.5.1-windows-arm64.msi) |
+| 64-разрядная Windows на Intel или AMD | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.2/OpenControl-client-1.5.2-windows-x64.msi) |
+| 32-разрядная Windows 10 | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.2/OpenControl-client-1.5.2-windows-x86.msi) |
+| Windows 11 на ARM, включая виртуальную машину на Mac | [arm64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.2/OpenControl-client-1.5.2-windows-arm64.msi) |
 
 Каждый MSI включает русский и английский. При первом запуске выбран русский, язык переключается кнопкой **EN / RU**. После установки откройте **Профили**, добавьте соединение или импортируйте его из Kerio, затем включите VPN. При первом подключении сверьте отпечаток сертификата с администратором.
 
@@ -23,6 +23,8 @@
 3. В трее открывайте меню нужного номера, чтобы сменить профиль, отключить или переподключить только этот туннель.
 
 Точки рядом с ВКЛ/ВЫКЛ показывают состояние всех настроенных подключений. Левый щелчок открывает нужную подвкладку, правый — команды слота. При двух и более активных туннелях их количество видно на значке трея.
+
+При двух и более настроенных слотах пункты «Подключить все» и «Отключить все» находятся над «Выйти» в трее. Пока работают другие туннели, можно добавлять профили и редактировать или удалять свободные.
 
 ![Подключения OpenControl Client](assets/connections-ru.png)
 
@@ -42,13 +44,19 @@
 | О программе | Версия клиента и Rust, дата сборки, ссылка на GitHub, ручная проверка обновления |
 
 <details>
-<summary>Скриншоты настроек и сетей</summary>
+<summary>Скриншоты интерфейса</summary>
 
 ![Настройки второго подключения](assets/connection-two-ru.png)
 ![Настройки](assets/settings-ru.png)
 ![Маршрутизация](assets/routing-ru.png)
 
 ![Сведения о сборке и обновлениях](assets/about-ru.png)
+
+![Десять подключений при минимальной ширине](assets/connections-ten-ru.png)
+
+![Профили VPN](assets/profiles-ru.png)
+
+![Журнал подключений](assets/activity-ru.png)
 
 </details>
 

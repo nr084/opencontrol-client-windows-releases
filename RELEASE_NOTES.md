@@ -1,3 +1,31 @@
+# OpenControl Client 1.5.2
+
+## Русский
+
+### Управление туннелями
+
+- До 10 одновременных VPN-подключений. При двух и более настроенных слотах в меню трея над «Выйти» доступны «Подключить все» и «Отключить все».
+- Добавляйте профили и редактируйте или удаляйте свободные, пока другие туннели работают. Профиль действующего подключения доступен для просмотра.
+
+### Интерфейс
+
+- Точки состояния крупнее и выровнены по центру ВКЛ/ВЫКЛ. Все десять помещаются до кнопки «Тема» при минимальной ширине окна.
+- Число активных туннелей перенесено в левый нижний угол значка трея и увеличено.
+- «Подключение», «Профили», «Сети» и «Настройки» разделены на блоки. В журнале меньше промежутки между событиями и убраны разделительные линии. Ссылка «Домашняя страница» находится во вкладке «О программе».
+
+## English
+
+### Tunnel management
+
+- Up to 10 simultaneous VPN connections. With two or more slots configured, Connect all and Disconnect all appear directly above Exit in the tray menu.
+- Add profiles or edit and delete idle profiles while other tunnels are running. Profiles used by running tunnels are read-only.
+
+### Interface
+
+- Larger status dots align with the center of the VPN switch. All ten fit before the Theme button at the minimum window width.
+- The larger active tunnel count appears in the tray icon’s lower-left corner.
+- Connection, Profiles, Networks and Settings group related controls in cards. Activity rows are closer together and have no dividers. The About tab includes a Home page link.
+
 # OpenControl Client 1.5.1
 
 ## Русский
