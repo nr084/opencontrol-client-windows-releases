@@ -1,3 +1,21 @@
+# OpenControl Client 1.1.11 — 2026-11-15
+
+## Русский
+
+- Настройка адреса, MTU и DNS туннеля выполняется внутри EXE через API Windows. Подключение и очистка больше не запускают PowerShell и netsh.
+- Сохраняются проверки принадлежности адаптера, чтение DNS после записи и журнал восстановления.
+- В разделе «О программе» видны дата компиляции в UTC и версия компилятора Rust.
+- Уведомления выглядят как «Подключено: профиль» и «Отключено: профиль». Уведомление об отключении отправляется после успешного ручного отключения.
+- Прямое чтение DNS заняло в среднем около 18 мс на проверенном компьютере. Это замер только чтения. Полное подключение и восстановление после перезагрузки требуют отдельной ручной проверки.
+
+## English
+
+- Tunnel address, MTU and DNS are configured inside the executable with Windows APIs. Connection setup and cleanup no longer launch PowerShell or netsh.
+- Adapter identity checks, DNS read-back and the recovery journal remain in use.
+- About shows the UTC build date and the Rust compiler version.
+- Notifications read “Connected: profile” and “Disconnected: profile”. The disconnection notification follows successful manual disconnect.
+- In-process DNS reads averaged about 18 ms on the tested computer. This measures only reads. Full connection timing and reboot recovery still need manual verification.
+
 # OpenControl Client 1.1.10 — 2026-11-15
 
 ## Русский
