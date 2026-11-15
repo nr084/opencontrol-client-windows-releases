@@ -1,3 +1,19 @@
+# OpenControl Client 1.1.10 — 2026-11-15
+
+## Русский
+
+- VPN до входа запускает служба Windows. Пока сеть поднимается, служба повторяет подключение. Ошибки сертификата, учётных данных и конфигурации отображаются в клиенте.
+- После входа клиент показывает состояние уже запущенного службой туннеля. Закрытие или сбой окна не разрывает этот туннель. Явная команда отключения завершает соединение и ждёт очистки.
+- Уменьшили задержку первой повторной отправки UDP с трёх секунд до одной и отключили буферизацию коротких TCP-сообщений авторизации. Время подключения на реальной сети пока не измерялось.
+- Сборка Rust stable 1.100.0. Перезагрузка с установленной службой и реальным VPN-сервером требует отдельной проверки.
+
+## English
+
+- The Windows service starts the pre-sign-in VPN and retries while networking comes up. Certificate, credential and configuration errors are shown in the client.
+- After sign-in, the client displays the service-owned tunnel. Closing or losing the window leaves the tunnel running. An explicit Disconnect waits for cleanup.
+- Reduced the first UDP retry delay from three seconds to one and disabled buffering for small TCP authentication messages. Live connection times have yet to be measured.
+- Built with Rust stable 1.100.0. Installed-service reboot testing against a live VPN server remains pending.
+
 # OpenControl Client 1.1.9 — 2026-10-30
 
 ## Русский
