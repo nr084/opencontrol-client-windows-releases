@@ -1,3 +1,15 @@
+# OpenControl Client 1.5.3
+
+## Русский
+
+- Исправлена отправка уведомлений Windows о ручном подключении и отключении. События нескольких туннелей, полученные одновременно, объединяются в одном уведомлении. После сна уведомления не накапливаются.
+- В трее красная точка означает, что активных туннелей нет. При одном и более туннелях точка зелёная. Начиная с двух слева внизу появляется янтарное число активных туннелей, до 10.
+
+## English
+
+- Fixed delivery of Windows notifications for manual connections and disconnections. Simultaneous tunnel events are grouped in one notification. Sleep does not create a notification backlog.
+- A red tray dot means zero active tunnels. The dot stays green with one or more, and an amber count appears in the lower-left corner for two through ten active tunnels.
+
 # OpenControl Client 1.5.2
 
 ## Русский
