@@ -2,7 +2,7 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">VPN for private Kerio Control networks · Windows 10 and 11</p>
 <p align="center"><a href="README.md">Русский</a> · <b>English</b></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.5.0</a> · <a href="RELEASE_NOTES.md">Changelog</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.5.1</a> · <a href="RELEASE_NOTES.md">Changelog</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 You need your organization's Kerio Control address and credentials. OpenControl Client is an independent VPN client.
 
@@ -10,9 +10,9 @@ You need your organization's Kerio Control address and credentials. OpenControl 
 
 | Windows | Installer |
 |---|---|
-| 64-bit Windows on Intel or AMD | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.0/OpenControl-client-1.5.0-windows-x64.msi) |
-| 32-bit Windows 10 | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.0/OpenControl-client-1.5.0-windows-x86.msi) |
-| Windows 11 on ARM, including a Windows VM on Mac | [arm64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.0/OpenControl-client-1.5.0-windows-arm64.msi) |
+| 64-bit Windows on Intel or AMD | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.1/OpenControl-client-1.5.1-windows-x64.msi) |
+| 32-bit Windows 10 | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.1/OpenControl-client-1.5.1-windows-x86.msi) |
+| Windows 11 on ARM, including a Windows VM on Mac | [arm64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.1/OpenControl-client-1.5.1-windows-arm64.msi) |
 
 Each MSI includes Russian and English. Russian is selected on first launch. Use **EN / RU** to switch. In **Profiles**, add a connection or import it from Kerio, then turn on the VPN. Verify the certificate fingerprint with your administrator when prompted.
 
@@ -21,6 +21,8 @@ Each MSI includes Russian and English. Russian is selected on first launch. Use 
 1. In **Settings**, choose between 1 and 10 connections.
 2. On the **Connection** tab, open a numbered subtab, select a profile, and click **Save**. Use the switch at the top to connect.
 3. Use the numbered tray menus to change a profile, disconnect, or reconnect an individual tunnel.
+
+The indicators beside the switch show every configured connection. Left-click to open its subtab, or right-click for slot actions. The tray badge displays the count when at least two tunnels are active.
 
 ![OpenControl Client connections](assets/connections-en.png)
 
@@ -45,6 +47,8 @@ Connection 1 can carry the default route and configure VPN DNS on Windows. Addit
 ![Second connection settings](assets/connection-two-en.png)
 ![Settings](assets/settings-en.png)
 ![Routing](assets/routing-en.png)
+
+![Build information and updates](assets/about-en.png)
 
 </details>
 

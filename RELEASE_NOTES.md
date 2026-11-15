@@ -1,3 +1,23 @@
+# OpenControl Client 1.5.1
+
+## Русский
+
+- До 10 профилей Kerio могут работать одновременно. Возле переключателя виден статус каждого настроенного слота. Левый щелчок открывает его подвкладку, правый — управление туннелем и выбор профиля. Точка остаётся и при одном слоте.
+- Значок трея в режиме нескольких подключений показывает красную точку при нуле активных VPN, зелёную точку при одном и зелёный счётчик при двух и более. Пункты меню подписаны номером и именем профиля. Через «Сменить профиль» можно запустить отключённый слот.
+- При запуске переключателем в режиме нескольких подключений окно остаётся открытым. Контекстное меню в окне следует теме клиента. Нативное меню трея использует тему клиента на поддерживаемых сборках Windows 10/11.
+- Уведомление о втором туннеле заменяет предыдущее активное уведомление. Защита от накопления уведомлений во время сна сохраняется.
+- Подсказки переключателя, темы и языка описывают действие. Для VPN указано имя профиля или номер слота.
+- Вкладка «О программе» показывает сведения о сборке и обновления в отдельных блоках.
+
+## English
+
+- Up to 10 Kerio profiles can run simultaneously. The indicators beside the switch show each slot's state. Left-click to open its subtab, or right-click for tunnel actions and profile selection. Single-connection mode also shows an indicator.
+- In multi-connection mode, the tray shows a red dot with zero active tunnels, a green dot with one, and a green count with two or more. Tray entries show the slot number and profile name. Switching profiles can also start an idle slot.
+- Using the switch in multi-connection mode keeps the window open. The in-app context menu follows the client's theme. The native tray menu uses that preference on supported Windows 10/11 builds.
+- A notification from a second tunnel replaces the preceding active notification. Notifications are still suppressed during sleep.
+- Switch, theme and language tooltips describe the action. The VPN switch names the profile or slot.
+- About separates build information from update controls.
+
 # OpenControl Client 1.5.0
 
 ## Русский
