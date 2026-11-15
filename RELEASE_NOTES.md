@@ -1,3 +1,17 @@
+# OpenControl Client 1.5.4
+
+## Русский
+
+- Слева в системном уведомлении показан крупный значок результата: зелёная галочка, белый крест на красном или синяя информационная метка. Маленький щит возле имени отправителя повторяет отметку. Ошибки ручных операций с VPN, профилями, синхронизацией Kerio и обновлениями видны в уведомлениях.
+- «Подключить все» и «Отключить все» показывают один итог на команду с номерами и именами туннелей. Итог различает успех, ошибки, отмену и подключения, для которых требуется действие или ещё нет результата.
+- Уведомление о найденном обновлении использует синюю «i», успешная установка — зелёную галочку, ошибка обновления — красный крест.
+
+## English
+
+- Windows notifications show a large green check, white cross on red, or blue information badge on the left. The small OpenControl shield by the sender name carries the same status. Notifications report errors from manual VPN operations, profile changes, Kerio sync, and updates.
+- Connect all and Disconnect all show one summary per command with tunnel numbers and names. The summary separates successful, failed, cancelled, still-running, and action-required results.
+- A new update shows a blue “i”, a successful installation a green check, and an update failure a red cross.
+
 # OpenControl Client 1.5.3
 
 ## Русский
