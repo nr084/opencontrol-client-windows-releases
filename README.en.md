@@ -2,7 +2,7 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">VPN for private Kerio Control networks · Windows 10 and 11</p>
 <p align="center"><a href="README.md">Русский</a> · <b>English</b></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.5.4</a> · <a href="RELEASE_NOTES.md">Changelog</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.6.0</a> · <a href="RELEASE_NOTES.md">Changelog</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 You need your organization's Kerio Control address and credentials. OpenControl Client is an independent VPN client.
 
@@ -10,13 +10,17 @@ You need your organization's Kerio Control address and credentials. OpenControl 
 
 | Windows | Installer |
 |---|---|
-| 64-bit Windows on Intel or AMD | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.4/OpenControl-client-1.5.4-windows-x64.msi) |
-| 32-bit Windows 10 | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.4/OpenControl-client-1.5.4-windows-x86.msi) |
-| Windows 11 on ARM, including a Windows VM on Mac | [arm64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.5.4/OpenControl-client-1.5.4-windows-arm64.msi) |
+| 64-bit Windows on Intel or AMD | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.0/OpenControl-client-1.6.0-windows-x64.msi) |
+| 32-bit Windows 10 | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.0/OpenControl-client-1.6.0-windows-x86.msi) |
+| Windows 11 on ARM, including a Windows VM on Mac | [arm64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.0/OpenControl-client-1.6.0-windows-arm64.msi) |
 
 Each MSI includes Russian and English. Russian is selected on first launch. Use **EN / RU** to switch. In **Profiles**, add a connection or import it from Kerio, then turn on the VPN. Verify the certificate fingerprint with your administrator when prompted.
 
 ## Up to ten VPNs at once
+
+**Connection 1** can use an optional sequential mode below the traffic section. Add up to ten profiles and test a private or public IPv4 address through them. Responsive profiles are ranked by average latency and used as a failover queue. The mode is off by default.
+
+![Sequential queue with latency and ordering controls](assets/sequential-en.png)
 
 1. In **Settings**, choose between 1 and 10 connections.
 2. On the **Connection** tab, open a numbered subtab, select a profile, and click **Save**. Use the switch at the top to connect.

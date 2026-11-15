@@ -1,3 +1,19 @@
+# OpenControl Client 1.6.0
+
+## Русский
+
+- Для соединения 1 доступен последовательный режим. Добавляйте и убирайте до 10 профилей, задайте локальный или публичный IPv4 и запустите проверку. Режим выключен по умолчанию.
+- Клиент по очереди подключает профили и отправляет по три ICMP-запроса через каждый туннель. Ответившие профили сортируются по среднему времени ответа, которое показано зелёным справа. Непрошедшие проверку отмечаются красным в конце списка и исключаются из очереди.
+- Кнопки справа позволяют менять порядок активной очереди и удалять строки. Сортировку по пингу можно вернуть одной кнопкой.
+- Если рабочий профиль потерял связь, клиент сначала пробует восстановить его, затем переходит к следующему. После обхода очереди повторяет попытки через 15 секунд. Итог проверки и переключения видны в уведомлениях и журнале.
+
+## English
+
+- Connection 1 supports an optional sequential mode. Add or remove up to ten profiles, enter a private or public IPv4 address, and start the test. The mode is off by default.
+- The client connects one profile at a time and sends three ICMP requests through each tunnel. Responsive profiles are ranked by average latency, shown in green on the right. Failed profiles appear in red at the bottom and stay out of the queue.
+- Use the buttons on the right to reorder eligible profiles or remove entries. One button restores latency order.
+- If the working profile drops, the client tries it again before moving to the next entry. After trying the queue, it waits 15 seconds before starting another round. The test summary and failover appear in notifications and the activity log.
+
 # OpenControl Client 1.5.4
 
 ## Русский
