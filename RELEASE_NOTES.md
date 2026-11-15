@@ -1,3 +1,23 @@
+# OpenControl Client 1.5.0
+
+## Русский
+
+- До 10 одновременных подключений Kerio. Число настраивается. Каждому подключению отведена своя подвкладка с выбором профиля и кнопкой «Сохранить». Управление отдельными туннелями доступно в окне и в меню трея.
+- Можно подключить два независимых корпоративных сервера или использовать первый туннель для интернета, а остальные для корпоративных сетей. Для полного туннеля и VPN DNS используется подключение 1. Для дополнительных сетей используйте разные подсети.
+- Вкладка «Сети» общая. В режиме «только выбранные» каждый туннель получает пересечение общего списка и сетей своего сервера.
+- VPN до входа и автоматическое подключение при входе работают только для подключения 1. Журнал и уведомления показывают номер и профиль. Уведомления получают правильную метку подключения или отключения.
+- Служба сохраняет идентификаторы созданных Wintun-адаптеров, чтобы после сбоя или перезагрузки убрать своё оставшееся устройство перед новым подключением. Настройка сети и восстановление выполняются через API Windows.
+- Сокращены чтения журнала маршрутов и выделения памяти при переполнении очереди пакетов. Rust stable 1.100.0.
+
+## English
+
+- Up to 10 simultaneous Kerio connections. Choose the count, then assign and save a profile in each numbered subtab. Manage each tunnel from the main window or its own tray menu.
+- Connect two separate corporate servers, or use the first tunnel for internet access and the others for corporate networks. Connection 1 handles the default route and VPN DNS. Use distinct subnets for the additional networks.
+- The Networks tab is shared. Include mode intersects the common list with the networks advertised by each server.
+- Pre-sign-in VPN and automatic connection at sign-in use connection 1 only. History and notifications identify the number and profile. Connection and disconnection notifications use their corresponding status badges.
+- The service records the identifiers of Wintun devices it creates, allowing recovery after a crash or reboot before reconnecting. Windows APIs handle network setup and recovery.
+- Reduced route journal reads and avoided packet allocations when its queue is full. Rust stable 1.100.0.
+
 # OpenControl Client 1.1.12 — 2026-11-15
 
 ## Русский
