@@ -1,3 +1,19 @@
+# OpenControl Client 1.1.12 — 2026-11-15
+
+## Русский
+
+- После создания Wintun служба сначала открывает сессию адаптера и ждёт готовности того же интерфейса. Это исправляет порядок настройки, при котором Windows ARM64 могла постоянно повторять попытку. Обёртка сохраняет дескриптор сразу после создания, даже если индекс ещё не готов. При постоянной ошибке клиент показывает этап и доступный код Windows.
+- Сокращено число синхронных записей журнала маршрутов. Подтверждённая очистка выполняется один раз. Сеть по-прежнему настраивается через API Windows внутри EXE.
+- Значок в трее получает стабильный идентификатор для пути установки. После перехода со старой версии Windows может потребовать один раз закрепить значок заново.
+- Сборка Rust stable 1.100.0. Живой прогон VPN на ARM64 и сохранение значка после перезагрузки предстоит проверить вручную.
+
+## English
+
+- After creating Wintun, the service opens the session before configuring Windows and waits for that same interface. This fixes the setup order that could cause repeated connection attempts on Windows ARM64. The wrapper takes ownership immediately, before the interface index is available. A persistent error displays its stage and the Windows code when available.
+- Reduced synchronous route journal writes and skipped redundant cleanup. Windows networking is still configured inside the executable through Windows APIs.
+- The tray icon uses a stable identity for its installed path. Windows may require pinning the new icon once after upgrading.
+- Built with Rust stable 1.100.0. Live ARM64 VPN and tray placement after reboot still need manual verification.
+
 # OpenControl Client 1.1.11 — 2026-11-15
 
 ## Русский
