@@ -2,17 +2,19 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">VPN for private Kerio Control networks · Windows 10 and 11</p>
 <p align="center"><a href="README.md">Русский</a> · <b>English</b></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.6.0</a> · <a href="RELEASE_NOTES.md">Changelog</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Download 1.6.1</a> · <a href="RELEASE_NOTES.md">Changelog</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 You need your organization's Kerio Control address and credentials. OpenControl Client is an independent VPN client.
+
+After shutdown or restart, the service restores the saved VPN before sign-in and retries if the network or adapter is still coming up.
 
 ## Install
 
 | Windows | Installer |
 |---|---|
-| 64-bit Windows on Intel or AMD | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.0/OpenControl-client-1.6.0-windows-x64.msi) |
-| 32-bit Windows 10 | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.0/OpenControl-client-1.6.0-windows-x86.msi) |
-| Windows 11 on ARM, including a Windows VM on Mac | [arm64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.0/OpenControl-client-1.6.0-windows-arm64.msi) |
+| 64-bit Windows on Intel or AMD | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.1/OpenControl-client-1.6.1-windows-x64.msi) |
+| 32-bit Windows 10 | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.1/OpenControl-client-1.6.1-windows-x86.msi) |
+| Windows 11 on ARM, including a Windows VM on Mac | [arm64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.1/OpenControl-client-1.6.1-windows-arm64.msi) |
 
 Each MSI includes Russian and English. Russian is selected on first launch. Use **EN / RU** to switch. In **Profiles**, add a connection or import it from Kerio, then turn on the VPN. Verify the certificate fingerprint with your administrator when prompted.
 

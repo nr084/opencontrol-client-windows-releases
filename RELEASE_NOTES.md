@@ -1,3 +1,17 @@
+# OpenControl Client 1.6.1
+
+## Русский
+
+- Исправлено восстановление VPN до входа в Windows после выключения и перезагрузки. Если сеть или VPN-адаптер ещё не готовы, служба повторяет попытки с увеличивающейся паузой.
+- Если Windows ещё не освободила ресурсы предыдущего туннеля, служба продолжает их проверять и восстанавливать. Новое подключение начинается после подтверждённой очистки.
+- Проверка на реальном компьютере после выключения или перезагрузки выполняется вручную.
+
+## English
+
+- Improved VPN recovery before Windows sign-in after shutdown or restart. If the network or VPN adapter is still coming up, the service retries with increasing delays.
+- If Windows has yet to release resources from the previous tunnel, the service keeps reconciling them and starts a new connection once cleanup is confirmed.
+- Recovery after a physical shutdown or reboot requires manual verification.
+
 # OpenControl Client 1.6.0
 
 ## Русский
