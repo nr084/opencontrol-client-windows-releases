@@ -1,3 +1,15 @@
+# OpenControl Client 1.6.3
+
+## Русский
+
+- При полном туннеле подходящие исключения IPv4 получают точные маршруты через исходный интерфейс Windows. Это уменьшает число маршрутов при длинных списках.
+- Для остальных исключений клиент сохраняет точные границы маршрутов и применяет изменения небольшими порциями, продолжая обслуживать сеанс VPN между ними.
+
+## English
+
+- With a full tunnel, eligible IPv4 exclusions use specific routes through the original Windows uplink. This reduces the number of routes needed for long lists.
+- Other exclusions retain their exact address coverage. The client applies route changes in small batches and services the VPN session between them.
+
 # OpenControl Client 1.6.2
 
 ## Русский

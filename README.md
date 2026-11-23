@@ -2,7 +2,7 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">VPN для частных сетей Kerio Control · Windows 10 и 11</p>
 <p align="center"><b>Русский</b> · <a href="README.en.md">English</a></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Скачать 1.6.2</a> · <a href="RELEASE_NOTES.md">Changelog</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Скачать 1.6.3</a> · <a href="RELEASE_NOTES.md">Changelog</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 Для подключения понадобятся адрес Kerio Control и учётные данные от вашей организации. OpenControl Client — независимый VPN-клиент.
 
@@ -12,9 +12,9 @@
 
 | Windows | Установщик |
 |---|---|
-| 64-разрядная Windows на Intel или AMD | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.2/OpenControl-client-1.6.2-windows-x64.msi) |
-| 32-разрядная Windows 10 | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.2/OpenControl-client-1.6.2-windows-x86.msi) |
-| Windows 11 на ARM, включая виртуальную машину на Mac | [arm64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.2/OpenControl-client-1.6.2-windows-arm64.msi) |
+| 64-разрядная Windows на Intel или AMD | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.3/OpenControl-client-1.6.3-windows-x64.msi) |
+| 32-разрядная Windows 10 | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.3/OpenControl-client-1.6.3-windows-x86.msi) |
+| Windows 11 на ARM, включая виртуальную машину на Mac | [arm64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.3/OpenControl-client-1.6.3-windows-arm64.msi) |
 
 Каждый MSI включает русский и английский. При первом запуске выбран русский, язык переключается кнопкой **EN / RU**. После установки откройте **Профили**, добавьте соединение или импортируйте его из Kerio, затем включите VPN. При первом подключении сверьте отпечаток сертификата с администратором.
 
@@ -44,7 +44,7 @@
 |---|---|
 | Профили | Сортировка, сохранение паролей средствами Windows, экспорт QR, ручной режим совместимости со старыми серверами |
 | Настройки | Импорт из Kerio с выбором файла и обработкой дублей, экспорт, двусторонняя синхронизация с `user.cfg`, управление автозапуском |
-| Сети | Один список для всех подключений. При сохранении клиент объединяет подсети и указывает строку, если в ней есть ошибка. Можно исключить указанные сети или пропускать через VPN только указанные сети, доступные через соответствующий сервер |
+| Сети | Один список для всех подключений. Полный туннель использует маршруты через исходный интерфейс для подходящих исключений. При сохранении клиент объединяет подсети и указывает строку, если в ней есть ошибка. Можно исключить указанные сети или пропускать через VPN только указанные сети, доступные через соответствующий сервер |
 | Трей | Красная точка без VPN, зелёная при активном VPN, янтарный счётчик при двух и более туннелях. Подсказки с профилями и трафиком, уведомления, двойной щелчок для открытия или скрытия окна |
 | Журнал | Время, номер подключения, профиль, подключение, отключение и ошибки |
 | О программе | Версия клиента и Rust, дата сборки, ссылка на GitHub, ручная проверка обновления |
