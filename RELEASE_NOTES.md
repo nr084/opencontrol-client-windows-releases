@@ -1,3 +1,15 @@
+# OpenControl Client 1.6.4
+
+## Русский
+
+- Если Windows не может зашифровать новый пароль, клиент всё равно сохраняет остальные поля профиля и оставляет предыдущую защищённую копию, если она была.
+- Ошибки чтения пароля, шифрования и записи профиля показываются отдельно. Пустое поле при включённом сохранении больше не стирает сохранённый пароль.
+
+## English
+
+- If Windows cannot encrypt a new password, the client still saves the other profile fields and keeps any previously protected password.
+- Password reading, encryption and profile write failures show distinct messages. An empty field no longer clears the saved password while remembering is enabled.
+
 # OpenControl Client 1.6.3
 
 ## Русский

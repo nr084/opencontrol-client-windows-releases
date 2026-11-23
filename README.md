@@ -2,7 +2,7 @@
 <h1 align="center">OpenControl Client</h1>
 <p align="center">VPN для частных сетей Kerio Control · Windows 10 и 11</p>
 <p align="center"><b>Русский</b> · <a href="README.en.md">English</a></p>
-<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Скачать 1.6.3</a> · <a href="RELEASE_NOTES.md">Changelog</a> · <a href="SHA256SUMS">SHA256</a></p>
+<p align="center"><a href="https://github.com/nr084/opencontrol-client-windows-releases/releases/latest">Скачать 1.6.4</a> · <a href="RELEASE_NOTES.md">Changelog</a> · <a href="SHA256SUMS">SHA256</a></p>
 
 Для подключения понадобятся адрес Kerio Control и учётные данные от вашей организации. OpenControl Client — независимый VPN-клиент.
 
@@ -12,9 +12,9 @@
 
 | Windows | Установщик |
 |---|---|
-| 64-разрядная Windows на Intel или AMD | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.3/OpenControl-client-1.6.3-windows-x64.msi) |
-| 32-разрядная Windows 10 | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.3/OpenControl-client-1.6.3-windows-x86.msi) |
-| Windows 11 на ARM, включая виртуальную машину на Mac | [arm64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.3/OpenControl-client-1.6.3-windows-arm64.msi) |
+| 64-разрядная Windows на Intel или AMD | [x64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.4/OpenControl-client-1.6.4-windows-x64.msi) |
+| 32-разрядная Windows 10 | [x86](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.4/OpenControl-client-1.6.4-windows-x86.msi) |
+| Windows 11 на ARM, включая виртуальную машину на Mac | [arm64](https://github.com/nr084/opencontrol-client-windows-releases/releases/download/v1.6.4/OpenControl-client-1.6.4-windows-arm64.msi) |
 
 Каждый MSI включает русский и английский. При первом запуске выбран русский, язык переключается кнопкой **EN / RU**. После установки откройте **Профили**, добавьте соединение или импортируйте его из Kerio, затем включите VPN. При первом подключении сверьте отпечаток сертификата с администратором.
 
