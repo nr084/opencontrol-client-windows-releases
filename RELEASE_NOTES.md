@@ -1,3 +1,15 @@
+# OpenControl Client 1.6.2
+
+## Русский
+
+- При сохранении списка сетей клиент удаляет конечный обратный слеш и дубли, объединяет покрытые и соседние подсети, когда это сохраняет набор адресов. При ошибке показывает номер строки и сохраняет действующие настройки.
+- При отключении клиент сохраняет изменения журнала сразу для группы маршрутов. Это сокращает число обращений к реестру при длинных списках исключений.
+
+## English
+
+- Saving a network list strips trailing backslashes, removes duplicates, and merges covered or adjacent subnets when this preserves the address set. Invalid input reports the line number and leaves the saved settings in place.
+- Disconnect batches route journal updates, reducing registry writes for long exclusion lists.
+
 # OpenControl Client 1.6.1
 
 ## Русский
